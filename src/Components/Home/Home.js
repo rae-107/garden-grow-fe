@@ -1,4 +1,5 @@
 import './Home.css'
+import Form from '../Form/Form'
 
 const Home = () => {
   return(
@@ -9,9 +10,7 @@ const Home = () => {
       <div className='title-container'>
         <h1 className='home-title'>Garden Grow</h1>
       </div>
-      <div className='form-container'>
-        //placeholder for form
-      </div>
+        <Form />
     </div>
   )
 }

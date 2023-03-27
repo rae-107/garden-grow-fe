@@ -7,7 +7,6 @@ const [zipCode, setZipCode] = useState('')
 
 const submitZip = event => {
   event.preventDefault()
-  //enter API call for all plants 
   clearInputs()
 }
 
@@ -18,15 +17,15 @@ const clearInputs = () => {
   return(
     <form className='form-container'>
       <input
+      className='input'
       type='number'
       min='10000'
       max='99999'
       placeholder='zipcode'
       name='zipCode'
-      value={zipCode}
+      onChange={event => setZipCode(event.target.value)}
       />
       <button className='form-button' onClick={event => submitZip}>GO</button>
-      //Link to plants page rather than button
     </form>  
     )
 }

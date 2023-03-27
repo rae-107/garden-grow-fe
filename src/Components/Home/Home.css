@@ -14,7 +14,12 @@
 }
 
 .title-container {
-  color: whitesmoke;
-  font-size: 50px;
+  color: #D9D9D9;
+  font-size: 60px;
   padding-top: 5%;
+}
+
+.form-container {
+  height: 20vh;
+  width: 100vw;
 }
