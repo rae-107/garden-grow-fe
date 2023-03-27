@@ -9,6 +9,8 @@ const [zipCode, setZipCode] = useState('')
     <form>
       <input
       type='number'
+      min='10000'
+      max='99999'
       placeholder='zipcode'
       name='zipCode'
       value={zipCode}
