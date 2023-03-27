@@ -1,6 +1,11 @@
-.input {
+.form-container {
+  display: flex;
   width: 30%;
   height: 5%;
   background-color: #D9D9D9;
   color: #482644;
+}
+
+.form-button {
+  width: 5%;
 }
