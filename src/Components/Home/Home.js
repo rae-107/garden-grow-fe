@@ -6,7 +6,10 @@ const Home = () => {
       <div className='nav-container'>
         //placeholder for nav bar
       </div>
-      <h1>Garden Grow</h1>
+      <div className='title-container'>
+        <h1 className='home-title'>Garden Grow</h1>
+      </div>
+      
       <div className='form-container'>
         //placeholder for form
       </div>
