@@ -6,9 +6,15 @@ const Form = () => {
 const [zipCode, setZipCode] = useState('')
 
   return(
-    <div className='form-container'>
-      <input>
-      </input>
-    </div>  
+    <form>
+      <input
+      type='number'
+      placeholder='zipcode'
+      name='zipCode'
+      value={zipCode}
+      />
+    </form>  
     )
 }
+
+export default Form
