@@ -1,9 +1,10 @@
 import './Form.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 
 const Form = () => {
-const [zipCode, setZipCode] = useState('')
+let [zipCode, setZipCode] = useState('')
+zipCode = 81456
 
 const submitZip = event => {
   event.preventDefault()
@@ -23,6 +24,7 @@ const clearInputs = () => {
       max='99999'
       placeholder='zipcode'
       name='zipCode'
+      value={zipCode}
       onChange={event => setZipCode(event.target.value)}
       />
       <button className='form-button' onClick={event => submitZip}>GO</button>
