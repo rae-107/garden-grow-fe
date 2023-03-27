@@ -8,6 +8,11 @@ const [zipCode, setZipCode] = useState('')
 const submitZip = event => {
   event.preventDefault()
   //enter API call for all plants 
+  clearInputs()
+}
+
+const clearInputs = () => {
+  setZipCode('')
 }
 
   return(
