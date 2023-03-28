@@ -24,3 +24,5 @@ const plantDetails = () => {
     </main>
   )
 }
+
+export default Plant
