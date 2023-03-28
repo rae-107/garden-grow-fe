@@ -6,20 +6,53 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
 }
 
 .plants-title {
-  font-size: 40px;
+  font-size: 28px;
+  margin: 60px 0;
+  text-align: center;
+
 }
 
 .plants-display-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 20px;
+  justify-items: center;
 }
 
-@media screen and (min-width: 768px) {
-  .grid-container {
+@media screen and (min-width: 540px) {
+  .plants-display-grid {
+    grid-template-columns: repeat(2, 1fr);
+    width: 540px;
+  }
+
+  .plants-title {
+    font-size: 36px;
+  }
+}
+
+@media screen and (min-width: 830px) {
+  .plants-display-grid {
+    grid-template-columns: repeat(3, 1fr);
+    width: 830px;
+  }
+
+  .plants-title {
+    font-size: 44px;
+  }
+}
+
+@media screen and (min-width: 1070px) {
+  .plants-display-grid {
     grid-template-columns: repeat(4, 1fr);
+    width: 1070px;
+  }
+
+  .plants-title {
+    font-size: 52px;
   }
 }
