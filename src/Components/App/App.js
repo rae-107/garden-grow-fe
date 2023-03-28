@@ -1,11 +1,9 @@
-import './App.css'
+
+import './App.css';
 import Home from '../Home/Home'
 import { Switch, Route } from 'react-router-dom';
 
-
-
 function App() {
-
   return (
     <div className='app-container'>
       <Switch>
@@ -20,4 +18,6 @@ function App() {
   );
 }
 
+
 export default App;
+
