@@ -1,7 +1,6 @@
-
 import './App.css';
-import Home from '../Home/Home'
-import Plants from '../Plants/Plants';
+import Home from './Components/Home/Home'
+import Plants from './Components/Plants/Plants'
 import { Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -25,6 +24,4 @@ function App() {
   );
 }
 
-
 export default App;
-

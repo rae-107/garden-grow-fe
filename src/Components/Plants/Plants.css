@@ -1,0 +1,62 @@
+.plants-page {
+  background-color: #486b61;
+  color: #f9fafa;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.plants-title {
+  font-size: 28px;
+  margin: 40px 0 0 0;
+  text-align: center;
+}
+
+.form-container {
+  margin: 20px;
+}
+
+.plants-display-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 20px;
+  box-sizing: border-box;
+  justify-items: center;
+}
+
+@media screen and (min-width: 580px) {
+  .plants-display-grid {
+    grid-template-columns: repeat(2, 1fr);
+    width: 580px;
+  }
+
+  .plants-title {
+    font-size: 36px;
+  }
+}
+
+@media screen and (min-width: 870px) {
+  .plants-display-grid {
+    grid-template-columns: repeat(3, 1fr);
+    width: 870px;
+  }
+
+  .plants-title {
+    font-size: 44px;
+  }
+}
+
+@media screen and (min-width: 1130px) {
+  .plants-display-grid {
+    grid-template-columns: repeat(4, 1fr);
+    width: 1130px;
+  }
+
+  .plants-title {
+    font-size: 52px;
+  }
+}
