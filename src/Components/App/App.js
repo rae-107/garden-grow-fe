@@ -2,6 +2,7 @@
 import './App.css';
 import Home from '../Home/Home'
 import Plants from '../Plants/Plants';
+import Plant from '../Plant/Plant';
 import { Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -19,6 +20,13 @@ function App() {
         render={() => (
           <Plants />
         )}>
+        </Route>
+        <Route
+          exact path="/:veggie"
+          render={() => (
+            <Plant />
+          )}
+          >
         </Route>
       </Switch>
     </div>
