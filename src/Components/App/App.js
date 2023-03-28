@@ -16,7 +16,7 @@ function App() {
         <Route
         exact path="/:zipcode"
         render={() => (
-          <Home />
+          <Plants />
         )}>
         </Route>
       </Switch>
