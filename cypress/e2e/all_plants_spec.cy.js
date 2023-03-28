@@ -16,5 +16,9 @@ describe('template spec', () => {
     cy.get('.input').should('have.value', 80910)
   })
 
+  it('Should show each plant', () => {
+    cy.get('.plant-card').should('be.visible')
+  })
+
 
 })
