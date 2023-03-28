@@ -28,10 +28,10 @@
   justify-items: center;
 }
 
-@media screen and (min-width: 540px) {
+@media screen and (min-width: 580px) {
   .plants-display-grid {
     grid-template-columns: repeat(2, 1fr);
-    width: 540px;
+    width: 580px;
   }
 
   .plants-title {
@@ -39,10 +39,10 @@
   }
 }
 
-@media screen and (min-width: 830px) {
+@media screen and (min-width: 870px) {
   .plants-display-grid {
     grid-template-columns: repeat(3, 1fr);
-    width: 830px;
+    width: 870px;
   }
 
   .plants-title {
@@ -50,10 +50,10 @@
   }
 }
 
-@media screen and (min-width: 1070px) {
+@media screen and (min-width: 1130px) {
   .plants-display-grid {
     grid-template-columns: repeat(4, 1fr);
-    width: 1070px;
+    width: 1130px;
   }
 
   .plants-title {
