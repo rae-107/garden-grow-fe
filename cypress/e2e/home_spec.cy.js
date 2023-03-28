@@ -11,12 +11,17 @@ describe('template spec', () => {
       cy.get('form').should('exist')
     })
 
-    it('updates the zip code state when the input value changes', () => {
-      const testZipCode = '2564'
+  it('updates the zip code state when the input value changes', () => {
+    const testZipCode = '2564'
 
-      cy.get('input[name="zipCode"]').type(testZipCode)
-      cy.wrap({ zipCode: testZipCode }).should(({ zipCode }) => {
-        expect(zipCode).to.eq(testZipCode)
-      })
+    cy.get('.input').type(testZipCode)
+    cy.wrap({ zipCode: testZipCode }).should(({ zipCode }) => {
+      expect(zipCode).to.eq(testZipCode)
     })
+    })
+
+  it('displays an error message for invalid input type', () => {
+    cy.get('.input').type('abc')
+    cy.get('.error-message').should('be.visible')
+  })
 })

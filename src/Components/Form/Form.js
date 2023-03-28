@@ -3,16 +3,23 @@ import { useState } from 'react'
 
 
 const Form = () => {
-let [zipCode, setZipCode] = useState('')
-zipCode = 81456
+let [error, showError] = useState(false)
+let [zipcode, setZipcode] = useState('')
+zipcode = 81456
+error = "Sorry we seem to be having difficulties"
 
 const submitZip = event => {
   event.preventDefault()
-  clearInputs()
+  if(zipcode) {
+    showError(true)
+  } else {
+    showError(false)
+    clearInputs()
+  }
 }
 
 const clearInputs = () => {
-  setZipCode('')
+  setZipcode('')
 }
 
   return(
@@ -24,10 +31,15 @@ const clearInputs = () => {
       max='99999'
       placeholder='zipcode'
       name='zipCode'
-      value={zipCode}
-      onChange={event => setZipCode(event.target.value)}
+      value={zipcode}
+      onChange={event => setZipcode(event.target.value)}
       />
       <button className='form-button' onClick={event => submitZip}>GO</button>
+      {error && (
+        <div className='error-message'>
+          please enter a valid zipcode
+        </div>
+      )}
     </form>  
     )
 }
