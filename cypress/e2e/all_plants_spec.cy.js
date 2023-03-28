@@ -7,5 +7,9 @@ describe('template spec', () => {
     cy.get('.plants-title').contains('Fruits and Vegetables')
   })
 
+  it('Should display input', () => {
+    cy.get('.input').should('be.visible')
+  })
+
 
 })
