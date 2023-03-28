@@ -1,5 +1,6 @@
 import './App.css';
 import Home from './Components/Home/Home'
+import Plants from './Components/Plants/Plants'
 import { Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -10,6 +11,12 @@ function App() {
         exact path="/"
         render={() => (
           <Home />
+        )}>
+        </Route>
+        <Route
+        exact path="/:zipcode"
+        render={() => (
+          <Plants />
         )}>
         </Route>
       </Switch>
