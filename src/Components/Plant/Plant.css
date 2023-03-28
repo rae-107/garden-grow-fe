@@ -1,4 +1,27 @@
+body {
+  background-color: #224136
+}
+
 .plant-details-container {
-  background-color: #224136;
   color: white;
+  height: 100vh;
+  padding: 50px;
+  text-align: center;
+}
+
+.plant-details-text {
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 75px;
+  text-align: center;
+}
+
+.planting-care-container {
+  padding: 50px;
+}
+
+.large-plant-img {
+  border-radius: 20px;
+  padding-top: 50px;
+  width: 40%;
 }
