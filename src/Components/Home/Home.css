@@ -1,0 +1,25 @@
+.home-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('/src/Assets/backgroundherb_720.jpg');
+  background-size: cover;
+}
+
+.nav-container {
+  height: 5vh;
+  width: 100vw;
+}
+
+.title-container {
+  color: #D9D9D9;
+  font-size: 60px;
+  padding-top: 5%;
+}
+
+.form-container {
+  height: 20vh;
+  width: 100vw;
+}
