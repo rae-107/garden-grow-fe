@@ -37,13 +37,13 @@ function App() {
   }, [plants, data])
 
   return (
-    <ApolloProvider client={client}>
+ 
       <div className='app-container'>
         <Switch>
           <Route
           exact path="/"
           render={() => (
-            <Home />
+            <Home setPlants={setPlants}/>
           )}>
           </Route>
           <Route
@@ -54,7 +54,6 @@ function App() {
           </Route>
         </Switch>
       </div>
-    </ApolloProvider>
   );
 }
 
