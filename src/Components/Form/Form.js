@@ -1,21 +1,34 @@
 import './Form.css'
 import { useState } from 'react'
+import { useLazyQuery } from '@apollo/client'
+import { LOAD_PLANTS } from '../../Graphql/Queries'
 
 
-const Form = () => {
-let [error, showError] = useState(false)
+const Form = ({ setPlants }) => {
+// let [error, showError] = useState(false)
 let [zipcode, setZipcode] = useState('')
-zipcode = 81456
-error = "Sorry we seem to be having difficulties"
+// zipcode = 81456
+// error = "Sorry we seem to be having difficulties"
+
+// const submitZip = event => {
+//   event.preventDefault()
+//   if(zipcode) {
+//     showError(true)
+//   } else {
+//     showError(false)
+//     clearInputs()
+//   }
+// }
+const[loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS, {
+  variables:{
+    zipcode
+  }
+})
 
 const submitZip = event => {
   event.preventDefault()
-  if(zipcode) {
-    showError(true)
-  } else {
-    showError(false)
-    clearInputs()
-  }
+  loadPlants()
+  setPlants([...data])
 }
 
 const clearInputs = () => {
@@ -32,7 +45,7 @@ const clearInputs = () => {
         max='99999'
         placeholder='zip code'
         name='zipCode'
-        // value={zipcode}
+        value={zipcode}
         onChange={event => setZipcode(event.target.value)}
         />
         <button className='form-button' onClick={event => submitZip}>GO</button>
