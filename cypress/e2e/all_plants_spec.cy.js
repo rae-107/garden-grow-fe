@@ -20,7 +20,6 @@ describe('template spec', () => {
   // Add tests for:
 
   // Correct zipcode displays when showing results for users zip
-  // Displaying a different zipcode when input field is manipulated
   // Nav bar
   // Home button
   // Click a card to go to details page
