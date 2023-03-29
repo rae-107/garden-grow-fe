@@ -4,12 +4,17 @@ import Home from '../Home/Home'
 import Plants from '../Plants/Plants';
 import { Switch, Route } from 'react-router-dom';
 import { ApolloClient, inMemoryCache, ApolloProvider, HttpLink, from} from "@apollo/client"
-import { onError } from "@apollo/client/link/error"
+import { errorLink, onError } from "@apollo/client/link/error"
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: link
 })
+
+const link = from([
+  errorLink,
+  new HttpLink({ uri: "http://localhost:3000/graphql"})
+])
 
 function App() {
 
