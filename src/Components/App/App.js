@@ -15,10 +15,7 @@ import { useState, useEffect } from 'react';
 //     })
 //   }
 // })
-// const link = from([
-//   // errorLink,
-//   new HttpLink({ uri: "https://garden-grow-be.herokuapp.com/api/v1/graphql"})
-// ])
+
 
 // const client = new ApolloClient({
 //   cache: new InMemoryCache(),
