@@ -1,6 +1,5 @@
 import './Plants.css'
 import PlantCard from '../PlantCard/PlantCard'
-import Form from '../Form/Form'
 
 const Plants = () => {
   return (
