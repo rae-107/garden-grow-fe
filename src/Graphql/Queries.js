@@ -1,9 +1,9 @@
 import { gql } from "@apollo/client";
 
 export const LOAD_PLANTS = gql`
-  query{
+  query vegetablesByZipcode($zipcode: String!){
     vegetablesByZipcode(
-        zipcode: 80910
+        zipcode: $zipcode
         ) {
            growZone
            vegetables {
