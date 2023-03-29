@@ -15,15 +15,15 @@ import { useState, useEffect } from 'react';
 //     })
 //   }
 // })
-const link = from([
-  // errorLink,
-  new HttpLink({ uri: "https://garden-grow-be.herokuapp.com/api/v1/graphql"})
-])
+// const link = from([
+//   // errorLink,
+//   new HttpLink({ uri: "https://garden-grow-be.herokuapp.com/api/v1/graphql"})
+// ])
 
-const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: link
-})
+// const client = new ApolloClient({
+//   cache: new InMemoryCache(),
+//   link: link
+// })
 
 function App() {
   const { error, loading, data } = useQuery(LOAD_PLANTS)
