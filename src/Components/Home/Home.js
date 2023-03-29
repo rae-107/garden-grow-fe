@@ -2,7 +2,7 @@ import './Home.css'
 import Form from '../Form/Form'
 import NavBar from '../NavBar/NavBar'
 
-const Home = () => {
+const Home = ({ setPlants }) => {
   return(
     <div className='home-container'>
       <div className='nav-container'>
@@ -11,7 +11,7 @@ const Home = () => {
       <div className='title-container'>
         <h1 className='home-title'>Garden Grow</h1>
       </div>
-        <Form />
+        <Form setPlants={setPlants}/>
     </div>
   )
 }
