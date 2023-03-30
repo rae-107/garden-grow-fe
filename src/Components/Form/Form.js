@@ -19,16 +19,16 @@ let [zipcode, setZipcode] = useState('')
 //     clearInputs()
 //   }
 // }
-const[loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS, {
-  variables:{
-    zipcode
-  }
-})
+const[loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS )
 
 const submitZip = event => {
   event.preventDefault()
-  loadPlants()
-  setPlants([...data])
+  loadPlants({
+    variables:{
+      zipcode
+    }
+  })
+  setPlants([...data.vegetablesByZipcode.vegetables])
 }
 
 const clearInputs = () => {
