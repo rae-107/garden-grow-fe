@@ -4,7 +4,7 @@ import { useLazyQuery } from '@apollo/client'
 import { LOAD_PLANTS } from '../../Graphql/Queries'
 
 
-const Form = ({ setPlants }) => {
+const Form = ({ setPlants, setGrowzone }) => {
 // let [error, showError] = useState(false)
 let [zipcode, setZipcode] = useState('')
 // zipcode = 81456
@@ -19,7 +19,7 @@ let [zipcode, setZipcode] = useState('')
 //     clearInputs()
 //   }
 // }
-const[loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS )
+const[loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS)
 
 const submitZip = event => {
   event.preventDefault()
@@ -28,7 +28,10 @@ const submitZip = event => {
       zipcode
     }
   })
-  setPlants([...data.vegetablesByZipcode.vegetables])
+  if (data) {
+    setPlants([...data.vegetablesByZipcode.vegetables])
+    setGrowzone(data.vegetablesByZipcode.growZone)
+  }
 }
 
 const clearInputs = () => {
@@ -48,7 +51,7 @@ const clearInputs = () => {
         value={zipcode}
         onChange={event => setZipcode(event.target.value)}
         />
-        <button className='form-button' onClick={event => submitZip}>GO</button>
+        <button className='form-button' onClick={event => submitZip(event)}>GO</button>
       </div>
       <div className='error-container'>
       {error && (

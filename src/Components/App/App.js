@@ -25,6 +25,7 @@ import { useState, useEffect } from 'react';
 function App() {
   const { error, loading, data } = useQuery(LOAD_PLANTS)
   const [plants, setPlants] = useState([])
+  const [growzone, setGrowzone] = useState("")
 
   useEffect (() => {
     if(data) {
@@ -33,6 +34,14 @@ function App() {
     }
   }, [plants, data])
 
+  useEffect(() => {
+    console.log("hey this is growzone", growzone)
+}, [growzone])
+
+  useEffect (() => {
+    console.log("hey this is plants", plants)
+  }, [plants])
+
   return (
  
       <div className='app-container'>
@@ -40,7 +49,7 @@ function App() {
           <Route
           exact path="/"
           render={() => (
-            <Home setPlants={setPlants}/>
+            <Home setPlants={setPlants} setGrowzone={setGrowzone}/>
           )}>
           </Route>
           <Route
