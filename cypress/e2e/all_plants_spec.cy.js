@@ -7,15 +7,6 @@ describe('template spec', () => {
     cy.get('.plants-title').contains('Fruits and Vegetables')
   })
 
-  it('Should display input', () => {
-    cy.get('.input').should('be.visible')
-  })
-
-  it('Should be able to add text to input field', () => {
-    cy.get('.input').type(80910)
-    cy.get('.input').should('have.value', 80910)
-  })
-
   it('Should show each plant', () => {
     cy.get('.plant-card').should('be.visible')
   })
@@ -29,7 +20,6 @@ describe('template spec', () => {
   // Add tests for:
 
   // Correct zipcode displays when showing results for users zip
-  // Displaying a different zipcode when input field is manipulated
   // Nav bar
   // Home button
   // Click a card to go to details page

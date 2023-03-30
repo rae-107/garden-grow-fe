@@ -2,6 +2,7 @@
 import './App.css';
 import Home from '../Home/Home'
 import Plants from '../Plants/Plants';
+import Plant from '../Plant/Plant';
 import { Switch, Route } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, useQuery, gql } from "@apollo/client"
 // import { errorLink, onError } from "@apollo/client/link/error"
@@ -43,7 +44,6 @@ function App() {
   }, [plants])
 
   return (
- 
       <div className='app-container'>
         <Switch>
           <Route
@@ -57,6 +57,13 @@ function App() {
           render={() => (
             <Plants />
           )}>
+          </Route>
+          <Route
+          exact path="/:veggie"
+          render={() => (
+            <Plant />
+          )}
+          >
           </Route>
         </Switch>
       </div>
