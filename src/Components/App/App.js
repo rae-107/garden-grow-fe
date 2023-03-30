@@ -27,7 +27,7 @@ function App() {
         <Route
         exact path="/:zipcode"
         render={() => (
-          <Plants zipcode={zipcode} plants={plants} />
+          <Plants zipcode={zipcode} plants={plants} heading={`Your ${zipcode} Fruits and Vegetables`} />
         )}>
         </Route>
       </Switch>
