@@ -4,44 +4,16 @@ import Home from '../Home/Home'
 import Plants from '../Plants/Plants';
 import Plant from '../Plant/Plant';
 import { Switch, Route } from 'react-router-dom';
-import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, useQuery, gql } from "@apollo/client"
-// import { errorLink, onError } from "@apollo/client/link/error"
-import { LOAD_PLANTS } from "../../Graphql/Queries"
-import { useState, useEffect } from 'react';
-
-// errorLink = onError(({graphqlErrors}) => {
-//   if(graphqlErrors) {
-//     graphqlErrors.map(({message, location, path}) => {
-//       alert(`Graphql error: ${message}`)
-//     })
-//   }
-// })
+import { useState } from 'react';
 
 
-// const client = new ApolloClient({
-//   cache: new InMemoryCache(),
-//   link: link
-// })
 
 function App() {
-  const { error, loading, data } = useQuery(LOAD_PLANTS)
   const [plants, setPlants] = useState([])
   const [growzone, setGrowzone] = useState("")
+  const [zipcode, setZipcode] = useState('')
 
-  useEffect (() => {
-    if(data) {
-      setPlants(data.vegetablesByZipcode)
-      console.log("here is raes zipcode", data.vegetablesByZipcode)
-    }
-  }, [plants, data])
 
-  useEffect(() => {
-    console.log("hey this is growzone", growzone)
-}, [growzone])
-
-  useEffect (() => {
-    console.log("hey this is plants", plants)
-  }, [plants])
 
   return (
     <div className='app-container'>
@@ -49,13 +21,13 @@ function App() {
         <Route
         exact path="/"
         render={() => (
-          <Home setPlants={setPlants} setGrowzone={setGrowzone}/>
+          <Home zipcode={zipcode} setZipcode={setZipcode} setPlants={setPlants} setGrowzone={setGrowzone}/>
         )}>
         </Route>
         <Route
         exact path="/:zipcode"
         render={() => (
-          <Plants />
+          <Plants zipcode={zipcode} plants={plants} />
         )}>
         </Route>
       </Switch>
