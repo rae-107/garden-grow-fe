@@ -1,11 +1,10 @@
 import "./PlantCard.css"
-import image from "../../Assets/carrots.jpg"
 
-const PlantCard = () => {
+const PlantCard = ({ id, name, img}) => {
   return(
     <div className="plant-card">
-      <img alt="(this will be the name of the plant)" src={image} className="card-image" ></img>
-      <h2 className="card-title">Carrots</h2>
+      <img alt={`Click for more information about ${name}`} src={`../../Assets/${img}`} className="card-image" ></img>
+      <h2 className="card-title">{name}</h2>
       <button className="update-my-garden-button" >+ to my garden</button>
     </div>
   )
