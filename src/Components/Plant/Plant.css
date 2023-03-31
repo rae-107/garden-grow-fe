@@ -2,6 +2,16 @@ body {
   background-color: #224136
 }
 
+.x-image {
+  height: 5vh;
+  width: 3vw;
+}
+
+.back-logo {
+  display: flex;
+
+}
+
 .plant-details-container {
   color: white;
   height: 100vh;
@@ -12,7 +22,7 @@ body {
 .plant-details-text {
   padding-left: 150px;
   padding-right: 150px;
-  padding-top: 75px;
+  padding-top: 15px;
   text-align: center;
 }
 
@@ -22,6 +32,5 @@ body {
 
 .large-plant-img {
   border-radius: 20px;
-  padding-top: 50px;
   width: 40%;
 }
