@@ -3,7 +3,7 @@ import Home from "../Home/Home";
 import Plants from "../Plants/Plants";
 import Plant from "../Plant/Plant";
 import { Switch, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [plants, setPlants] = useState([]);
@@ -11,6 +11,7 @@ function App() {
   const [zipcode, setZipcode] = useState("");
   console.log(growzone); // using growzone variable to make linter happy
 
+  useEffect 
   return (
     <div className="app-container">
       <Switch>

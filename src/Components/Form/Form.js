@@ -36,16 +36,16 @@ const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
           value={zipcode}
           onChange={(event) => setZipcode(event.target.value)}
         />
-        <Link to="/:zipcode">
-          <button
+        <Link to="/:zipcode" className="go-to-plants-link">
+          <div
             className="form-button"
             onClick={(event) => {
               clearInputs();
               submitZip(event);
             }}
           >
-            GO
-          </button>
+            <span role="img" aria-label="plant emoji">&#x1F331; </span>
+          </div>
         </Link>
       </div>
       <div className="error-container">
