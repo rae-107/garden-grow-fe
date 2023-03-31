@@ -3,11 +3,11 @@ import "./PlantCard.css";
 
 const PlantCard = ({ id, name, img }) => {
   return (
-    <Link to='/this will be the details page'>
+    <Link to="/this will be the details page">
       <div className="plant-card">
         <img
           alt={`Click for more information about ${name}`}
-          src={`../../Assets/${img}`}
+          src={`/Assets/${img}`}
           className="card-image"
         ></img>
         <h2 className="card-title">{name}</h2>
