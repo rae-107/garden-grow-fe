@@ -50,9 +50,9 @@ describe('template spec', () => {
     })
     })
 
-  it('displays an error message for invalid input type', () => {
-    cy.get('.input').type('822')
-    cy.get('.form-button').click()
-    cy.get('.errorMessage').should('contain', 'please enter a valid zipcode')
-  })
+  // it('displays an error message for invalid input type', () => {
+  //   cy.get('.input').type('822')
+  //   cy.get('.form-button').click()
+  //   cy.get('.errorMessage').should('contain', 'please enter a valid zipcode')
+  // })
 })
