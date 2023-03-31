@@ -3,15 +3,16 @@ import { LOAD_VEGETABLE } from "../../Graphql/Queries";
 import { useLazyQuery } from "@apollo/client";
 import "./PlantCard.css";
 
-const PlantCard = ({ id, name, img }) => {
+const PlantCard = ({ id, name, img, growzone }) => {
   const [loadCurrentPlant, { error, data }] = useLazyQuery(LOAD_VEGETABLE);
   
   const handleClick = () => {
-    loadCurrentPlant({ variables: { id } });
+    loadCurrentPlant({ variables: { vegetableId: id, zone: growzone } });
+    console.log(data)
   }
 
   return (
-    <Link to={`/${id}`} onClick={handleClick}>
+    <Link to={`zipcode/${id}`} onClick={handleClick}>
       <div className="plant-card">
         <img
           alt={`Click for more information about ${name}`}
