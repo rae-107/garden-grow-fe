@@ -34,16 +34,17 @@ function App() {
           render={() => (
             <Plants
               plants={plants}
+              growzone={growzone}
               heading={`Your ${zipcode} Fruits and Vegetables`}
             />
           )}
         ></Route>
         <Route 
           exact 
-          path="/zipcode/:vegetableId" 
+          path="/:vegetableId" 
           render={({ match }) => {
           const findPlant = plants.find(
-            (plant) => plant.id === match.params.id && plant.growZone === match.params.growZone
+            (plant) => plant.id === match.params.id 
           );
           return (
             <Plant plantData={findPlant} id={match.params.id}/>
