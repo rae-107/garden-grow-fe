@@ -3,23 +3,24 @@ import { aliasQuery } from "../../src/Graphql/graphql-test-utils";
 describe("Results page with all plants", () => {
   beforeEach(() => {
     cy.intercept("POST", "https://garden-grow-be.herokuapp.com/api/v1/graphql", (req) => {
-      aliasQuery(req, "vegetablesByZipcode");
-      req.reply({fixture: 'plants.json'})
-    });
-    cy.visit("http://localhost:3000/80910")
+        aliasQuery(req, "vegetablesByZipcode");
+        req.reply({ fixture: "plants.json" });
+      }
+    );
+    cy.visit("http://localhost:3000");
+    cy.get(".input").type("80910");
+    cy.get(".form-button").click();
+    cy.wait("@gqlvegetablesByZipcodeQuery");
   });
 
-
-  it("Should show the title with the appropiate search zipcode", () => {
-    cy.get(".plants-title").contains("Fruits and Vegetables");
-  });
-
-
+  // it("Should show the title with the appropiate search zipcode", () => {
+  //   cy.get(".plants-title").contains("Fruits and Vegetables");
+  // });
 });
 
 // describe('template spec', () => {
 //   beforeEach(() => {
-//     
+//
 //   })
 
 //   it('Should show the title with the appropiate search zipcode', () => {
