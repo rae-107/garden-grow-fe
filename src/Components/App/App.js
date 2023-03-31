@@ -9,8 +9,10 @@ function App() {
   const [plants, setPlants] = useState([]);
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
+  
   console.log(growzone); // using growzone variable to make linter happy
-
+  console.log('plants', plants)
+  console.log(zipcode)
   return (
     <div className="app-container">
       <Switch>
@@ -36,7 +38,18 @@ function App() {
             />
           )}
         ></Route>
-        <Route exact path="/:veggie" render={() => <Plant />}></Route>
+        <Route 
+          exact 
+          path="/zipcode/:vegetableId" 
+          render={({ match }) => {
+          const findPlant = plants.find(
+            (plant) => plant.id === match.params.id && plant.growZone === match.params.growZone
+          );
+          return (
+            <Plant plantData={findPlant} id={match.params.id}/>
+          )
+        }}>
+        </Route>
       </Switch>
     </div>
   );
