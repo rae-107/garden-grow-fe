@@ -14,8 +14,8 @@ export const LOAD_PLANTS = gql`
     }
   }
 `
-export const LOAD_VEGETABLE = gpl `
-query ($vegetableId: String! zoneDetails.zone: String!){
+export const LOAD_VEGETABLE = gql`
+query ($vegetableId: String! $zoneDetails: String!){
   vegetableDetails(
       vegetableId: "5",
   ) {
