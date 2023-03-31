@@ -1,12 +1,11 @@
 import "./Plant.css";
-import radish from "../../Assets/radish.jpg";
 
 const Plant = () => {
   return (
     <main className="plant-details-container">
       <h1 className="plant-title">Radishes</h1>
       <section className="plant-image">
-        <img className="large-plant-img" src={radish} alt="plant" />
+        <img className="large-plant-img" src={'public/Assets/radish.jpg'} alt="plant" />
       </section>
       <section className="plant-details-text">
         <p className="plant-description">
