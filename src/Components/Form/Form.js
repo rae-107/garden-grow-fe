@@ -35,9 +35,10 @@ const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
           value={zipcode}
           onChange={(event) => setZipcode(event.target.value)}
         />
-        <button className="form-button" onClick={(event) => submitZip(event)}>
-          GO
-        </button>
+        <button className='form-button' onClick={event => {
+          clearInputs()
+          submitZip(event)
+          }}>GO</button>
       </div>
       <div className="error-container">
         {error && (

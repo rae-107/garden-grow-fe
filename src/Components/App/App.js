@@ -4,11 +4,25 @@ import Home from '../Home/Home'
 import Plants from '../Plants/Plants';
 import Plant from '../Plant/Plant';
 import { Switch, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useQuery } from "@apollo/client"
+// ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, gql
+// import { errorLink, onError } from "@apollo/client/link/error"
+import { LOAD_PLANTS } from "../../Graphql/Queries"
+import { useState, useEffect } from 'react';
+
+// errorLink = onError(({graphqlErrors}) => {
+//   if(graphqlErrors) {
+//     graphqlErrors.map(({message, location, path}) => {
+//       alert(`Graphql error: ${message}`)
+//     })
+//   }
+// })
 
 
 
 function App() {
+  const { data } = useQuery(LOAD_PLANTS)
+  //error, loading
   const [plants, setPlants] = useState([])
   const [growzone, setGrowzone] = useState("")
   const [zipcode, setZipcode] = useState('')
@@ -16,22 +30,49 @@ function App() {
 
 
   return (
+<<<<<<<<< Temporary merge branch 1
     <div className='app-container'>
       <Switch>
         <Route
         exact path="/"
         render={() => (
-          <Home zipcode={zipcode} setZipcode={setZipcode} setPlants={setPlants} setGrowzone={setGrowzone}/>
+          <Home />
         )}>
         </Route>
         <Route
         exact path="/:zipcode"
         render={() => (
-          <Plants plants={plants} heading={`Your ${zipcode} Fruits and Vegetables`} />
+          <Plants />
         )}>
+        </Route>
+        <Route
+          exact path="/:veggie"
+          render={() => (
+            <Plant />
+          )}
+          >
         </Route>
       </Switch>
     </div>
+=========
+ 
+      <div className='app-container'>
+        <Switch>
+          <Route
+          exact path="/"
+          render={() => (
+            <Home zipcode={zipcode} setZipcode={setZipcode} setPlants={setPlants} setGrowzone={setGrowzone}/>
+          )}>
+          </Route>
+          <Route
+          exact path="/:zipcode"
+          render={() => (
+            <Plants plants={plants} heading={`Your ${zipcode} Fruits and Vegetables`}/>
+          )}>
+          </Route>
+        </Switch>
+      </div>
+>>>>>>>>> Temporary merge branch 2
   );
 }
 
