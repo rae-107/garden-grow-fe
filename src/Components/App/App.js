@@ -4,12 +4,14 @@ import Plants from "../Plants/Plants";
 import Plant from "../Plant/Plant";
 import { Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { LOAD_PLANTS } from "../../Graphql/Queries";
 
 function App() {
   const [plants, setPlants] = useState([]);
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
   console.log(growzone); // using growzone variable to make linter happy
+  const { data } = useQuery(LOAD_PLANTS)
 
   useEffect (() => {
     if(data) {
