@@ -17,7 +17,7 @@ export const LOAD_PLANTS = gql`
 export const LOAD_VEGETABLE = gql`
 query ($vegetableId: String! $zoneDetails: String!){
   vegetableDetails(
-      vegetableId: "5",
+      vegetableId: $vegetableId,
   ) {
      name
      description
@@ -28,7 +28,7 @@ query ($vegetableId: String! $zoneDetails: String!){
      growingDuration
      image
      zoneDetails(
-         zone: "6a"
+         zone: $zoneDetails
          ) {
               plantSeedsIndoorsStart
               plantSeedsIndoorsEnd
