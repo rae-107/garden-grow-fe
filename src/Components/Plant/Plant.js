@@ -1,11 +1,15 @@
 import "./Plant.css";
+import xLogo from "../../Images/x-vector.png"
 
 const Plant = () => {
   return (
     <main className="plant-details-container">
+      <section className='back-logo'>
+        <img className='x-image' src={xLogo} alt='logo'/>
+      </section>
       <h1 className="plant-title">Radishes</h1>
       <section className="plant-image">
-        <img className="large-plant-img" src={'public/Assets/radish.jpg'} alt="plant" />
+        <img className="large-plant-img" src={'../Assets/radish.jpg'} alt="plant" />
       </section>
       <section className="plant-details-text">
         <p className="plant-description">
