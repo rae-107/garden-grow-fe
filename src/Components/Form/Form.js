@@ -57,11 +57,11 @@ const clearInputs = () => {
           }}>GO</button>
       </div>
       <div className='error-container'>
-      {error && (
-        <div className='error-message'>
+      {error && 
+        <div className='errorMessage'>
           please enter a valid zipcode
         </div>
-      )}
+      }
       </div>
     </form>  
     )
