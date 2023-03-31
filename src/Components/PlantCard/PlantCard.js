@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
+import { LOAD_VEGETABLE } from "../../Graphql/Queries";
+import { useLazyQuery } from "@apollo/client";
 import "./PlantCard.css";
 
 const PlantCard = ({ id, name, img }) => {
+  const [loadCurrentPlant, { error, data }] = useLazyQuery(LOAD_VEGETABLE);
+  
+  const handleClick = () => {
+    loadCurrentPlant({ variables: { id } });
+  }
+
   return (
-    <Link to="/this will be the details page">
+    <Link to={`/${id}`} onClick={handleClick}>
       <div className="plant-card">
         <img
           alt={`Click for more information about ${name}`}
