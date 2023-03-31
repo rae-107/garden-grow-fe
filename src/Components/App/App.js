@@ -11,7 +11,21 @@ function App() {
   const [zipcode, setZipcode] = useState("");
   console.log(growzone); // using growzone variable to make linter happy
 
-  useEffect 
+  useEffect (() => {
+    if(data) {
+      setPlants(data.vegetablesByZipcode)
+      console.log("here is raes zipcode", data.vegetablesByZipcode)
+    }
+  }, [plants, data])
+
+  useEffect(() => {
+    console.log("hey this is growzone", growzone)
+}, [growzone])
+
+  useEffect (() => {
+    console.log("hey this is plants", plants)
+  }, [plants])
+
   return (
     <div className="app-container">
       <Switch>
