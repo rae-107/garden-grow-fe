@@ -3,7 +3,8 @@ import './App.css';
 import Home from '../Home/Home'
 import Plants from '../Plants/Plants';
 import { Switch, Route } from 'react-router-dom';
-import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, useQuery, gql } from "@apollo/client"
+import { useQuery } from "@apollo/client"
+// ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, gql
 // import { errorLink, onError } from "@apollo/client/link/error"
 import { LOAD_PLANTS } from "../../Graphql/Queries"
 import { useState, useEffect } from 'react';
@@ -23,7 +24,8 @@ import { useState, useEffect } from 'react';
 // })
 
 function App() {
-  const { error, loading, data } = useQuery(LOAD_PLANTS)
+  const { data } = useQuery(LOAD_PLANTS)
+  //error, loading
   const [plants, setPlants] = useState([])
   const [growzone, setGrowzone] = useState("")
 

@@ -19,8 +19,8 @@ let [zipcode, setZipcode] = useState('')
 //     clearInputs()
 //   }
 // }
-const[loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS)
-
+const[loadPlants, { error, data }] = useLazyQuery(LOAD_PLANTS)
+// loading
 const submitZip = event => {
   event.preventDefault()
   loadPlants({
@@ -51,7 +51,10 @@ const clearInputs = () => {
         value={zipcode}
         onChange={event => setZipcode(event.target.value)}
         />
-        <button className='form-button' onClick={event => submitZip(event)}>GO</button>
+        <button className='form-button' onClick={event => {
+          clearInputs()
+          submitZip(event)
+          }}>GO</button>
       </div>
       <div className='error-container'>
       {error && (
