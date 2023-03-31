@@ -40,7 +40,7 @@ const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
           <button
             className="form-button"
             onClick={(event) => {
-              clearInputs();
+              // clearInputs();
               submitZip(event);
             }}
           >
