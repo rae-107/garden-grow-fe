@@ -1,10 +1,34 @@
 import "./Form.css";
 import { useLazyQuery } from "@apollo/client";
 import { LOAD_PLANTS } from "../../Graphql/Queries";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
+
+// const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
+// const [loadPlants, { error, data }] = useLazyQuery(LOAD_PLANTS);
+
+// const submitZip = (event) => {
+//   event.preventDefault();
+//   loadPlants({
+//     variables: {
+//       zipcode,
+//     },
+//   });
+//   if (data) {
+//     setPlants([...data.vegetablesByZipcode.vegetables]);
+//     setGrowzone(data.vegetablesByZipcode.growZone);
+//     clearInputs()
+//   }
+// };
+
+//   const clearInputs = () => {
+//     setZipcode("");
+//   };
 
 const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
   const [loadPlants, { error, data }] = useLazyQuery(LOAD_PLANTS);
+  const [shouldClearInput, setShouldClearInput] = useState(false);
 
   const submitZip = (event) => {
     event.preventDefault();
@@ -13,15 +37,15 @@ const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
         zipcode,
       },
     });
+    setZipcode('');
+  };
+
+  useEffect(() => {
     if (data) {
       setPlants([...data.vegetablesByZipcode.vegetables]);
       setGrowzone(data.vegetablesByZipcode.growZone);
-    }
-  };
-
-  const clearInputs = () => {
-    setZipcode("");
-  };
+      }
+  }, [data, setGrowzone, setPlants]);
 
   return (
     <form className="form-container">
@@ -40,7 +64,6 @@ const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
           <div
             className="form-button"
             onClick={(event) => {
-              clearInputs();
               submitZip(event);
             }}
           >

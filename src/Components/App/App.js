@@ -5,6 +5,7 @@ import Plant from "../Plant/Plant";
 import { Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { LOAD_PLANTS } from "../../Graphql/Queries";
+import { useQuery} from '@apollo/client'
 
 function App() {
   const [plants, setPlants] = useState([]);
@@ -13,12 +14,12 @@ function App() {
   console.log(growzone); // using growzone variable to make linter happy
   const { data } = useQuery(LOAD_PLANTS)
 
-  useEffect (() => {
-    if(data) {
-      setPlants(data.vegetablesByZipcode)
-      console.log("here is raes zipcode", data.vegetablesByZipcode)
-    }
-  }, [plants, data])
+  // useEffect (() => {
+  //   if(data) {
+  //     setPlants(data.vegetablesByZipcode)
+  //     console.log("here is raes zipcode", data.vegetablesByZipcode)
+  //   }
+  // }, [plants, data])
 
   useEffect(() => {
     console.log("hey this is growzone", growzone)
