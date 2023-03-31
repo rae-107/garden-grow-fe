@@ -1,9 +1,10 @@
 import "./Form.css";
 import { useLazyQuery } from "@apollo/client";
 import { LOAD_PLANTS } from "../../Graphql/Queries";
+import { Link } from "react-router-dom";
 
 const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
-  const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
+  const [loadPlants, { error, data }] = useLazyQuery(LOAD_PLANTS);
 
   const submitZip = (event) => {
     event.preventDefault();
@@ -35,10 +36,17 @@ const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
           value={zipcode}
           onChange={(event) => setZipcode(event.target.value)}
         />
-        <button className='form-button' onClick={event => {
-          clearInputs()
-          submitZip(event)
-          }}>GO</button>
+        <Link to="/:zipcode">
+          <button
+            className="form-button"
+            onClick={(event) => {
+              clearInputs();
+              submitZip(event);
+            }}
+          >
+            GO
+          </button>
+        </Link>
       </div>
       <div className="error-container">
         {error && (
