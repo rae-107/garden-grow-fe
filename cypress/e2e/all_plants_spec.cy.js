@@ -4,13 +4,12 @@ describe("Results page with all plants", () => {
   beforeEach(() => {
     cy.intercept("POST", "https://garden-grow-be.herokuapp.com/api/v1/graphql", (req) => {
         aliasQuery(req, "vegetablesByZipcode");
-        req.reply({ fixture: "plants.json" });
+        req.reply({ fixture: "plants.json" })
       }
     );
     cy.visit("http://localhost:3000");
     cy.get(".input").type("80910");
-    cy.get(".form-button").click();
-    cy.get('a[href="/:zipcode"]').click();
+    // cy.get(".plants-link").click();
     cy.wait("@gqlvegetablesByZipcodeQuery");
   });
 
@@ -18,11 +17,6 @@ describe("Results page with all plants", () => {
     // cy.get(".plants-title").contains("Fruits and Vegetables");
   });
 });
-
-// describe('template spec', () => {
-//   beforeEach(() => {
-//
-//   })
 
 //   it('Should show the title with the appropiate search zipcode', () => {
 //     cy.get('.plants-title').contains('Fruits and Vegetables')
