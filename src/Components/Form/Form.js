@@ -28,7 +28,6 @@ import { Link } from "react-router-dom";
 
 const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
   const [loadPlants, { error, data }] = useLazyQuery(LOAD_PLANTS);
-  const [shouldClearInput, setShouldClearInput] = useState(false);
 
   const submitZip = (event) => {
     event.preventDefault();
@@ -37,7 +36,6 @@ const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
         zipcode,
       },
     });
-    setZipcode('');
   };
 
   useEffect(() => {
@@ -60,16 +58,15 @@ const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
           value={zipcode}
           onChange={(event) => setZipcode(event.target.value)}
         />
-        <Link to="/:zipcode" className="go-to-plants-link">
-          <div
-            className="form-button"
-            onClick={(event) => {
-              submitZip(event);
-            }}
-          >
+        {/* <div className="plants-link-container"> */}
+          <Link 
+            to={`/${zipcode}`}
+            className="plants-link"
+            onClick={(event) => {submitZip(event)}}
+        >
             <span role="img" aria-label="plant emoji">&#x1F331; </span>
-          </div>
-        </Link>
+          </Link>
+        {/* </div> */}
       </div>
       <div className="error-container">
         {error && (

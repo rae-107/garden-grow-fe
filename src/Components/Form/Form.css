@@ -14,27 +14,17 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   border-radius: 10px;
 }
 
-.input {
-  width: 85%;
-  color: #503571;
-  font-weight: bolder;
-}
-
-.go-to-plants-link {
+/* .plants-link-container {
   width: 10%;
-}
-
-.form-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  height: 100%;
+} */
 
 .input, 
-.form-button {
+.plants-link {
   appearance: none;
   /* width: 100%; */
   height: 80%;
@@ -51,6 +41,20 @@
  transform: none;
  border: none;
  box-shadow: none;
+}
+
+.plants-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 10%;
+}
+
+.input {
+  width: 85%;
+  color: #503571;
+  font-weight: bolder;
 }
 
 .form-button {

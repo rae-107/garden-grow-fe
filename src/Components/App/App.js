@@ -11,15 +11,20 @@ function App() {
   const [plants, setPlants] = useState([]);
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
-  console.log(growzone); // using growzone variable to make linter happy
-  const { data } = useQuery(LOAD_PLANTS)
+  // console.log(growzone); // using growzone variable to make linter happy
+  const { loading, error, data } = useQuery(LOAD_PLANTS)
 
   // useEffect (() => {
   //   if(data) {
-  //     setPlants(data.vegetablesByZipcode)
-  //     console.log("here is raes zipcode", data.vegetablesByZipcode)
+  //     setPlants([...data.vegetablesByZipcode.vegetables]);
+  //     setGrowzone(data.vegetablesByZipcode.growZone);
+  //     console.log("hey this is growzone", growzone)
+  //     console.log("hey this is plants", plants)
   //   }
-  // }, [plants, data])
+  // }, [data, setPlants, setGrowzone, growzone, plants])
+
+  // if (loading) return <p>Loading...</p>
+  // if(error) return <p>Error :(</p>
 
   useEffect(() => {
     console.log("hey this is growzone", growzone)
