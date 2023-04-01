@@ -11,8 +11,7 @@ const App =() => {
   const [plants, setPlants] = useState([]);
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
-  // console.log(growzone); // using growzone variable to make linter happy
-  const { loading, error, data } = useQuery(LOAD_PLANTS)
+  const { data } = useQuery(LOAD_PLANTS)
 
   useEffect (() => {
     if(data) {
@@ -21,9 +20,7 @@ const App =() => {
     }
   }, [data, setPlants, setGrowzone])
 
-  // if (loading) return <p>Loading...</p>
-  // if(error) return <p>Error :(</p>
-
+  //below for testing while working only can be deleted at end
   useEffect(() => {
     console.log("hey this is growzone", growzone)
 }, [growzone])
@@ -50,7 +47,7 @@ const App =() => {
               setGrowzone={setGrowzone}
             />
           )}
-        ></Route>
+        />
         <Route
           exact
           path="/:zipcode"
@@ -60,7 +57,7 @@ const App =() => {
               heading={`Your ${zipcode} Fruits and Vegetables`}
             />
           )}
-        ></Route>
+          />
         <Route exact path="/:veggie" render={() => <Plant />}></Route>
       </Switch>
     </div>
