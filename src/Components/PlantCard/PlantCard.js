@@ -4,15 +4,9 @@ import { useLazyQuery } from "@apollo/client";
 import "./PlantCard.css";
 
 const PlantCard = ({ id, name, img, growzone }) => {
-  const [loadCurrentPlant, { error, data }] = useLazyQuery(LOAD_VEGETABLE);
-  
-  const handleClick = () => {
-    loadCurrentPlant({ variables: { vegetableId: id, zone: growzone } });
-    console.log(data)
-  }
 
   return (
-    <Link to={`zipcode/${id}`} onClick={handleClick}>
+    <Link to={`${growzone}/${id}`}>
       <div className="plant-card">
         <img
           alt={`Click for more information about ${name}`}
