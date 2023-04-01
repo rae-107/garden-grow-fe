@@ -1,7 +1,21 @@
 import "./Plant.css";
 import xLogo from "../../Images/x-vector.png"
+import { LOAD_VEGETABLE } from "../../Graphql/Queries";
+import { useQuery } from "@apollo/client";
+import { useEffect } from "react";
 
-const Plant = () => {
+//useEffect for Load_vegetables 
+
+
+const Plant = ({ id, growzone }) => {
+  // const [loadCurrentPlant, { error, data }] = useQuery(LOAD_VEGETABLE, {variables: { vegetableId:id, zone: growzone }});
+  console.log('what dis', id, growzone)
+  
+  const { loading, error, data } = useQuery(LOAD_VEGETABLE, {variables: { vegetableId:id, zone: growzone }});
+
+useEffect(() => {
+  console.log(error)
+}, [loading])
   return (
     <main className="plant-details-container">
       <section className='back-logo'>
@@ -13,22 +27,7 @@ const Plant = () => {
       </section>
       <section className="plant-details-text">
         <p className="plant-description">
-          Radish, Raphanus sativus, is an herbaceous annual or biennial plant in
-          the family Brassicaceae, grown for its edible taproot. The radish
-          plant has a short hairy stem and a rosette (ground level horizontal
-          and circular leaves) of oblong shaped leaves which measure 5–30 cm
-          (2–12 in) in length. The top leaves of the plant are smaller and
-          lance-like. The taproot of the plant is cylindrical or tapering and
-          commonly red or white in color. The radish plant produces multiple
-          purple or pink flowers on racemes which produce 2–12 seeds. The
-          reddish brown seeds are oval, and slightly flattened. Radish is
-          generally grown as an annual plant, surviving only one growing season
-          and can reach 20–100 cm (8–39 in) in height depending on the variety.
-          Radish may also be referred to by the name of the cultivar and names
-          may include Chinese radish, Japanese radish or oriental radish. The
-          origin of the radish plant has not been determined but they are found
-          growing native from the Mediterranean to the Caspian Sea.
-        </p>
+          {data?.vegetableId?.description} </p>
       </section>
       <section className="planting-care-container">
         <h1 className="planting-care-title">Planting Guide for: 5b</h1>
