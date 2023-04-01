@@ -15,10 +15,9 @@ export const LOAD_PLANTS = gql`
   }
 `
 export const LOAD_VEGETABLE = gql`
-query vegetableDetails($vegetableId: String! $zoneDetails: String!){
+query vegetableDetails($vegetableId: String!, $zone: String!){
   vegetableDetails(
-      vegetableId: $vegetableId,
-      zoneDetails: $zoneDetails
+      vegetableId: $vegetableId
   ) {
      name
      description
@@ -29,15 +28,15 @@ query vegetableDetails($vegetableId: String! $zoneDetails: String!){
      growingDuration
      image
      zoneDetails(
-         zone
-         ) {
-              plantSeedsIndoorsStart
-              plantSeedsIndoorsEnd
-              plantSeedlingsStart
-              plantSeedlingsEnd
-              plantSeedsOutdoorsStart
-              plantSeedsOutdoorsEnd
-     }
+      zone: $zone
+      ) {
+           plantSeedsIndoorsStart
+           plantSeedsIndoorsEnd
+           plantSeedlingsStart
+           plantSeedlingsEnd
+           plantSeedsOutdoorsStart
+           plantSeedsOutdoorsEnd
+  }
   }
 }
 `
