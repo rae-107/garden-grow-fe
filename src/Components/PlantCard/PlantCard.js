@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { LOAD_VEGETABLE } from "../../Graphql/Queries";
-import { useLazyQuery } from "@apollo/client";
 import "./PlantCard.css";
 
 const PlantCard = ({ id, name, img, growzone }) => {
