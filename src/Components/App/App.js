@@ -7,21 +7,19 @@ import { useEffect, useState } from "react";
 import { LOAD_PLANTS } from "../../Graphql/Queries";
 import { useQuery} from '@apollo/client'
 
-function App() {
+const App =() => {
   const [plants, setPlants] = useState([]);
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
   // console.log(growzone); // using growzone variable to make linter happy
   const { loading, error, data } = useQuery(LOAD_PLANTS)
 
-  // useEffect (() => {
-  //   if(data) {
-  //     setPlants([...data.vegetablesByZipcode.vegetables]);
-  //     setGrowzone(data.vegetablesByZipcode.growZone);
-  //     console.log("hey this is growzone", growzone)
-  //     console.log("hey this is plants", plants)
-  //   }
-  // }, [data, setPlants, setGrowzone, growzone, plants])
+  useEffect (() => {
+    if(data) {
+      setPlants([...data.vegetablesByZipcode.vegetables]);
+      setGrowzone(data.vegetablesByZipcode.growZone);
+    }
+  }, [data, setPlants, setGrowzone])
 
   // if (loading) return <p>Loading...</p>
   // if(error) return <p>Error :(</p>
@@ -33,6 +31,10 @@ function App() {
   useEffect (() => {
     console.log("hey this is plants", plants)
   }, [plants])
+
+  useEffect (() => {
+    console.log("hey this is zipcode", zipcode)
+  }, [zipcode])
 
   return (
     <div className="app-container">

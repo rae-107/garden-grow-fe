@@ -1,49 +1,35 @@
 import "./Form.css";
-import { useLazyQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { LOAD_PLANTS } from "../../Graphql/Queries";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-
 // const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
-// const [loadPlants, { error, data }] = useLazyQuery(LOAD_PLANTS);
-
-// const submitZip = (event) => {
-//   event.preventDefault();
-//   loadPlants({
-//     variables: {
-//       zipcode,
-//     },
-//   });
-//   if (data) {
-//     setPlants([...data.vegetablesByZipcode.vegetables]);
-//     setGrowzone(data.vegetablesByZipcode.growZone);
-//     clearInputs()
-//   }
-// };
-
-//   const clearInputs = () => {
-//     setZipcode("");
-//   };
-
-const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
-  const [loadPlants, { error, data }] = useLazyQuery(LOAD_PLANTS);
-
-  const submitZip = (event) => {
-    event.preventDefault();
-    loadPlants({
+  // const [loadPlants, { error, data }] = useLazyQuery(LOAD_PLANTS);
+  const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
+    const { loading, error, data } = useQuery(LOAD_PLANTS, {
+      skip: !zipcode,
       variables: {
-        zipcode,
-      },
+        zipcode: zipcode
+      }
     });
-  };
+
+  // const submitZip = (event) => {
+  //   // event.preventDefault();
+  //   loadPlants({
+  //     variables: {
+  //       zipcode,
+  //     },
+  //   });
+  // };
 
   useEffect(() => {
     if (data) {
       setPlants([...data.vegetablesByZipcode.vegetables]);
       setGrowzone(data.vegetablesByZipcode.growZone);
+      setZipcode(data.vegetablesByZipcode.zipcode)
       }
-  }, [data, setGrowzone, setPlants]);
+  }, [data, setGrowzone, setPlants, setZipcode]);
 
   return (
     <form className="form-container">
@@ -62,7 +48,7 @@ const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
           <Link 
             to={`/${zipcode}`}
             className="plants-link"
-            onClick={(event) => {submitZip(event)}}
+            // onClick={(event) => {submitZip(event)}}
         >
             <span role="img" aria-label="plant emoji">&#x1F331; </span>
           </Link>
@@ -77,4 +63,4 @@ const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
   );
 };
 
-export default Form;
+export default Form
