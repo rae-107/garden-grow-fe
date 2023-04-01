@@ -11,10 +11,11 @@ const Plant = ({ id, growzone }) => {
   // const [loadCurrentPlant, { error, data }] = useQuery(LOAD_VEGETABLE, {variables: { vegetableId:id, zone: growzone }});
   console.log('what dis', id, growzone)
   
-  const { loading, error, data } = useQuery(LOAD_VEGETABLE, {variables: { vegetableId:id, zone: growzone }});
+  const { loading, error, data } = useQuery(LOAD_VEGETABLE, {variables: { vegetableId:id, zone:growzone }});
 
 useEffect(() => {
   console.log(error)
+  console.log(data)
 }, [loading])
   return (
     <main className="plant-details-container">
@@ -27,7 +28,7 @@ useEffect(() => {
       </section>
       <section className="plant-details-text">
         <p className="plant-description">
-          {data?.vegetableId?.description} </p>
+          {data?.vegetableDetails?.description} </p>
       </section>
       <section className="planting-care-container">
         <h1 className="planting-care-title">Planting Guide for: 5b</h1>
