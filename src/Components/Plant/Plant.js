@@ -22,29 +22,29 @@ useEffect(() => {
       <section className='back-logo'>
         <img className='x-image' src={xLogo} alt='logo'/>
       </section>
-      <h1 className="plant-title">Radishes</h1>
+      <h1 className="plant-title">{data?.vegetableDetails?.name}</h1>
       <section className="plant-image">
-        <img className="large-plant-img" src={'../Assets/radish.jpg'} alt="plant" />
+        <img className="large-plant-img" src={`../Assets/${data?.vegetableDetails?.image}`} alt="plant" />
       </section>
       <section className="plant-details-text">
         <p className="plant-description">
           {data?.vegetableDetails?.description} </p>
       </section>
       <section className="planting-care-container">
-        <h1 className="planting-care-title">Planting Guide for: 5b</h1>
+        <h1 className="planting-care-title">{`Planting Guide for: ${growzone}`}</h1>
         <section className="planting-details">
-          <p className="sun-duration">Sun: Full Sun</p>
-          <p className="weekly-water">Weekly Water: 1 Inch</p>
-          <p className="row-spacing">Row Spacing: 2 Inches</p>
-          <p className="seed-spacing">Seed Spacing: 2 Inches</p>
-          <p className="indoor-dates">Indoor Seed Start Dates: N/A</p>
+          <p className="sun-duration">{`Sun: ${data?.vegetableDetails?.sun}`}</p>
+          <p className="weekly-water">{`Weekly Water: ${data?.vegetableDetails?.water}`}</p>
+          <p className="row-spacing">{`Row Spacing: ${data?.vegetableDetails?.rowSpacing}`}</p>
+          <p className="seed-spacing">{`Seed Spacing: ${data?.vegetableDetails?.seedSpacing}`}</p>
+          <p className="indoor-dates">{`Indoor Seed Start Dates: ${data?.vegetableDetails.zoneDetails?.plantSeedsIndoorsStart} to ${data?.vegetableDetails.zoneDetails?.plantSeedsIndoorsEnd}`}</p>
           <p className="outdoor-seedling">
-            Outdoor Seedling Planting Dates: N/A
+          {`Outdoor Seedling Start Dates: ${data?.vegetableDetails.zoneDetails?.plantSeedlingsStart} to ${data?.vegetableDetails.zoneDetails?.plantSeedlingsEnd}`}
           </p>
           <p className="outdoor-seed">
-            Outdoor Seed Start Dates: May 29 - June 12
+          {`Outdoor Seed Start Dates: ${data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsStart} to ${data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsEnd}`}
           </p>
-          <p className="harvest-time">Harvest Time: 21-35 Days</p>
+          <p className="harvest-time">{`Harvest Time: ${data?.vegetableDetails?.growingDuration}`}</p>
         </section>
       </section>
     </main>
