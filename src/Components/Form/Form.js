@@ -1,35 +1,25 @@
 import "./Form.css";
 import { useQuery } from "@apollo/client";
 import { LOAD_PLANTS } from "../../Graphql/Queries";
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import { Link } from "react-router-dom";
 
-// const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
-  // const [loadPlants, { error, data }] = useLazyQuery(LOAD_PLANTS);
   const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
+    //if you have a useQuery in form must be same function in app had to change lazyQuery
     const { loading, error, data } = useQuery(LOAD_PLANTS, {
+      //below it is saying to only run the query if there is a zipcode rather than lazyQuery
       skip: !zipcode,
       variables: {
         zipcode: zipcode
       }
     });
 
-  // const submitZip = (event) => {
-  //   // event.preventDefault();
-  //   loadPlants({
-  //     variables: {
-  //       zipcode,
-  //     },
-  //   });
-  // };
-
   useEffect(() => {
     if (data) {
       setPlants([...data.vegetablesByZipcode.vegetables]);
       setGrowzone(data.vegetablesByZipcode.growZone);
-      setZipcode(data.vegetablesByZipcode.zipcode)
       }
-  }, [data, setGrowzone, setPlants, setZipcode]);
+  }, [data, setGrowzone, setPlants]);
 
   return (
     <form className="form-container">
@@ -41,18 +31,19 @@ import { Link } from "react-router-dom";
           max="99999"
           placeholder="zip code"
           name="zipCode"
+          //needed id for onclick function in link
+          id="zipcode-input"
           value={zipcode}
           onChange={(event) => setZipcode(event.target.value)}
         />
-        {/* <div className="plants-link-container"> */}
           <Link 
             to={`/${zipcode}`}
             className="plants-link"
-            // onClick={(event) => {submitZip(event)}}
+            //no zip in data so pulling zipcode into state from input on click
+            onClick={() => setZipcode(document.getElementById("zipcode-input").value)}
         >
             <span role="img" aria-label="plant emoji">&#x1F331; </span>
           </Link>
-        {/* </div> */}
       </div>
       <div className="error-container">
         {error && (
