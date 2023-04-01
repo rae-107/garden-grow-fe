@@ -11,7 +11,11 @@ const Home = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
       <div className='title-container'>
         <h1 className='home-title'>Garden Grow</h1>
       </div>
-        <Form zipcode={zipcode} setZipcode={setZipcode} setPlants={setPlants} setGrowzone={setGrowzone}/>
+        <Form 
+          zipcode={zipcode} 
+          setZipcode={setZipcode} 
+          setPlants={setPlants} 
+          setGrowzone={setGrowzone}/>
     </div>
   )
 }
