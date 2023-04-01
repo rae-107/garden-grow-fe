@@ -41,13 +41,11 @@ function App() {
         ></Route>
         <Route 
           exact 
-          path="/:vegetableId" 
+          path="/:growzone/:vegetableId" 
           render={({ match }) => {
-          const findPlant = plants.find(
-            (plant) => plant.id === match.params.id 
-          );
+            console.log('route', match.params)
           return (
-            <Plant plantData={findPlant} id={match.params.id}/>
+            <Plant id={match.params.vegetableId} growzone={match.params.growzone}/>
           )
         }}>
         </Route>
