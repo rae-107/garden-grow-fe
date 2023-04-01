@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "./PlantCard.css";
 
 const PlantCard = ({ id, name, img, growzone }) => {
-
   return (
     <Link to={`${growzone}/${id}`}>
       <div className="plant-card">
