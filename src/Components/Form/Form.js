@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
   const Form = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
     //if you have a useQuery in form must be same function in app had to change lazyQuery
-    const { loading, error, data } = useQuery(LOAD_PLANTS, {
+    const { error, data } = useQuery(LOAD_PLANTS, {
       //below it is saying to only run the query if there is a zipcode rather than lazyQuery
       skip: !zipcode,
       variables: {
