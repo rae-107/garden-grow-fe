@@ -56,7 +56,10 @@ const Plant = ({ id, growzone }) => {
               : null}
           </p>
           <p className="outdoor-seed">
-            {data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsStart && data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsEnd ?`Outdoor Seed Start Dates: ${data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsStart} to ${data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsEnd}`: null}
+            {data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsStart &&
+            data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsEnd
+              ? `Outdoor Seed Start Dates: ${data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsStart} to ${data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsEnd}`
+              : null}
           </p>
           <p className="harvest-time">{`Harvest Time: ${data?.vegetableDetails?.growingDuration}`}</p>
         </section>
