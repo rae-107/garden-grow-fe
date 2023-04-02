@@ -8,7 +8,8 @@ const Plant = ({ id, growzone }) => {
   const { loading, error, data } = useQuery(LOAD_VEGETABLE, {
     variables: { vegetableId: id, zone: growzone },
   });
-
+  console.log(loading)
+  console.log(error)
   return (
     <main className="plant-details-container">
       <Link to="/:zipcode">
