@@ -2,27 +2,20 @@ import "./Plant.css";
 import xLogo from "../../Images/x-vector.png";
 import { LOAD_VEGETABLE } from "../../Graphql/Queries";
 import { useQuery } from "@apollo/client";
-import { useEffect } from "react";
-
-//useEffect for Load_vegetables
+import { Link } from "react-router-dom";
 
 const Plant = ({ id, growzone }) => {
-  // const [loadCurrentPlant, { error, data }] = useQuery(LOAD_VEGETABLE, {variables: { vegetableId:id, zone: growzone }});
-  console.log("what dis", id, growzone);
-
   const { loading, error, data } = useQuery(LOAD_VEGETABLE, {
     variables: { vegetableId: id, zone: growzone },
   });
 
-  useEffect(() => {
-    console.log(error);
-    console.log(data);
-  }, [loading]);
   return (
     <main className="plant-details-container">
-      <section className="back-logo">
-        <img className="x-image" src={xLogo} alt="logo" />
-      </section>
+      <Link to="/:zipcode">
+        <section className="back-logo">
+          <img className="x-image-button" src={xLogo} alt="logo" />
+        </section>
+      </Link>
       <h1 className="plant-title">{data?.vegetableDetails?.name}</h1>
       <section className="plant-image">
         <img
