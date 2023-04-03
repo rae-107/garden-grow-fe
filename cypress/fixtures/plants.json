@@ -1,5 +1,5 @@
 {
-  "vegetablesByZipcode": {
+  "vegetablesByZipcode  ": {
     "growZone": "6a",
     "vegetables": [
       {
@@ -20,6 +20,7 @@
         "name": "Bell Peppers",
         "__typename": "Vegetable"
       }
-    ]
+    ],
+    "__typename": "ZipcodeResult"
   }
 }

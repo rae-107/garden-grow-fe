@@ -2,7 +2,7 @@ import './Home.css'
 import Form from '../Form/Form'
 import NavBar from '../NavBar/NavBar'
 
-const Home = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
+const Home = ({ setZipcode, zipcode, loadPlants }) => {
   return(
     <div className='home-container'>
       <NavBar />
@@ -10,11 +10,10 @@ const Home = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
         <div className='logo-image'></div>
         <h1 className='home-title'>Garden Grow</h1>
       </div>
-      <Form 
-        zipcode={zipcode} 
-        setZipcode={setZipcode} 
-        setPlants={setPlants} 
-        setGrowzone={setGrowzone}/>
+        <Form 
+          zipcode={zipcode} 
+          setZipcode={setZipcode} 
+          loadPlants={loadPlants}/>
     </div>
   )
 }
