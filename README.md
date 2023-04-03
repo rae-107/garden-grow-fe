@@ -20,6 +20,7 @@
 ## Technologies
 - Javascript
 - CSS / HTML
+- GraphQL
 - VSCode
 - Git Version Control / GitHub
 - Webpack node package
