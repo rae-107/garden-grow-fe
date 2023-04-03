@@ -1,9 +1,6 @@
 import "./NavBar.css"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import logo from "../../Images/logo.png"
-
-
 
 const NavBar = () => {
   const [showDropdown, setShowDropDown] = useState(false)
@@ -18,10 +15,8 @@ const NavBar = () => {
     setShowDropDown(!showDropdown)
   }
   return (
-    <nav className="navigaton">
-      <Link className="logoLink" to="/">
-        <img className="logo" src={logo} alt="logo" />
-      </Link>
+    <nav className="navigation">
+      <div className="nav-logo-image"></div>
       <button className="hamburger" onClick={() => toggleNavBar()}>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -29,6 +24,7 @@ const NavBar = () => {
       </button>
       <div className={showNav ? "navigationMenu expanded" : "navigationMenu"}>
         <ul>
+        <li><Link className="myGarden" to={`/MyGarden`}>My Garden</Link></li>
          <li
            className="profile" onClick={()=> toggleDropDown()}>USER Profiles
           </li>
@@ -47,7 +43,6 @@ const NavBar = () => {
           }
         )}
         </datalist>
-        <li><Link className="myGarden" to={`/MyGarden`}>My Garden</Link></li>
         </ul>
       </div>
     </nav>
