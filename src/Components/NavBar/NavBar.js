@@ -1,9 +1,6 @@
 import "./NavBar.css"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import logo from "../../Images/logo.png"
-
-
 
 const NavBar = () => {
   const [showDropdown, setShowDropDown] = useState(false)
