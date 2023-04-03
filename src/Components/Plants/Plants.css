@@ -20,15 +20,15 @@
   width: 100%;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 70px;
-  padding-right: 170px;
   box-sizing: border-box;
   justify-items: center;
+  padding-bottom: 80px; 
 }
 
-@media screen and (min-width: 580px) {
+@media screen and (min-width: 720px) {
   .plants-display-grid {
     grid-template-columns: repeat(2, 1fr);
-    width: 580px;
+    width: 720px;
   }
 
   .plants-title {
@@ -36,10 +36,10 @@
   }
 }
 
-@media screen and (min-width: 870px) {
+@media screen and (min-width: 1050px) {
   .plants-display-grid {
     grid-template-columns: repeat(3, 1fr);
-    width: 870px;
+    width: 1050px;
   }
 
   .plants-title {
