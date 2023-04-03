@@ -23,7 +23,8 @@ const App =() => {
 
   const addToGarden = (id) => {
     if(!savePlant.includes(id)) {
-      return setSavePlant(previousList => [...previousList, id])
+      const savedList = plants.filter(savedPlant => savedPlant.id === id)
+      return setSavePlant(previousList => [...previousList, savedList[0]])
     }
   }
 
@@ -67,6 +68,13 @@ const App =() => {
           )}
           />
         <Route exact path="/:veggie" render={() => <Plant />}></Route>
+        <Route 
+          exact path="/MyGarden" 
+          render={() => (
+            <Plants 
+            />
+          )}
+        />
       </Switch>
     </div>
   );
