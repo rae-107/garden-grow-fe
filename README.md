@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Garden Grow 🌱
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+  - [Setup](#setup)
+  - [Technologies](#technologies)
+  - [Project Spec](#project-spec)
+  - [Abstract](#abstract)
+  - [Learning Goals](#learning-goals)
+  - [Preview/TechStack](#previewtechstack)
+  - [WinsAndChallenges](#winsandchallenges)
+  - [Authors](#Authors)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Setup
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
+- Javascript
+- CSS / HTML
+- GraphQL
+- VSCode
+- Git Version Control / GitHub
+- Webpack node package
+- React
+- Router
+- Google Chrome or Web Browser of User's Choice
+- Mac OS Terminal/Command Line
+- Cypress
+- Node.js
+  
+## Project Spec
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Abstract 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Learning Goals
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Preview/TechStack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![techStack](https://user-images.githubusercontent.com/108428451/229562548-ed4585b0-ace9-4a21-ab5b-d71bc755345c.png)
 
-## Learn More
+![Screenshot 2023-04-03 at 8 37 02 AM (2)](https://user-images.githubusercontent.com/108428451/229526606-9ca01d9c-e74b-4355-a087-498f2679980f.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## WinsAndChallenges
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| [<img alt="Alex" width="75" src="https://media.licdn.com/dms/image/D5603AQE9VAFrq48zFQ/profile-displayphoto-shrink_400_400/0/1667243056469?e=1685577600&v=beta&t=z08ntx1YPKq0URRaTFnUbgpC79SSKFZoVthmX9M25Fs"/>]((https://www.linkedin.com/in/alex-pitzel-231619235/)) | [<img alt="Lacey" width="75" src="https://media.licdn.com/dms/image/D5635AQGZ0m5EG6d4jA/profile-framedphoto-shrink_200_200/0/1676492118517?e=1680562800&v=beta&t=9MggGQRjDVKE5Q8-TIfzBjsNUusGxO8GTxW9yR0MZmw"/>](https://www.linkedin.com/in/lacey-weaver-be-dev/) | [<img alt="J" width="75" src="https://media.licdn.com/dms/image/D5635AQEoWXwAS3Yiww/profile-framedphoto-shrink_200_200/0/1678989850536?e=1680562800&v=beta&t=CCWAlbcWeEW_W8nmeeQ-QQ9ncRY3Y0EOBwdc09gNQ7Y"/>](https://www.linkedin.com/in/j-seymour/) | [<img alt="Josephine" width="75" src="https://media.licdn.com/dms/image/D5635AQGDeI5Jdx1r7g/profile-framedphoto-shrink_200_200/0/1676510419716?e=1680562800&v=beta&t=gn5si_3jgNQnqSGlJo35u-OhiODX8KMCJEzjn17iE8c"/>](https://www.linkedin.com/in/josephine-heidepriem/) | [<img alt="Karim Al-Rashdan" width="75" src="https://media.licdn.com/dms/image/D5635AQGrnDrNSWgZAw/profile-framedphoto-shrink_200_200/0/1679215552764?e=1680562800&v=beta&t=D8dsLB4toLqM98gpK68cmYSiibRLjxBGQY_zkB2MIhg"/>](https://www.linkedin.com/in/karimal-rashdan/) | [<img alt="Rae" width="75" src="https://media.licdn.com/dms/image/D5635AQEDlgEj_TD6pA/profile-framedphoto-shrink_200_200/0/1679348882194?e=1680562800&v=beta&t=eZLys6B11z-my5yN8bmRhuYTfEBssed_LarUoFS30dw"/>](https://www.linkedin.com/in/rae-gebhart/) |  [<img alt="Ciera" width="75" src="https://media.licdn.com/dms/image/D5635AQFGFAW8RS2bWQ/profile-framedphoto-shrink_400_400/0/1677874868240?e=1680728400&v=beta&t=mB12KN52iH1ohuZnnEoGGxcnESRFUCzOAZ-gpKL1ijM"/>](https://www.linkedin.com/in/ciera-muniz/) |
+| ------------------ | ------------ | -------------- | ----------- | -------------- | ----------- |  ----------- |
+| Alex Pitzel | Lacey Weaver | J Seymour | Josephine Heidepriem | Karim Al-Rashdan | Rae Gebhart |  Ciera Muniz |
+| Collaborator | Collaborator | Collaborator | Collaborator | Collaborator | Collaborator |  Collaborator |
+| [GitHub](https://github.com/pitzelalex) | [GitHub](https://github.com/jlweave) | [GitHub](https://github.com/JustJakeSeymour) | [GitHub](https://github.com/jheidepriem) | [GitHub](https://github.com/KarimAl-Rashdan) | [GitHub](https://github.com/rae-107) |  [GitHub](https://github.com/cieragrace) |
+| [LinkedIn](https://www.linkedin.com/in/alex-pitzel-231619235/) |  [LinkedIn](https://www.linkedin.com/in/lacey-weaver-be-dev/) | [LinkedIn](https://www.linkedin.com/in/j-seymour/) | [LinkedIn](https://www.linkedin.com/in/josephine-heidepriem/) | [LinkedIn](https://www.linkedin.com/in/karimal-rashdan/) | [LinkedIn](https://www.linkedin.com/in/rae-gebhart/) |  [LinkedIn](https://www.linkedin.com/in/ciera-muniz/) |
+  
