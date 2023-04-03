@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./PlantCard.css";
 
-const PlantCard = ({ id, name, img }) => {
+const PlantCard = ({ id, name, img, addToGarden }) => {
   return (
     <Link to="/this will be the details page">
       <div className="plant-card">
@@ -11,7 +11,7 @@ const PlantCard = ({ id, name, img }) => {
           className="card-image"
         ></img>
         <h2 className="card-title">{name}</h2>
-        <button className="update-my-garden-button">+ to my garden</button>
+        <button onClick={()=> addToGarden(id)} className="update-my-garden-button">+ to my garden</button>
       </div>
     </Link>
   );
