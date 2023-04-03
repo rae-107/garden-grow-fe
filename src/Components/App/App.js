@@ -5,7 +5,7 @@ import Plant from "../Plant/Plant";
 import { Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { LOAD_PLANTS } from "../../Graphql/Queries";
-import { useQuery} from '@apollo/client'
+import { useQuery } from '@apollo/client'
 
 const App =() => {
   const [plants, setPlants] = useState([]);
