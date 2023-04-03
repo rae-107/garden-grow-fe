@@ -54,11 +54,21 @@ const App =() => {
           render={() => (
             <Plants
               plants={plants}
+              growzone={growzone}
               heading={`Your ${zipcode} Fruits and Vegetables`}
             />
           )}
-          />
-        <Route exact path="/:veggie" render={() => <Plant />}></Route>
+        ></Route>
+        <Route 
+          exact 
+          path="/:growzone/:vegetableId" 
+          render={({ match }) => {
+            console.log('route', match.params)
+          return (
+            <Plant id={match.params.vegetableId} growzone={match.params.growzone}/>
+          )
+        }}>
+        </Route>
       </Switch>
     </div>
   );
