@@ -12,6 +12,7 @@ const App =() => {
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
   const { data } = useQuery(LOAD_PLANTS)
+  const [savePlant, setSavePlant] = useState([])
 
   useEffect (() => {
     if(data) {
@@ -19,6 +20,12 @@ const App =() => {
       setGrowzone(data.vegetablesByZipcode.growZone);
     }
   }, [data, setPlants, setGrowzone])
+
+  const addToGarden = (id) => {
+    if(!savePlant.includes(id)) {
+      return setSavePlant(previousList => [...previousList, id])
+    }
+  }
 
   //below for testing while working only can be deleted at end
   useEffect(() => {
@@ -55,6 +62,7 @@ const App =() => {
             <Plants
               plants={plants}
               heading={`Your ${zipcode} Fruits and Vegetables`}
+              addToGarden={addToGarden}
             />
           )}
           />
