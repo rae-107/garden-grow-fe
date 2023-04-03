@@ -7,6 +7,7 @@ const Home = ({ setPlants, setGrowzone, setZipcode, zipcode }) => {
     <div className='home-container'>
       <NavBar />
       <div className='title-container'>
+        <div className='logo-image'></div>
         <h1 className='home-title'>Garden Grow</h1>
       </div>
         <Form 
