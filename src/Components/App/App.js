@@ -5,20 +5,23 @@ import Plant from "../Plant/Plant";
 import { Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { LOAD_PLANTS } from "../../Graphql/Queries";
-import { useQuery} from '@apollo/client'
+import { useLazyQuery} from '@apollo/client'
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 const App =() => {
   const [plants, setPlants] = useState([]);
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
-  const { data } = useQuery(LOAD_PLANTS)
+  const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS)
 
   useEffect (() => {
     if(data) {
+      console.log(data, data)
+      console.log(loading)
       setPlants([...data.vegetablesByZipcode.vegetables]);
       setGrowzone(data.vegetablesByZipcode.growZone);
     }
-  }, [data, setPlants, setGrowzone])
+  }, [loading, error, data])
 
   //below for testing while working only can be deleted at end
   useEffect(() => {
@@ -45,9 +48,17 @@ const App =() => {
               setZipcode={setZipcode}
               setPlants={setPlants}
               setGrowzone={setGrowzone}
+              loadPlants={loadPlants}
             />
           )}
         />
+        {loading && <Route
+          exact
+          path="/:zipcode"
+          render={() => (
+            <LoadingPage />
+          )}
+        ></Route> }
         <Route
           exact
           path="/:zipcode"
