@@ -11,7 +11,7 @@
 
 .plants-title {
   font-size: 28px;
-  margin: 40px 0 0 0;
+  margin: 60px 0;
   text-align: center;
 }
 
@@ -19,7 +19,8 @@
   display: grid;
   width: 100%;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: 20px;
+  grid-gap: 70px;
+  padding-right: 170px;
   box-sizing: border-box;
   justify-items: center;
 }
@@ -46,7 +47,7 @@
   }
 }
 
-@media screen and (min-width: 1130px) {
+/* @media screen and (min-width: 1130px) {
   .plants-display-grid {
     grid-template-columns: repeat(4, 1fr);
     width: 1130px;
@@ -55,4 +56,4 @@
   .plants-title {
     font-size: 52px;
   }
-}
+} */
