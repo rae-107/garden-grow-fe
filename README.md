@@ -18,16 +18,17 @@
 
 
 ## Technologies
-  - Javascript
-  - CSS / HTML
-  - VSCode
-  - Git Version Control / GitHub
-  - Webpack node package
-  - React 
-  - React Router
-  - Google Chrome or Web Browser of User's Choice
-  - Mac OS Terminal/Command Line
-  - Node.js 
+- Javascript
+- CSS / HTML
+- VSCode
+- Git Version Control / GitHub
+- Webpack node package
+- React
+- Router
+- Google Chrome or Web Browser of User's Choice
+- Mac OS Terminal/Command Line
+- Cypress
+- Node.js
   
 ## Project Spec
 
