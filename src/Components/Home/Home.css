@@ -34,10 +34,10 @@
 }
 
 .logo-image {
-  background-image: url('/public/Assets/radish2.png');
+  background-image: url('/public/Assets/garden_logos/cauliflower_720.png');
   background-size: cover;
-  /* max-height: 80%; */
+  max-height: 80%;
   height: 100%;
-  width: 15%;
-  transform: rotate(-35deg);
+  width:15%;
+  /* transform: rotate(-35deg); */
 }
