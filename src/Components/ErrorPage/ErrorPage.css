@@ -1,0 +1,30 @@
+.error-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  color: white;
+  text-align: center;
+}
+
+.x-button-container {
+  display: flex;
+  justify-content: start;
+  width: 100vw;
+}
+
+.x-button {
+  height: 5vh;
+  width: 3vw;
+  margin: 40px;
+}
+
+.error-image {
+  font-size: 40px;
+}
+
+.error-component-message {
+  width: 80%;
+  font-size: 30px;
+}
