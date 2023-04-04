@@ -25,11 +25,6 @@ const Plant = ({ id, growzone }) => {
           alt="plant"
         />
       </section>
-      <section className="plant-details-text">
-        <p className="plant-description">
-          {data?.vegetableDetails?.description}{" "}
-        </p>
-      </section>
       <section className="planting-care-container">
         <h1 className="planting-care-title">{`Planting Guide for: ${growzone}`}</h1>
         <section className="planting-details">
@@ -56,6 +51,13 @@ const Plant = ({ id, growzone }) => {
               : null}
           </p>
           <p className="harvest-time">{`Harvest Time: ${data?.vegetableDetails?.growingDuration}`}</p>
+        </section>
+      </section>
+      <section className="plant-details-text">
+        <section className="plant-text">
+        <p className="plant-description">
+          {data?.vegetableDetails?.description}{" "}
+        </p>
         </section>
       </section>
     </main>

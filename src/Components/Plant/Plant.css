@@ -3,7 +3,6 @@ body {
 }
 
 .x-image-button {
-  height: 5vh;
   width: 3vw;
 }
 
@@ -20,17 +19,23 @@ body {
 }
 
 .plant-details-text {
-  padding-left: 150px;
-  padding-right: 150px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
   padding-top: 15px;
   text-align: center;
 }
 
 .planting-care-container {
-  padding: 50px;
+  padding: 10px;
 }
 
 .large-plant-img {
   border-radius: 20px;
   width: 40%;
+}
+
+.plant-text {
+  height: 20vh;
+  width: 60vw;
 }
