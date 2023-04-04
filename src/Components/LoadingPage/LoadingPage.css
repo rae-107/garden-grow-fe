@@ -19,12 +19,14 @@
   grid-gap: 20px;
   box-sizing: border-box;
   justify-items: center;
+  padding-bottom: 80px; 
+  margin-right: 80px;
 }
 
-@media screen and (min-width: 580px) {
+@media screen and (min-width: 720px) {
   .loading-cards-grid {
     grid-template-columns: repeat(2, 1fr);
-    width: 580px;
+    width: 720px;
   }
 
   /* .loading-gif {
@@ -32,24 +34,13 @@
   } */
 }
 
-@media screen and (min-width: 870px) {
+@media screen and (min-width: 1050px) {
   .loading-cards-grid {
     grid-template-columns: repeat(3, 1fr);
-    width: 870px;
+    width: 1050px;
   }
 
   /* .loading-gif {
     font-size: 44px;
-  } */
-}
-
-@media screen and (min-width: 1130px) {
-  .loading-cards-grid {
-    grid-template-columns: repeat(4, 1fr);
-    width: 1130px;
-  }
-
-  /* .loading-gif {
-    font-size: 52px;
   } */
 }

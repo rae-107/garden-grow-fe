@@ -16,8 +16,6 @@ const App =() => {
 
   useEffect (() => {
     if(data) {
-      console.log(data, data)
-      console.log(loading)
       setPlants([...data.vegetablesByZipcode.vegetables]);
       setGrowzone(data.vegetablesByZipcode.growZone);
     }
@@ -54,7 +52,7 @@ const App =() => {
         />
         {loading && <Route
           exact
-          path="/:zipcode"
+          path="/"
           render={() => (
             <LoadingPage />
           )}
