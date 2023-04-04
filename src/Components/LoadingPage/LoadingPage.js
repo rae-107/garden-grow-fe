@@ -12,8 +12,6 @@ const LoadingPage = () => {
         <LoadingCard />
         <LoadingCard />
         <LoadingCard />
-        <LoadingCard />
-        <LoadingCard />
       </section>
     </section>
   )
