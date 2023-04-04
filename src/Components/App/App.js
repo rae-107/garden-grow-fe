@@ -87,6 +87,7 @@ const App = () => {
               growzone={growzone}
               heading={`Your ${zipcode} Fruits and Vegetables`}
               addToGarden={addToGarden}
+              deleteFromGarden={deleteFromGarden}
             />
           )}
         ></Route>

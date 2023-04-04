@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./PlantCard.css";
 
-const PlantCard = ({ id, name, img, addToGarden, growzone }) => {
+const PlantCard = ({ id, name, img, addToGarden, growzone, deleteFromGarden }) => {
   return (
       <div className="plant-card">
     <Link to={`${growzone}/${id}`}>
@@ -15,7 +15,9 @@ const PlantCard = ({ id, name, img, addToGarden, growzone }) => {
         <button onClick={()=> {
           console.log("button is clicked")
           return addToGarden(id)}
-          } className="update-my-garden-button">+ to my garden</button>
+          } onDblClick={()=> {
+            return deleteFromGarden(id)
+          }} className="update-my-garden-button">+ to my garden</button>
       </div>
   );
 };
