@@ -40,3 +40,41 @@ query vegetableDetails($vegetableId: String!, $zone: String!){
   }
 }
 `
+export const LOAD_USER = gql`
+query userDetails($userId:String!, $zone:String!){
+  userDetails(
+      userId: $userId
+      ) {
+         name
+         growZone
+         img
+         linkedIn
+         github
+         email
+         aboutMe
+         vegetableUsers{
+            vegetable{
+                id
+                name
+                description
+                sun
+                water
+                rowSpacing
+                seedSpacing
+                growingDuration
+                image
+                zoneDetails(
+                    zone: $zone
+                ){
+                    plantSeedsIndoorsStart
+                    plantSeedsIndoorsEnd
+                    plantSeedlingsStart
+                    plantSeedlingsEnd
+                    plantSeedsOutdoorsStart
+                    plantSeedsOutdoorsEnd
+                }
+            }
+         }
+  }
+}
+`
