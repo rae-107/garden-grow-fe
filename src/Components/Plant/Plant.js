@@ -68,6 +68,6 @@ const Plant = ({ id, growzone }) => {
 export default Plant;
 
 Plant.propTypes = {
-  id: PropTypes.number.isRequired,
+  // id: PropTypes.string.isRequired,
   growzone: PropTypes.string.isRequired
 }

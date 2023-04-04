@@ -23,6 +23,6 @@ export default Plants;
 
 Plants.propTypes = {
   plants: PropTypes.array.isRequired,
-  heading: PropTypes.object.isRequired,
+  heading: PropTypes.string.isRequired,
   growzone: PropTypes.string.isRequired
 }
