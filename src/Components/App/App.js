@@ -91,7 +91,8 @@ const App = () => {
           }}
         ></Route>
         <Route 
-          exact path="/:MyGarden" 
+          exact 
+          path="/:MyGarden" 
           render={() => (
             <Plants 
               plants={savePlant}
@@ -99,7 +100,7 @@ const App = () => {
               heading={`Your Saved Fruits and Vegetables`}
             />
           )}
-        />
+        ></Route>
         <Route
           exact
           path="*"
