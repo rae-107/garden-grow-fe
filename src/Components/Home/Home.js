@@ -1,6 +1,7 @@
 import './Home.css'
 import Form from '../Form/Form'
 import NavBar from '../NavBar/NavBar'
+import PropTypes from 'prop-types'
 
 const Home = ({ setZipcode, zipcode, loadPlants }) => {
   return(
@@ -21,3 +22,9 @@ const Home = ({ setZipcode, zipcode, loadPlants }) => {
 }
 
 export default Home
+
+Home.propTypes = {
+  setZipcode: PropTypes.func.isRequired,
+  zipcode: PropTypes.string.isRequired,
+  loadPlants: PropTypes.func.isRequired,
+};
