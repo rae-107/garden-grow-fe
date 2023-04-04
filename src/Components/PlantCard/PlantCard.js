@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import "./PlantCard.css";
 
-const PlantCard = ({ id, name, img, addToGarden, growzone, deleteFromGarden }) => {
+const PlantCard = ({ id, name, img, addToGarden, growzone, deleteFromGarden, plantAdded }) => {
   return (
       <div className="plant-card">
-    <Link to={`${growzone}/${id}`}>
+        <Link to={`/vegetable/${growzone}/${id}`}>
         <img
           alt={`Click for more information about ${name}`}
           src={`/Assets/${img}`}
@@ -12,12 +12,9 @@ const PlantCard = ({ id, name, img, addToGarden, growzone, deleteFromGarden }) =
         ></img>
         <h2 className="card-title">{name}</h2>
         </Link>
-        <button onClick={()=> {
-          console.log("button is clicked")
-          return addToGarden(id)}
-          } onDoubleClick={()=> {
-            return deleteFromGarden(id)
-          }} className="update-my-garden-button">+ to my garden</button>
+        {plantAdded ? 
+        <button onClick={()=> addToGarden(id)} className="update-my-garden-button">+ to my garden</button> : <button onClick={()=> deleteFromGarden(id)} className="update-my-garden-button">- from my garden</button>
+        }
       </div>
   );
 };

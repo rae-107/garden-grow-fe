@@ -15,21 +15,25 @@ const App = () => {
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
   const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
+  
   const [savePlant, setSavePlant] = useState([])
+  const [plantAdded, setPlantAdded] =useState(false)
 
   useEffect(() => {
     if (data) {
       setPlants([...data.vegetablesByZipcode.vegetables]);
       setGrowzone(data.vegetablesByZipcode.growZone);
     }
-  }, [loading, error, data]);
+  }, [loading, error, data, savePlant]);
   console.log(error)
 
   const addToGarden = (id) => {
-    if(!savePlant.includes(id)) {
+    if(!savePlant.includes(Number(id))) {
+      console.log("saved list",savePlant)
       const savedList = plants.filter(savedPlant => savedPlant.id === id)
       return setSavePlant(previousList => [...previousList, savedList[0]])
     }
+    setPlantAdded(true)
   }
 
   const deleteFromGarden = (id) => {
@@ -42,6 +46,7 @@ const App = () => {
       })
       return setSavePlant(updateList)
     }
+    setPlantAdded(false)
   }
 
   
@@ -80,7 +85,7 @@ const App = () => {
         )}
         <Route
           exact
-          path="/:zipcode"
+          path="/results/:zipcode"
           render={() => (
             <Plants
               plants={plants}
@@ -88,12 +93,13 @@ const App = () => {
               heading={`Your ${zipcode} Fruits and Vegetables`}
               addToGarden={addToGarden}
               deleteFromGarden={deleteFromGarden}
+              plantAdded={plantAdded}
             />
           )}
         ></Route>
         <Route
           exact
-          path="/:growzone/:vegetableId"
+          path="/vegetable/:growzone/:vegetableId"
           render={({ match }) => {
             console.log("route", match.params);
             return (
@@ -104,7 +110,7 @@ const App = () => {
             );
           }}
         ></Route>
-        <Route 
+        {/* <Route 
           exact 
           path="/:MyGarden" 
           render={() => (
@@ -114,10 +120,10 @@ const App = () => {
               heading={`Your Saved Fruits and Vegetables`}
             />
           )}
-        ></Route>
+        ></Route> */}
         <Route
           exact
-          path="/:id"
+          path="/user/:userId"
           render={({ match }) => {
             console.log("route", match.params);
             return (

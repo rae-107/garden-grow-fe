@@ -57,7 +57,7 @@ const NavBar = () => {
         <datalist className={showDropdown ? "dropdown active" : "dropdown"} key={Date.now}>
           {tempUsers.map((user, index) => {
             return (
-              <Link className="userProfiles" to={`/${user.id}`} style={{ textDecoration: "none" }} key={index}>
+              <Link className="userProfiles" to={`/user/${user.id}`} style={{ textDecoration: "none" }} key={index}>
                 <option 
                   key={index} 
                   value={user.name}

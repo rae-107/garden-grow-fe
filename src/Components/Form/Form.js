@@ -18,7 +18,7 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
           onChange={(event) => setZipcode(event.target.value)}
         />
         <Link
-          to={`/${zipcode}`}
+          to={`/results/${zipcode}`}
           className="plants-link"
           onClick={() => {
             setZipcode(document.getElementById("zipcode-input").value)
