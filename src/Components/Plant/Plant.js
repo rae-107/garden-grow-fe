@@ -21,7 +21,7 @@ const Plant = ({ id, growzone, zipcode }) => {
 
   return (
     <main className="plant-details-container">
-      <Link to={`/${zipcode}`}>
+      <Link to={`/results/${zipcode}`}>
         <section className="back-logo">
           <img className="x-image-button" src={xLogo} alt="logo" />
         </section>
