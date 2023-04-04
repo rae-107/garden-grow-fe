@@ -1,5 +1,6 @@
 import "./Form.css";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 
 const Form = ({ setZipcode, zipcode, loadPlants }) => {
   return (
@@ -40,3 +41,9 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
 };
 
 export default Form;
+
+Form.propTypes = {
+  setZipcode: PropTypes.func.isRequired,
+  zipcode: PropTypes.string.isRequired,
+  loadPlants: PropTypes.func.isRequired,
+};
