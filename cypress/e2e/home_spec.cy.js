@@ -26,7 +26,7 @@ describe('template spec', () => {
     cy.contains("USER Profiles").click({force: true});
     cy.get(".dropdown").should("have.class", "active");
     cy.contains("Rae").click({force: true});
-    cy.url().should("include", "/Rae");
+    cy.url().should("include", "/7");
   });
 
   it("should open and close user profiles when clicked", () => {
