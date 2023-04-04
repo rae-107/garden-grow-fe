@@ -1,6 +1,7 @@
 import "./Plants.css";
 import PlantCard from "../PlantCard/PlantCard";
 import NavBar from '../NavBar/NavBar'
+import beetLogo from "../../Images/beet3_720.png"
 
 const Plants = ({ plants, heading, growzone }) => {
   const makeCards = () => {
@@ -9,7 +10,10 @@ const Plants = ({ plants, heading, growzone }) => {
 
   return (
     <section className="plants-page">
+      <section className='logo-box'>
       <NavBar />
+      <img className="beet-logo" src={beetLogo} alt='beet'/>
+      </section>
       <h1 className="plants-title">
         {heading}
       </h1>
