@@ -6,7 +6,33 @@ import { Link } from "react-router-dom"
 const NavBar = () => {
   const [showDropdown, setShowDropDown] = useState(false)
   const [showNav, setShowNav] = useState(false)
-  const tempUsers = ["Rae", "Ciera", "Josephine", "Alex", "J", "Lacey"]
+  const tempUsers = [
+    {
+    name:"Rae",
+    id: 7,
+    zone: "6a"
+    },{
+    name: "Ciera",
+    id: 2,
+    zone:"5b"
+    },{
+    name: "Josephine",
+    id:1,
+    zone:"9a"
+    },{
+    name:"Alex",
+    id: 6,
+    zone: "4b"
+    },{
+    name: "J",
+    id:5,
+    zone:"5b"
+    },{
+    name: "Lacey",
+    id: 4,
+    zone:"5b"
+    }
+  ]
 
   const toggleNavBar = () => {
     setShowNav(!showNav)
@@ -24,19 +50,19 @@ const NavBar = () => {
       </button>
       <div className={showNav ? "navigationMenu expanded" : "navigationMenu"}>
         <ul>
-        <li><Link className="myGarden" to={`/MyGarden`}>My Garden</Link></li>
+        <li><Link className="myGarden" to={"/MyGarden"}>My Garden</Link></li>
          <li
            className="profile" onClick={()=> toggleDropDown()}>USER Profiles
           </li>
         <datalist className={showDropdown ? "dropdown active" : "dropdown"} key={Date.now}>
           {tempUsers.map((user, index) => {
             return (
-              <Link className="userProfiles" to={`/${user}`} style={{ textDecoration: "none" }} key={index}>
+              <Link className="userProfiles" to={`/user/${user.id}`} style={{ textDecoration: "none" }} key={index}>
                 <option 
                   key={index} 
-                  value={user}
+                  value={user.name}
                 >
-                {user}
+                {user.name}
                 </option>
               </Link>
             )
