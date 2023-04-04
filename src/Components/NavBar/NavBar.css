@@ -46,7 +46,7 @@
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   transform: translateY(-50%);
-  margin: 2%;
+  margin: 3%;
 }
 .hamburger:hover {
   background-color: #e7b9e4;
