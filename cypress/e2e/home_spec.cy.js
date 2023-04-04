@@ -5,38 +5,37 @@ describe('template spec', () => {
 
   it('renders correctly', () => {
       cy.get('.home-container').should('exist')
-      cy.get('.title-container').should('exist')
+      cy.get('.title-input-container').should('exist')
+      cy.get(".logo-and-title").should("exist")
       cy.get(".logo-image").should("exist")
       cy.get('.home-title').should('have.text', 'Garden Grow')
       cy.get('form').should('exist')
 
     })
 
-  it("should open and close Nav bar when clicked", () => {
-    cy
-    .get("nav").should("not.have.class", "expanded")
-    .find(".hamburger")
-    .click()
-    .get("nav > div").should("have.class", "expanded")
-    .get("nav > div").should("contain", "USER Profiles")
-    .get("nav > div").should("contain", "My Garden")
-    .get("nav")
-    .find(".hamburger")
-    .click()
-    .get("nav").should("not.have.class", "expanded")
-  })
+  it("toggles the navigation menu when the hamburger button is clicked", () => {
+    cy.get(".navigationMenu").should("not.have.class", "expanded");
+    cy.get(".hamburger").click();
+    cy.get(".navigationMenu").should("have.class", "expanded");
+    cy.get(".hamburger").click();
+    cy.get(".navigationMenu").should("not.have.class", "expanded");
+  });
+
+  it("shows the dropdown menu when the user profile button is clicked", () => {
+    cy.get(".dropdown").should("not.have.class", "active");
+    cy.contains("USER Profiles").click({force: true});
+    cy.get(".dropdown").should("have.class", "active");
+    cy.contains("Rae").click({force: true});
+    cy.url().should("include", "/Rae");
+  });
 
   it("should open and close user profiles when clicked", () => {
-    cy
-    .get("nav").should("not.have.class", "expanded")
-    .find(".hamburger")
-    .click()
+    cy.get("nav").should("not.have.class", "expanded")
+    .find(".hamburger").click()
     .get("nav > div").should("have.class", "expanded")
-    .get(".profile")
-    .click()
+    .get(".profile").click()
     .get("datalist").should("contain", "Rae")
-    .get(".profile")
-    .click()
+    .get(".profile").click()
     .get("datalist").should("not.have.class", "active")  
   })
 

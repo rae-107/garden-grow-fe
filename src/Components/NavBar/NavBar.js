@@ -21,7 +21,7 @@ const NavBar = () => {
     },{
     name:"Alex",
     id: 6,
-    zone: "something"
+    zone: "4b"
     },{
     name: "J",
     id:5,

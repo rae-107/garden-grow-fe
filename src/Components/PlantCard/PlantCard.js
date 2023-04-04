@@ -15,7 +15,7 @@ const PlantCard = ({ id, name, img, addToGarden, growzone, deleteFromGarden }) =
         <button onClick={()=> {
           console.log("button is clicked")
           return addToGarden(id)}
-          } onDblClick={()=> {
+          } onDoubleClick={()=> {
             return deleteFromGarden(id)
           }} className="update-my-garden-button">+ to my garden</button>
       </div>

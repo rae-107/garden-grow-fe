@@ -1,6 +1,6 @@
 import "./Plants.css";
 import PlantCard from "../PlantCard/PlantCard";
-import NavBar from "../NavBar/NavBar";
+import NavBar from '../NavBar/NavBar'
 
 const Plants = ({ plants, heading, growzone, addToGarden, deleteFromGarden }) => {
   const makeCards = () => {
