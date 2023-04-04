@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
 
 const Plant = ({ id, growzone }) => {
-  const { loading, error, data } = useQuery(LOAD_VEGETABLE, {
+  const { data } = useQuery(LOAD_VEGETABLE, {
     variables: { vegetableId: id, zone: growzone },
   });
   return (
