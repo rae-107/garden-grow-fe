@@ -5,7 +5,33 @@ import { Link } from "react-router-dom"
 const NavBar = () => {
   const [showDropdown, setShowDropDown] = useState(false)
   const [showNav, setShowNav] = useState(false)
-  const tempUsers = ["Rae", "Ciera", "Josephine", "Alex", "J", "Lacey"]
+  const tempUsers = [
+    {
+    name:"Rae",
+    id: 7,
+    zone: "6a"
+    },{
+    name: "Ciera",
+    id: 2,
+    zone:"5b"
+    },{
+    name: "Josephine",
+    id:1,
+    zone:"9a"
+    },{
+    name:"Alex",
+    id: 6,
+    zone: "something"
+    },{
+    name: "J",
+    id:5,
+    zone:"5b"
+    },{
+    name: "Lacey",
+    id: 4,
+    zone:"5b"
+    }
+  ]
 
   const toggleNavBar = () => {
     setShowNav(!showNav)
@@ -31,12 +57,12 @@ const NavBar = () => {
         <datalist className={showDropdown ? "dropdown active" : "dropdown"} key={Date.now}>
           {tempUsers.map((user, index) => {
             return (
-              <Link className="userProfiles" to={`/${user}`} style={{ textDecoration: "none" }} key={index}>
+              <Link className="userProfiles" to={`/${user.id}`} style={{ textDecoration: "none" }} key={index}>
                 <option 
                   key={index} 
-                  value={user}
+                  value={user.name}
                 >
-                {user}
+                {user.name}
                 </option>
               </Link>
             )

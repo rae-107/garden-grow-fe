@@ -8,6 +8,7 @@ import { LOAD_PLANTS } from "../../Graphql/Queries";
 import { useLazyQuery } from "@apollo/client";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import UserProfile from "../UserProfile/UserProfile";
 
 const App = () => {
   const [plants, setPlants] = useState([]);
@@ -101,6 +102,19 @@ const App = () => {
             />
           )}
         ></Route>
+        <Route
+          exact
+          path="/:name"
+          render={({ match }) => {
+            return (
+              <UserProfile 
+                name={match.params.name}
+                id={match.params.id}
+                zone={match.params.zone}
+              />
+            )
+          }}
+        />
         <Route
           exact
           path="*"
