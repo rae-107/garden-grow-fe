@@ -32,6 +32,18 @@ const App = () => {
     }
   }
 
+  const deleteFromGarden = (id) => {
+    if(savePlant.includes(id)) {
+      const updateList = plants.reduce((arr, plant, index) => {
+        if(plant.id === id) {
+          arr.splice(index, 1)
+        }
+        return arr
+      })
+      return setSavePlant(updateList)
+    }
+  }
+
   
 
   //below for testing while working only can be deleted at end
@@ -104,8 +116,9 @@ const App = () => {
         ></Route>
         <Route
           exact
-          path="/:name"
+          path="/:id"
           render={({ match }) => {
+            console.log("route", match.params);
             return (
               <UserProfile 
                 name={match.params.name}
