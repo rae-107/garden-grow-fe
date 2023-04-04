@@ -6,35 +6,30 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 const UserProfile = ({name, id, zone}) => {
-  const {loading, error, data} = useQuery(LOAD_USER, {
-    variables: { userId: id, zone: zone },
-  })
-  // console.log("data", data, LOAD_USER)
-  // const [user, setUser] = useState({})
-  // // const [userZone, setUserZone] = useState("")
-  useEffect(() => {
-    console.log("data", data[0])
-    // if(data) {
-    //   setUser(data.userDetails)
-    //   // setUserZone(data.userDetails.zone)
-    // }
-  }, [loading, error, data])
+  const {loading, error, data} = useQuery
+  (LOAD_USER, 
+    {
+    variables: { userId: "1" },
+  }
+  )
+  console.log("here data", data)
 
   return (
+    // <h1>Hi hello</h1>
     <section className="profile-page">
       <NavBar />
-      <img src={data} alt="User Profile"></img>
+      <img src={data?.userDetails?.image} alt="User Profile"></img>
       <h1 className="profile-name">
-        {data}
+        {data?.userDetails?.name}
       </h1>
       <div className="socials">
-        <Link to={`${data}`}>LinkedIn</Link>
-        <Link to={`${data}`}>Github</Link>
-        <p>{data}</p>
+        <Link to={`${data?.userDetails?.linkedIn}`}>LinkedIn</Link><br></br>
+        <Link to={`${data?.userDetails?.github}`}>Github</Link>
+        <p>{data?.userDetails?.email}</p>
       </div>
       <article className="aboutMe">
-        <p>My Growzone: {data}</p>
-        <p>{data}</p>
+        {/* <p>My Growzone: {data}</p> */}
+        <p>{data?.userDetails?.aboutMe}</p>
       </article>
     </section>
   );

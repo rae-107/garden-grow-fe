@@ -40,22 +40,22 @@ query vegetableDetails($vegetableId: String!, $zone: String!){
   }
 }
 `
+// export const LOAD_USER = gql`
+// query userDetails{
+//   userDetails(
+//       userId: "1"
+//       ) {
+//          name
+//   }
+// }
+// `
+
+
+
+
+
 export const LOAD_USER = gql`
-query userDetails{
-  userDetails(
-      userId: "1"
-      ) {
-         name
-  }
-}
-`
-
-
-
-
-
-/* `
-query userDetails($userId:String!, $zone:String!){
+query userDetails($userId:String!){
   userDetails(
       userId: $userId
       ) {
@@ -70,25 +70,9 @@ query userDetails($userId:String!, $zone:String!){
             vegetable{
                 id
                 name
-                description
-                sun
-                water
-                rowSpacing
-                seedSpacing
-                growingDuration
                 image
-                zoneDetails(
-                    zone: $zone
-                ){
-                    plantSeedsIndoorsStart
-                    plantSeedsIndoorsEnd
-                    plantSeedlingsStart
-                    plantSeedlingsEnd
-                    plantSeedsOutdoorsStart
-                    plantSeedsOutdoorsEnd
-                }
             }
          }
   }
 }
-`*/
+`

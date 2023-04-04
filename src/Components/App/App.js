@@ -20,23 +20,13 @@ const App = () => {
   // const [plantAdded, setPlantAdded] =useState(false)
 
   useEffect(() => {
-    fetch("https://garden-grow-be.herokuapp.com/api/v1/graphql", {
-      method: "POST",
-      headers : {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data),
+    if (data) {
+      setPlants([...data.vegetablesByZipcode.vegetables]);
+      setGrowzone(data.vegetablesByZipcode.growZone);
     }
-    .then(response=> response.json())
-    .then(data => {
-      console.log(data)
-    })
-    // if (data) {
-    //   setPlants([...data.vegetablesByZipcode.vegetables]);
-    //   setGrowzone(data.vegetablesByZipcode.growZone);
-    // }
-  )}, [loading, error, data]);
- 
+  }, [loading, error, data]);
+  console.log(error)
+
   // const addToGarden = (id) => {
   //   if(!savePlant.includes(Number(id))) {
   //     console.log("saved list",savePlant)
