@@ -1,10 +1,12 @@
 import "./Plants.css";
 import PlantCard from "../PlantCard/PlantCard";
+import PropTypes from 'prop-types'
 import NavBar from '../NavBar/NavBar'
 
-const Plants = ({ plants, heading, growzone, addToGarden, deleteFromGarden, plantAdded }) => {
+
+const Plants = ({ plants, heading, growzone }) => {
   const makeCards = () => {
-    return plants.map((plant) => <PlantCard key={plant.id} id={plant.id} name={plant.name} img={plant.image} growzone={growzone} addToGarden={addToGarden} deleteFromGarden={deleteFromGarden} plantAdded={plantAdded} />)
+    return plants.map((plant) => <PlantCard key={plant.id} id={plant.id} name={plant.name} img={plant.image} growzone={growzone}  />)
   };
 
   return (
@@ -21,3 +23,9 @@ const Plants = ({ plants, heading, growzone, addToGarden, deleteFromGarden, plan
 };
 
 export default Plants;
+
+Plants.propTypes = {
+  plants: PropTypes.array.isRequired,
+  heading: PropTypes.string.isRequired,
+  growzone: PropTypes.string.isRequired
+}

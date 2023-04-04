@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/client"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-const UserProfile = ({name, id, zone}) => {
+const UserProfile = ({ name, id, zone }) => {
   const {loading, error, data} = useQuery
   (LOAD_USER, 
     {

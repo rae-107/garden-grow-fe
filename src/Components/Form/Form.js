@@ -1,5 +1,6 @@
 import "./Form.css";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 
 const Form = ({ setZipcode, zipcode, loadPlants }) => {
   return (
@@ -10,7 +11,7 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
           type="number"
           min="10000"
           max="99999"
-          placeholder="start by entering your garden's zip code"
+          placeholder="zip code"
           name="zipcode"
           //needed id for onclick function in link
           id="zipcode-input"
@@ -25,11 +26,8 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
             loadPlants({ variables: { zipcode: zipcode } })
           }}
         >
-          <span 
-          role="img" 
-          aria-label="plant emoji"
-          className="button-image">
-            &#x1F331;{" "}
+          <span role="img" aria-label="plant emoji">
+          Let's Grow
           </span>
         </Link>
       </div>
@@ -43,3 +41,9 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
 };
 
 export default Form;
+
+Form.propTypes = {
+  setZipcode: PropTypes.func.isRequired,
+  zipcode: PropTypes.string.isRequired,
+  loadPlants: PropTypes.func.isRequired,
+};
