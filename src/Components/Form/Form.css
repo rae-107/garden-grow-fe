@@ -17,6 +17,10 @@
   border-radius: 10px;
 }
 
+.label {
+  display: none;
+}
+
 .input, 
 .plants-link {
   appearance: none;

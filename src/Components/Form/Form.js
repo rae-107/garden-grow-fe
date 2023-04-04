@@ -6,6 +6,7 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
   return (
     <form className="form-container">
       <div className="input-and-button">
+        <label className="label" for='zipcode-input'>Zipcode</label>
         <input
           className="input"
           type="number"
