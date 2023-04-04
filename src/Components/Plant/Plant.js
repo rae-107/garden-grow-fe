@@ -21,7 +21,7 @@ const Plant = ({ id, growzone, zipcode }) => {
 
   return (
     <main className="plant-details-container">
-      <Link to={`/${zipcode}`}>
+      <Link to={`/results/${zipcode}`}>
         <section className="back-logo">
           <img className="x-image-button" src={xLogo} alt="logo" />
         </section>
@@ -30,7 +30,7 @@ const Plant = ({ id, growzone, zipcode }) => {
       <section className="plant-image">
         <img
           className="large-plant-img"
-          src={`../Assets/${data?.vegetableDetails?.image}`}
+          src={`/Assets/${data?.vegetableDetails?.image}`}
           alt="plant"
         />
       </section>
@@ -64,9 +64,9 @@ const Plant = ({ id, growzone, zipcode }) => {
       </section>
       <section className="plant-details-text">
         <section className="plant-text">
-        <p className="plant-description">
-          {data?.vegetableDetails?.description}{" "}
-        </p>
+          <p className="plant-description">
+            {data?.vegetableDetails?.description}{" "}
+          </p>
         </section>
       </section>
     </main>

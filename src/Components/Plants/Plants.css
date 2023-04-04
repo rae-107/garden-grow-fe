@@ -15,6 +15,20 @@
   text-align: center;
 }
 
+.beet-logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 4.5%;
+  transform: rotate(-35deg);
+  padding-left: 51px;
+  padding-top: 21px;
+}
+
+.logo-box {
+  height: 11vh;
+}
+
+
 .plants-display-grid {
   display: grid;
   width: 100%;

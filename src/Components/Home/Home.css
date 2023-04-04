@@ -14,15 +14,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50%;
-  max-width: 70%;
+  height: 47%;
+  max-width: 58%;
   width: 70%;
   color: #D9D9D9;
   font-size: 3.25em;
   margin-top: 8%;
   font-weight: bolder;
   background-color: #224136;
-  border-radius: 5%;
+  border-radius: 16px;
 }
 
 .logo-and-title {
@@ -48,7 +48,7 @@
   background-image: url('../../Images/beet3_720.png');
   background-size: contain;
   background-repeat: no-repeat;
-  width: 5.5%;
+  width: 6.5%;
   transform: rotate(-35deg);
 }
 

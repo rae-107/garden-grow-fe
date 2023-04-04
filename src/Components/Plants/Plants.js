@@ -3,6 +3,8 @@ import PlantCard from "../PlantCard/PlantCard";
 import PropTypes from 'prop-types'
 import NavBar from '../NavBar/NavBar'
 import { useEffect } from "react";
+import beetLogo from "../../Images/beet3_720.png"
+import { Link } from "react-router-dom";
 
 const Plants = ({ plants, heading, growzone, loadPlants, zipcode }) => {
   const makeCards = () => {
@@ -16,7 +18,12 @@ const Plants = ({ plants, heading, growzone, loadPlants, zipcode }) => {
 
   return (
     <section className="plants-page">
+      <section className='logo-box'>
       <NavBar />
+      <Link to="">
+      <img className="beet-logo" src={beetLogo} alt='beet'/>
+      </Link>
+      </section>
       <h1 className="plants-title">
         {heading}
       </h1>
