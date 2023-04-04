@@ -58,11 +58,13 @@ const App = () => {
         <Route
           exact
           path="/:zipcode"
-          render={() => (
+          render={({ match }) => (
             <Plants
+              loadPlants={loadPlants}
               plants={plants}
               growzone={growzone}
-              heading={`Your ${zipcode} Fruits and Vegetables`}
+              zipcode={match.params.zipcode}
+              heading={`Your ${match.params.zipcode} Fruits and Vegetables`}
             />
           )}
         ></Route>
