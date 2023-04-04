@@ -1,46 +1,63 @@
 import "./Plant.css";
+import xLogo from "../../Images/x-vector.png";
+import { LOAD_VEGETABLE } from "../../Graphql/Queries";
+import { useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 
-const Plant = () => {
+const Plant = ({ id, growzone }) => {
+  const { loading, error, data } = useQuery(LOAD_VEGETABLE, {
+    variables: { vegetableId: id, zone: growzone },
+  });
+  console.log(loading)
+  console.log(error)
   return (
     <main className="plant-details-container">
-      <h1 className="plant-title">Radishes</h1>
+      <Link to="/:zipcode">
+        <section className="back-logo">
+          <img className="x-image-button" src={xLogo} alt="logo" />
+        </section>
+      </Link>
+      <h1 className="plant-title">{data?.vegetableDetails?.name}</h1>
       <section className="plant-image">
-        <img className="large-plant-img" src={'public/Assets/radish.jpg'} alt="plant" />
-      </section>
-      <section className="plant-details-text">
-        <p className="plant-description">
-          Radish, Raphanus sativus, is an herbaceous annual or biennial plant in
-          the family Brassicaceae, grown for its edible taproot. The radish
-          plant has a short hairy stem and a rosette (ground level horizontal
-          and circular leaves) of oblong shaped leaves which measure 5–30 cm
-          (2–12 in) in length. The top leaves of the plant are smaller and
-          lance-like. The taproot of the plant is cylindrical or tapering and
-          commonly red or white in color. The radish plant produces multiple
-          purple or pink flowers on racemes which produce 2–12 seeds. The
-          reddish brown seeds are oval, and slightly flattened. Radish is
-          generally grown as an annual plant, surviving only one growing season
-          and can reach 20–100 cm (8–39 in) in height depending on the variety.
-          Radish may also be referred to by the name of the cultivar and names
-          may include Chinese radish, Japanese radish or oriental radish. The
-          origin of the radish plant has not been determined but they are found
-          growing native from the Mediterranean to the Caspian Sea.
-        </p>
+        <img
+          className="large-plant-img"
+          src={`../Assets/${data?.vegetableDetails?.image}`}
+          alt="plant"
+        />
       </section>
       <section className="planting-care-container">
-        <h1 className="planting-care-title">Planting Guide for: 5b</h1>
+        <h1 className="planting-care-title">{`Planting Guide for: ${growzone}`}</h1>
         <section className="planting-details">
-          <p className="sun-duration">Sun: Full Sun</p>
-          <p className="weekly-water">Weekly Water: 1 Inch</p>
-          <p className="row-spacing">Row Spacing: 2 Inches</p>
-          <p className="seed-spacing">Seed Spacing: 2 Inches</p>
-          <p className="indoor-dates">Indoor Seed Start Dates: N/A</p>
+          <p className="sun-duration">{`Sun: ${data?.vegetableDetails?.sun}`}</p>
+          <p className="weekly-water">{`Weekly Water: ${data?.vegetableDetails?.water}`}</p>
+          <p className="row-spacing">{`Row Spacing: ${data?.vegetableDetails?.rowSpacing}`}</p>
+          <p className="seed-spacing">{`Seed Spacing: ${data?.vegetableDetails?.seedSpacing}`}</p>
+          <p className="indoor-dates">
+            {data?.vegetableDetails.zoneDetails?.plantSeedsIndoorsStart &&
+            data?.vegetableDetails.zoneDetails?.plantSeedsIndoorsEnd
+              ? `Indoor Seed Start Dates: ${data?.vegetableDetails.zoneDetails?.plantSeedsIndoorsStart} to ${data?.vegetableDetails.zoneDetails?.plantSeedsIndoorsEnd}`
+              : null}
+          </p>
           <p className="outdoor-seedling">
-            Outdoor Seedling Planting Dates: N/A
+            {data?.vegetableDetails.zoneDetails?.plantSeedlingsStart &&
+            data?.vegetableDetails.zoneDetails?.plantSeedlingsEnd
+              ? `Outdoor Seedling Start Dates: ${data?.vegetableDetails.zoneDetails?.plantSeedlingsStart} to ${data?.vegetableDetails.zoneDetails?.plantSeedlingsEnd}`
+              : null}
           </p>
           <p className="outdoor-seed">
-            Outdoor Seed Start Dates: May 29 - June 12
+            {data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsStart &&
+            data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsEnd
+              ? `Outdoor Seed Start Dates: ${data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsStart} to ${data?.vegetableDetails.zoneDetails?.plantSeedsOutdoorsEnd}`
+              : null}
           </p>
-          <p className="harvest-time">Harvest Time: 21-35 Days</p>
+          <p className="harvest-time">{`Harvest Time: ${data?.vegetableDetails?.growingDuration}`}</p>
+        </section>
+      </section>
+      <section className="plant-details-text">
+        <section className="plant-text">
+        <p className="plant-description">
+          {data?.vegetableDetails?.description}{" "}
+        </p>
         </section>
       </section>
     </main>

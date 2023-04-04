@@ -14,3 +14,29 @@ export const LOAD_PLANTS = gql`
     }
   }
 `
+export const LOAD_VEGETABLE = gql`
+query vegetableDetails($vegetableId: String!, $zone: String!){
+  vegetableDetails(
+      vegetableId: $vegetableId
+  ) {
+     name
+     description
+     sun
+     water
+     rowSpacing
+     seedSpacing
+     growingDuration
+     image
+     zoneDetails(
+      zone: $zone
+      ) {
+           plantSeedsIndoorsStart
+           plantSeedsIndoorsEnd
+           plantSeedlingsStart
+           plantSeedlingsEnd
+           plantSeedsOutdoorsStart
+           plantSeedsOutdoorsEnd
+  }
+  }
+}
+`

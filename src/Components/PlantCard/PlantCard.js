@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import "./PlantCard.css";
 
-const PlantCard = ({ id, name, img, addToGarden }) => {
+const PlantCard = ({ id, name, img, addToGarden, growzone }) => {
   return (
-    <Link to="/this will be the details page">
+    <Link to={`${growzone}/${id}`}>
       <div className="plant-card">
         <img
           alt={`Click for more information about ${name}`}

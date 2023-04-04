@@ -5,9 +5,8 @@ describe('template spec', () => {
 
   it('renders correctly', () => {
       cy.get('.home-container').should('exist')
-      cy.get('.nav-container').should('exist')
-      cy.get(".logoLink").should("exist")
       cy.get('.title-container').should('exist')
+      cy.get(".logo-image").should("exist")
       cy.get('.home-title').should('have.text', 'Garden Grow')
       cy.get('form').should('exist')
 
