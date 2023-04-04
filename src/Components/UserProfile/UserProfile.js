@@ -2,11 +2,12 @@ import "./UserProfile.css"
 import NavBar from "../NavBar/NavBar"
 import { LOAD_USER } from "../../Graphql/Queries"
 import { useQuery } from "@apollo/client"
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 const UserProfile = ({ name, id, zone }) => {
-  const {loading, error, data} = useQuery
+  // const {loading, error, data} = useQuery
+  const {data} = useQuery
   (LOAD_USER, 
     {
     variables: { userId: id },
