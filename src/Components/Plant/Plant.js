@@ -66,8 +66,7 @@ const Plant = ({ id, growzone }) => {
 
 export default Plant;
 
-Plants.propTypes = {
-  plants: PropTypes.array.isRequired,
-  heading: PropTypes.string.isRequired,
+Plant.propTypes = {
+  // id: PropTypes.string.isRequired,
   growzone: PropTypes.string.isRequired
 }
