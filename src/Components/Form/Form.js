@@ -11,7 +11,7 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
           type="number"
           min="10000"
           max="99999"
-          placeholder="start by entering your garden's zip code"
+          placeholder="zip code"
           name="zipcode"
           //needed id for onclick function in link
           id="zipcode-input"
@@ -26,11 +26,8 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
             loadPlants({ variables: { zipcode: zipcode } })
           }}
         >
-          <span 
-          role="img" 
-          aria-label="plant emoji"
-          className="button-image">
-            &#x1F331;{" "}
+          <span role="img" aria-label="plant emoji">
+          Let's Grow
           </span>
         </Link>
       </div>

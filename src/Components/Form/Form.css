@@ -43,20 +43,22 @@
 
 .plants-link {
   display: flex;
+  font-size: 12px;
   justify-content: center;
   align-items: center;
-  height: 40%;
-  width: 10%;
-  border-radius: 15%;
+  height: 28%;
+  width: 35%;
+  border-radius: 5px;
+  margin: 28px;
 }
 
 .input {
-  width: 85%;
+  width: 83%;
   height: 45%;
   color: #503571;
   font-weight: bolder;
   margin-bottom: 2%;
-  border-radius: 5%;
+  border-radius: 5px;
 }
 
 .form-button {
@@ -67,6 +69,7 @@
 .button-image {
   font-size: 2rem;
 }
+
 .error-message {
   color: #482644;
   font-size: larger;
