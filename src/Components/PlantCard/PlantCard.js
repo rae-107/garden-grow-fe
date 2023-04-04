@@ -36,7 +36,7 @@ const PlantCard = ({ id, name, img,  growzone }) => {
           alt={`Click for more information about ${name}`}
           src={`/Assets/${img}`}
           className="card-image"
-        ></img>
+        />
         <h2 className="card-title">{name}</h2>
         {plantAdded ? <button onClick={()=> deleteFromGarden(id)} className="update-my-garden-button">- from my garden</button> :  <button onClick={()=> addToGarden(id)} className="update-my-garden-button">+ to my garden</button> 
         };

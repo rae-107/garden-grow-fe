@@ -24,9 +24,7 @@ const App = () => {
       setGrowzone(data.vegetablesByZipcode.growZone);
     }
   }, [loading, error, data]);
-  console.log(error)
-
-  
+  console.log("error", error);
 
   //below for testing while working only can be deleted at end
   useEffect(() => {
@@ -57,17 +55,18 @@ const App = () => {
             />
           )}
         />
-        {loading && (
-          <Route exact path="/" render={() => <LoadingPage />}></Route>
-        )}
+        {error && <Route exact path="*" render={() => <ErrorPage />} />}
+        {loading && <Route exact path="/:zipcode" render={() => <LoadingPage />}></Route>}
         <Route
           exact
           path="/results/:zipcode"
-          render={() => (
+          render={({ match }) => (
             <Plants
+              loadPlants={loadPlants}
               plants={plants}
               growzone={growzone}
-              heading={`Your ${zipcode} Fruits and Vegetables`}
+              zipcode={match.params.zipcode}
+              heading={`Your ${match.params.zipcode} Fruits and Vegetables`}
             />
           )}
         ></Route>
@@ -77,6 +76,7 @@ const App = () => {
           render={({ match }) => {
             return (
               <Plant
+                zipcode={zipcode}
                 id={match.params.vegetableId}
                 growzone={match.params.growzone}
             
@@ -98,13 +98,7 @@ const App = () => {
             )
           }}
         />
-        <Route
-          exact
-          path="*"
-          render={() => (
-            <ErrorPage/>
-          )}
-        />
+        <Route exact path="*" render={() => <ErrorPage />} />
       </Switch>
     </div>
   );
@@ -115,5 +109,5 @@ export default App;
 App.propTypes = {
   zipcode: PropTypes.string,
   growzone: PropTypes.string,
-  plants: PropTypes.array
-}
+  plants: PropTypes.array,
+};

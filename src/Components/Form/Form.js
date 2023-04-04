@@ -3,9 +3,15 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
 
 const Form = ({ setZipcode, zipcode, loadPlants }) => {
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <form className="form-container">
+    <form onSubmit={handleFormSubmit} className="form-container">
       <div className="input-and-button">
+        <label className="label" htmlFor='zipcode-input'>Zipcode</label>
         <input
           className="input"
           type="number"
