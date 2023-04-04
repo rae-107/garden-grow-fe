@@ -8,6 +8,7 @@ const Plants = ({ plants, heading, growzone, addToGarden }) => {
 
   return (
     <section className="plants-page">
+      
       <h1 className="plants-title">
         {heading}
       </h1>

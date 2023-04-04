@@ -90,20 +90,21 @@ const App = () => {
             );
           }}
         ></Route>
+        <Route 
+          exact path="/:MyGarden" 
+          render={() => (
+            <Plants 
+              plants={savePlant}
+              growzone={growzone}
+              heading={`Your Saved Fruits and Vegetables`}
+            />
+          )}
+        />
         <Route
           exact
           path="*"
           render={() => (
             <ErrorPage/>
-          )}
-        />
-        <Route 
-          exact path="/MyGarden" 
-          render={() => (
-            <Plants 
-              plants={savePlant}
-              heading={`Your Saved Fruits and Vegetables`}
-            />
           )}
         />
       </Switch>
