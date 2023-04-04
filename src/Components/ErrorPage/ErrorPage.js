@@ -7,7 +7,7 @@ const ErrorPage = () => {
     <section className='error-page' >
       <div className='x-button-container'>
       <Link to="/">
-        <img className='x-button' src={x} ></img>
+        <img alt='Click to return home' className='x-button' src={x} ></img>
         </Link>
       </div>
       <h2 className='error-image' >This will be a dead plant</h2>

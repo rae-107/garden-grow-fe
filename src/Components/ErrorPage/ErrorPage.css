@@ -10,7 +10,7 @@
 
 .x-button-container {
   display: flex;
-  justify-content: start;
+  justify-content: flexstart;
   width: 100vw;
 }
 
