@@ -33,9 +33,10 @@
 }
 
 .home-title {
+  font-size: 88px;
   margin: 0;
   /* margin-top: 5%; */
-  text-shadow: 1px 1px 2px #4D1320;
+  text-shadow: 1px 1px 2px #4d1320;
 }
 
 .form-container {
@@ -47,7 +48,7 @@
   background-image: url('/public/Assets/garden_logos/beet3_720.png');
   background-size: contain;
   background-repeat: no-repeat;
-  width: 8%;
+  width: 5.5%;
   transform: rotate(-35deg);
 }
 
