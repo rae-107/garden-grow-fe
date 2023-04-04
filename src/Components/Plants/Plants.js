@@ -6,7 +6,7 @@ import NavBar from '../NavBar/NavBar'
 
 const Plants = ({ plants, heading, growzone }) => {
   const makeCards = () => {
-    return plants.map((plant) => <PlantCard key={plant.id} id={plant.id} name={plant.name} img={plant.image} growzone={growzone}/>)
+    return plants.map((plant) => <PlantCard key={plant.id} id={plant.id} name={plant.name} img={plant.image} growzone={growzone}  />)
   };
 
   return (

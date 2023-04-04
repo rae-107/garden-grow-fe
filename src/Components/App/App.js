@@ -8,6 +8,7 @@ import { LOAD_PLANTS } from "../../Graphql/Queries";
 import { useLazyQuery } from "@apollo/client";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import UserProfile from "../UserProfile/UserProfile";
 import PropTypes from 'prop-types'
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
   const [zipcode, setZipcode] = useState("");
   const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
 
+
   useEffect(() => {
     if (data) {
       setPlants([...data.vegetablesByZipcode.vegetables]);
@@ -23,6 +25,8 @@ const App = () => {
     }
   }, [loading, error, data]);
   console.log(error)
+
+  
 
   //below for testing while working only can be deleted at end
   useEffect(() => {
@@ -58,7 +62,7 @@ const App = () => {
         )}
         <Route
           exact
-          path="/:zipcode"
+          path="/results/:zipcode"
           render={() => (
             <Plants
               plants={plants}
@@ -69,17 +73,31 @@ const App = () => {
         ></Route>
         <Route
           exact
-          path="/:growzone/:vegetableId"
+          path="/vegetable/:growzone/:vegetableId"
           render={({ match }) => {
-            console.log("route", match.params);
             return (
               <Plant
                 id={match.params.vegetableId}
                 growzone={match.params.growzone}
+            
               />
             );
           }}
         ></Route>
+        <Route
+          exact
+          path="/user/:userId"
+          render={({ match }) => {
+            console.log("route", match.params);
+            return (
+              <UserProfile 
+                name={match.params.name}
+                id={match.params.userId}
+                zone={match.params.zone}
+              />
+            )
+          }}
+        />
         <Route
           exact
           path="*"
