@@ -1,7 +1,9 @@
 import "./Plants.css";
 import PlantCard from "../PlantCard/PlantCard";
+import PropTypes from 'prop-types'
 import NavBar from '../NavBar/NavBar'
 import beetLogo from "../../Images/beet3_720.png"
+
 
 const Plants = ({ plants, heading, growzone }) => {
   const makeCards = () => {
@@ -25,3 +27,9 @@ const Plants = ({ plants, heading, growzone }) => {
 };
 
 export default Plants;
+
+Plants.propTypes = {
+  plants: PropTypes.array.isRequired,
+  heading: PropTypes.string.isRequired,
+  growzone: PropTypes.string.isRequired
+}
