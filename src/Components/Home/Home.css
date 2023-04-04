@@ -45,7 +45,7 @@
 }
 
 .logo-image {
-  background-image: url('/public/Assets/garden_logos/beet3_720.png');
+  background-image: url('../../Images/beet3_720.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 5.5%;
