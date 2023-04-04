@@ -1,10 +1,10 @@
 describe('template spec', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000/9a/2')
+    cy.visit('http://localhost:3000/vegetable/9a/2')
   })
 
   it("should display all plant details on plant page", () => {
-    cy.visit('http://localhost:3000/9a/2')
+    cy.visit('http://localhost:3000/vegetable/9a/2')
     cy.get('.plant-title').should('be.visible').contains('Beets')
     cy.get('.large-plant-img').should('be.visible')
     cy.get('.planting-care-title').should('be.visible').contains('Planting Guide for: 9a')
@@ -18,7 +18,7 @@ describe('template spec', () => {
   })
 
   it('should go back to plant library on click of X', () => {
-    cy.visit('http://localhost:3000/9a/2')
+    cy.visit('http://localhost:3000/vegetable/9a/2')
     cy.get('.x-image-button').click()
     cy.url('http//localhost:3000/zipcode')
   })
