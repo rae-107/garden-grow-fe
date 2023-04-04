@@ -8,7 +8,7 @@ import { LOAD_PLANTS } from "../../Graphql/Queries";
 import { useLazyQuery } from "@apollo/client";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import ErrorPage from "../ErrorPage/ErrorPage";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 const App = () => {
   const [plants, setPlants] = useState([]);
@@ -22,7 +22,7 @@ const App = () => {
       setGrowzone(data.vegetablesByZipcode.growZone);
     }
   }, [loading, error, data]);
-  console.log(error)
+  console.log("error", error);
 
   //below for testing while working only can be deleted at end
   useEffect(() => {
@@ -53,9 +53,8 @@ const App = () => {
             />
           )}
         />
-        {loading && (
-          <Route exact path="/" render={() => <LoadingPage />}></Route>
-        )}
+        {error && <Route exact path="*" render={() => <ErrorPage />} />}
+        {loading && <Route exact path="/:zipcode" render={() => <LoadingPage />}></Route>}
         <Route
           exact
           path="/:zipcode"
@@ -82,13 +81,7 @@ const App = () => {
             );
           }}
         ></Route>
-        <Route
-          exact
-          path="*"
-          render={() => (
-            <ErrorPage/>
-          )}
-        />
+        <Route exact path="*" render={() => <ErrorPage />} />
       </Switch>
     </div>
   );
@@ -99,5 +92,5 @@ export default App;
 App.propTypes = {
   zipcode: PropTypes.string,
   growzone: PropTypes.string,
-  plants: PropTypes.array
-}
+  plants: PropTypes.array,
+};
