@@ -72,6 +72,8 @@ const App =() => {
           exact path="/MyGarden" 
           render={() => (
             <Plants 
+              plants={savePlant}
+              heading={`Your Saved Fruits and Vegetables`}
             />
           )}
         />
