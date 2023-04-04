@@ -18,7 +18,8 @@ describe("Results page with all plants", () => {
   });
 
   it('Should render logo and nav bar', () => {
-    cy.get()
+    cy.get('.beet-logo').should('be.visible')
+    cy.get('.hamburger').should('be.visible')
   })
 
   it('Should display all plants', () => {
@@ -31,14 +32,14 @@ describe("Results page with all plants", () => {
     cy.get('.update-my-garden-button').first().contains('+ to my garden')
   })
 
-  // it('Should navigate to details page on click on plant card', () => {
-  //   cy.intercept("POST", "https://garden-grow-be.herokuapp.com/api/v1/graphql", (req) => {
-  //       aliasQuery(req, "vegetableDetails");
-  //       req.reply({ fixture: "plant.json" })
-  //     }
-  //   );
-  //   cy.get('.plant-card').first().click()
-  //   cy.url('http://localhost:3000/vegetable/6a/1')
-  //   cy.wait("@gqlvegetableDetailsQuery");
-  // })
+  it('Should navigate to details page on click on plant card', () => {
+    cy.intercept("POST", "https://garden-grow-be.herokuapp.com/api/v1/graphql", (req) => {
+        aliasQuery(req, "vegetableDetails");
+        req.reply({ fixture: "plant.json" })
+      }
+    );
+    cy.get('.plant-card').first().click()
+    cy.url('http://localhost:3000/vegetable/6a/1')
+    cy.wait("@gqlvegetableDetailsQuery");
+  })
 });
