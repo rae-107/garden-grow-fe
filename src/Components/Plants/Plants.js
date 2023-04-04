@@ -1,5 +1,6 @@
 import "./Plants.css";
 import PlantCard from "../PlantCard/PlantCard";
+import PropTypes from 'prop-types'
 
 const Plants = ({ plants, heading, growzone }) => {
   const makeCards = () => {
@@ -19,3 +20,9 @@ const Plants = ({ plants, heading, growzone }) => {
 };
 
 export default Plants;
+
+Plants.propTypes = {
+  plants: PropTypes.array.isRequired,
+  heading: PropTypes.object.isRequired,
+  growzone: PropTypes.string.isRequired
+}
