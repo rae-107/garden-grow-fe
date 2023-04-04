@@ -1,6 +1,8 @@
 import "./Plants.css";
 import PlantCard from "../PlantCard/PlantCard";
 import PropTypes from 'prop-types'
+import NavBar from '../NavBar/NavBar'
+
 
 const Plants = ({ plants, heading, growzone }) => {
   const makeCards = () => {
@@ -9,6 +11,7 @@ const Plants = ({ plants, heading, growzone }) => {
 
   return (
     <section className="plants-page">
+      <NavBar />
       <h1 className="plants-title">
         {heading}
       </h1>
