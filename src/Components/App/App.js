@@ -16,38 +16,48 @@ const App = () => {
   const [zipcode, setZipcode] = useState("");
   const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
   
-  const [savePlant, setSavePlant] = useState([])
-  const [plantAdded, setPlantAdded] =useState(false)
+  // const [savePlant, setSavePlant] = useState([])
+  // const [plantAdded, setPlantAdded] =useState(false)
 
   useEffect(() => {
-    if (data) {
-      setPlants([...data.vegetablesByZipcode.vegetables]);
-      setGrowzone(data.vegetablesByZipcode.growZone);
+    fetch("https://garden-grow-be.herokuapp.com/api/v1/graphql", {
+      method: "POST",
+      headers : {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data),
     }
-  }, [loading, error, data, savePlant]);
-  console.log(error)
+    .then(response=> response.json())
+    .then(data => {
+      console.log(data)
+    })
+    // if (data) {
+    //   setPlants([...data.vegetablesByZipcode.vegetables]);
+    //   setGrowzone(data.vegetablesByZipcode.growZone);
+    // }
+  )}, [loading, error, data]);
+ 
+  // const addToGarden = (id) => {
+  //   if(!savePlant.includes(Number(id))) {
+  //     console.log("saved list",savePlant)
+  //     const savedList = plants.filter(savedPlant => savedPlant.id === id)
+  //     return setSavePlant(previousList => [...previousList, savedList[0]])
+  //   }
+  //   setPlantAdded(true)
+  // }
 
-  const addToGarden = (id) => {
-    if(!savePlant.includes(Number(id))) {
-      console.log("saved list",savePlant)
-      const savedList = plants.filter(savedPlant => savedPlant.id === id)
-      return setSavePlant(previousList => [...previousList, savedList[0]])
-    }
-    setPlantAdded(true)
-  }
-
-  const deleteFromGarden = (id) => {
-    if(savePlant.includes(id)) {
-      const updateList = plants.reduce((arr, plant, index) => {
-        if(plant.id === id) {
-          arr.splice(index, 1)
-        }
-        return arr
-      })
-      return setSavePlant(updateList)
-    }
-    setPlantAdded(false)
-  }
+  // const deleteFromGarden = (id) => {
+  //   if(savePlant.includes(id)) {
+  //     const updateList = plants.reduce((arr, plant, index) => {
+  //       if(plant.id === id) {
+  //         arr.splice(index, 1)
+  //       }
+  //       return arr
+  //     })
+  //     return setSavePlant(updateList)
+  //   }
+  //   setPlantAdded(false)
+  // }
 
   
 
@@ -91,9 +101,9 @@ const App = () => {
               plants={plants}
               growzone={growzone}
               heading={`Your ${zipcode} Fruits and Vegetables`}
-              addToGarden={addToGarden}
-              deleteFromGarden={deleteFromGarden}
-              plantAdded={plantAdded}
+              // addToGarden ={addToGarden}
+              // deleteFromGarden={deleteFromGarden}
+              // plantAdded={plantAdded}
             />
           )}
         ></Route>

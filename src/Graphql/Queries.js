@@ -41,6 +41,20 @@ query vegetableDetails($vegetableId: String!, $zone: String!){
 }
 `
 export const LOAD_USER = gql`
+query userDetails{
+  userDetails(
+      userId: "1"
+      ) {
+         name
+  }
+}
+`
+
+
+
+
+
+/* `
 query userDetails($userId:String!, $zone:String!){
   userDetails(
       userId: $userId
@@ -77,4 +91,4 @@ query userDetails($userId:String!, $zone:String!){
          }
   }
 }
-`
+`*/
