@@ -9,7 +9,7 @@ const UserProfile = ({ name, id, zone }) => {
   const {loading, error, data} = useQuery
   (LOAD_USER, 
     {
-    variables: { userId: "1" },
+    variables: { userId: id },
   }
   )
   console.log("here data", data)

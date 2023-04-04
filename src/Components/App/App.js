@@ -92,7 +92,7 @@ const App = () => {
             return (
               <UserProfile 
                 name={match.params.name}
-                id={match.params.id}
+                id={match.params.userId}
                 zone={match.params.zone}
               />
             )
