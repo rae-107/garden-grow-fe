@@ -1,5 +1,6 @@
 import "./Plants.css";
 import PlantCard from "../PlantCard/PlantCard";
+import PropTypes from 'prop-types'
 import NavBar from '../NavBar/NavBar'
 import { useEffect } from "react";
 
@@ -26,3 +27,9 @@ const Plants = ({ plants, heading, growzone, loadPlants, zipcode }) => {
 };
 
 export default Plants;
+
+Plants.propTypes = {
+  plants: PropTypes.array.isRequired,
+  heading: PropTypes.string.isRequired,
+  growzone: PropTypes.string.isRequired
+}

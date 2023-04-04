@@ -8,6 +8,7 @@ import { LOAD_PLANTS } from "../../Graphql/Queries";
 import { useLazyQuery } from "@apollo/client";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import PropTypes from 'prop-types'
 
 const App = () => {
   const [plants, setPlants] = useState([]);
@@ -94,3 +95,9 @@ const App = () => {
 };
 
 export default App;
+
+App.propTypes = {
+  zipcode: PropTypes.string,
+  growzone: PropTypes.string,
+  plants: PropTypes.array
+}

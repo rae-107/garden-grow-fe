@@ -3,6 +3,7 @@ import xLogo from "../../Images/x-vector.png";
 import { LOAD_VEGETABLE } from "../../Graphql/Queries";
 import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 
 const Plant = ({ id, growzone }) => {
   const { loading, error, data } = useQuery(LOAD_VEGETABLE, {
@@ -65,3 +66,8 @@ const Plant = ({ id, growzone }) => {
 };
 
 export default Plant;
+
+Plant.propTypes = {
+  // id: PropTypes.string.isRequired,
+  growzone: PropTypes.string.isRequired
+}
