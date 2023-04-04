@@ -1,6 +1,7 @@
 import './ErrorPage.css'
 import x from "../../Images/x-vector.png"
 import { Link } from "react-router-dom";
+import sadCali from '../../Images/sadCauli.png'
 
 const ErrorPage = () => {
   return (
@@ -10,8 +11,8 @@ const ErrorPage = () => {
         <img alt='Click to return home' className='x-button' src={x} ></img>
         </Link>
       </div>
-      <h2 className='error-image' >This will be a dead plant</h2>
-      <h3 className='error-component-message' >404 Oh no! <br/> Looks like this page got lost in the garden.<br/> Let's find you something else to grow!</h3>
+      <img alt='A sad cauliflower' src={sadCali} className='error-image' />
+      <h3 className='error-component-message' >404... Oh no! <br/> Looks like this page got lost in the garden.<br/> Let's find you something else to grow!</h3>
     </section>
   )
 }
