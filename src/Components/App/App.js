@@ -75,6 +75,7 @@ const App = () => {
             console.log("route", match.params);
             return (
               <Plant
+                zipcode={zipcode}
                 id={match.params.vegetableId}
                 growzone={match.params.growzone}
               />

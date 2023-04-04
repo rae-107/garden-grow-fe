@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
 import ErrorPage from "../ErrorPage/ErrorPage";
 
-const Plant = ({ id, growzone }) => {
+const Plant = ({ id, growzone, zipcode }) => {
   const { loading, error, data } = useQuery(LOAD_VEGETABLE, {
     variables: { vegetableId: id, zone: growzone },
   });
@@ -19,10 +19,9 @@ const Plant = ({ id, growzone }) => {
     )
   }
 
-
   return (
     <main className="plant-details-container">
-      <Link to="/:zipcode">
+      <Link to={`/${zipcode}`}>
         <section className="back-logo">
           <img className="x-image-button" src={xLogo} alt="logo" />
         </section>
