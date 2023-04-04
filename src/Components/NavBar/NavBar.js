@@ -1,7 +1,7 @@
 import "./NavBar.css"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-// import beetLogo from "../../Images/beet3_720.png"
+
 
 const NavBar = () => {
   const [showDropdown, setShowDropDown] = useState(false)
