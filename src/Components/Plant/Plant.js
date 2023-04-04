@@ -4,6 +4,7 @@ import { LOAD_VEGETABLE } from "../../Graphql/Queries";
 import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 const Plant = ({ id, growzone }) => {
   const { loading, error, data } = useQuery(LOAD_VEGETABLE, {
@@ -11,6 +12,14 @@ const Plant = ({ id, growzone }) => {
   });
   console.log(loading)
   console.log(error)
+
+  if(error) {
+    return (
+      <ErrorPage />
+    )
+  }
+
+
   return (
     <main className="plant-details-container">
       <Link to="/:zipcode">
