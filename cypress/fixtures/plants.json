@@ -1,26 +1,28 @@
 {
-  "vegetablesByZipcode  ": {
-    "growZone": "6a",
-    "vegetables": [
-      {
-        "id": "1",
-        "image": "arugula.jpg",
-        "name": "Arugula",
-        "__typename": "Vegetable"
-      },
-      {
-        "id": "2",
-        "image": "beet.jpg",
-        "name": "Beets",
-        "__typename": "Vegetable"
-      },
-      {
-        "id": "3",
-        "image": "bellPepper.jpg",
-        "name": "Bell Peppers",
-        "__typename": "Vegetable"
-      }
-    ],
-    "__typename": "ZipcodeResult"
+  "data": {
+    "vegetablesByZipcode": {
+      "growZone": "6a",
+      "vegetables": [
+        {
+          "id": "1",
+          "image": "arugula.jpg",
+          "name": "Arugula",
+          "__typename": "Vegetable"
+        },
+        {
+          "id": "2",
+          "image": "beet.jpg",
+          "name": "Beets",
+          "__typename": "Vegetable"
+        },
+        {
+          "id": "3",
+          "image": "bellPepper.jpg",
+          "name": "Bell Peppers",
+          "__typename": "Vegetable"
+        }
+      ],
+      "__typename": "ZipcodeResult"
+    }
   }
 }

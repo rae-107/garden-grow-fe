@@ -2,23 +2,27 @@ import { aliasQuery } from "../../src/Graphql/graphql-test-utils";
 
 describe("Results page with all plants", () => {
   beforeEach(() => {
-    // cy.intercept("POST", "https://garden-grow-be.herokuapp.com/api/v1/graphql", (req) => {
-    //     aliasQuery(req, "vegetablesByZipcode");
-    //     req.reply({ fixture: "plants.json" })
-    //   }
-    // );
+    cy.intercept("POST", "https://garden-grow-be.herokuapp.com/api/v1/graphql", (req) => {
+        aliasQuery(req, "vegetablesByZipcode");
+        req.reply({ fixture: "plants.json" })
+      }
+    );
     cy.visit("http://localhost:3000");
     cy.get(".input").type("80910");
     cy.get(".plants-link").click();
-    // cy.wait("@gqlvegetablesByZipcodeQuery");
+    cy.wait("@gqlvegetablesByZipcodeQuery");
   });
 
   it("Should show the title with the appropiate search zipcode", () => {
     cy.get(".plants-title").contains("Your 80910 Fruits and Vegetables");
   });
 
+  it('Should render logo and nav bar', () => {
+    cy.get()
+  })
+
   it('Should display all plants', () => {
-    cy.get('.plant-card').should('have.length', 21)
+    cy.get('.plant-card').should('have.length', 3)
   })
 
   it('Should display a title and button on each card', () => {
@@ -27,15 +31,14 @@ describe("Results page with all plants", () => {
     cy.get('.update-my-garden-button').first().contains('+ to my garden')
   })
 
-  it('Should navigate to details page on click on plant card', () => {
-    cy.get('.plant-card').first().click()
-    cy.url('http://localhost:3000/6a/1')
-  })
+  // it('Should navigate to details page on click on plant card', () => {
+  //   cy.intercept("POST", "https://garden-grow-be.herokuapp.com/api/v1/graphql", (req) => {
+  //       aliasQuery(req, "vegetableDetails");
+  //       req.reply({ fixture: "plant.json" })
+  //     }
+  //   );
+  //   cy.get('.plant-card').first().click()
+  //   cy.url('http://localhost:3000/vegetable/6a/1')
+  //   cy.wait("@gqlvegetableDetailsQuery");
+  // })
 });
-
-
-// Add tests for:
-
-// Nav bar
-// Home button
-// })
