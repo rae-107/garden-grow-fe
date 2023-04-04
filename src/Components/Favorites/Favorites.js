@@ -1,1 +1,0 @@
-import './Favorites.css'
