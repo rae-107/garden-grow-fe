@@ -37,15 +37,22 @@
   padding: 20px;
 }
 
-.users-plants-container {
+.savedPlantsGrid {
   align-items: center;
   color: white;
-  display: flex;
-  flex-direction: column;
-  height: 50rem;
-  justify-content: flex-start;
-  padding-top: 10px;
-  width: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  height: 80%;
+  justify-items: space-evenly;
+  padding: 37px;
+  place-items: center;
+  width: 80%;
+}
+
+.users-plants-container {
+  color: white;
+  text-align: center;
 }
 
 .profile-name {
