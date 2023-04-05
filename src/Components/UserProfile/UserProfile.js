@@ -1,5 +1,5 @@
 import "./UserProfile.css";
-import NavBar from "../NavBar/NavBar";
+import xLogo from "../../Images/x-vector.png";
 import { LOAD_USER } from "../../Graphql/Queries";
 import { useQuery } from "@apollo/client";
 // import { useEffect, useState } from "react"
@@ -14,7 +14,11 @@ const UserProfile = ({ name, id, zone }) => {
 
   return (
     <section className="profile-page">
-      <NavBar />
+      <Link to={`/`}>
+        <section className="back-logo-container">
+          <img className="x-image-back-button" src={xLogo} alt="logo" />
+        </section>
+      </Link>
       <section className="user-info-container">
         <section className="user-image-container">
           <img
@@ -24,16 +28,30 @@ const UserProfile = ({ name, id, zone }) => {
           ></img>
         </section>
         <section className="socials">
-          <h1 className="profile-name">{data?.userDetails?.name}</h1>
-          <article className="aboutMe">
-            <p>{data?.userDetails?.aboutMe}</p>
-          </article>
-          <Link className='linked-in'to={{
-              pathname: data?.userDetails?.linkedIn,
-            }} target="_blank">Visit my LinkedIn Page</Link>
-          
-          <Link className='github' to={{pathname: data?.userDetails?.github}} target="_blank">Checkout My Work on Github</Link>
-          <p>{data?.userDetails?.email}</p>
+          <section className="text">
+            <h1 className="profile-name">{data?.userDetails?.name}</h1>
+            <article className="aboutMe">
+              <p>{data?.userDetails?.aboutMe}</p>
+            </article>
+            <Link
+              className="linked-in"
+              to={{
+                pathname: data?.userDetails?.linkedIn,
+              }}
+              target="_blank"
+            >
+             - Visit my LinkedIn Page
+            </Link>
+            <br></br>
+            <Link
+              className="github"
+              to={{ pathname: data?.userDetails?.github }}
+              target="_blank"
+            >
+              - Checkout My Work on Github
+            </Link>
+            <p>{data?.userDetails?.email}</p>
+          </section>
         </section>
       </section>
       <section className="users-plants-container">
