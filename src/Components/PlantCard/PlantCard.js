@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import "./PlantCard.css";
-// import { useState } from "react";
+import { useState } from "react";
 
-const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden, plantAdded }) => {
+const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden }) => {
+  const [saveIcon, setSaveIcon] = useState(false)
+  const [deleteIcon, setDeleteIcon] = useState(false)
   // const [plantAdded, setPlantAdded] =useState(false)
   // const [savePlant, setSavePlant] = useState([])
 

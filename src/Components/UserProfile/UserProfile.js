@@ -18,8 +18,8 @@ const UserProfile = ({ id, addToGarden, deleteFromGarden,  }) => {
   });
   console.log("here data", data);
   console.log("here veg", data?.userDetails?.vegetableUsers[0].vegetable.id);
-  const [saveIcon, setSaveIcon] = useState(false)
-  const [deleteIcon, setDeleteIcon] = useState(false)
+  // const [saveIcon, setSaveIcon] = useState(false)
+  // const [deleteIcon, setDeleteIcon] = useState(false)
   // console.log("function log", addToGarden)
 
 
