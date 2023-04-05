@@ -2,6 +2,7 @@ import "./UserProfile.css";
 import xLogo from "../../Images/x-vector.png";
 import { LOAD_USER } from "../../Graphql/Queries";
 import { useQuery } from "@apollo/client";
+import PlantCard from "../PlantCard/PlantCard";
 // import { useEffect, useState } from "react"
 
 import { Link } from "react-router-dom"
@@ -15,6 +16,8 @@ const UserProfile = ({ name, id, zone }) => {
     variables: { userId: id },
   });
   console.log("here data", data);
+  console.log("here veg", data?.userDetails?.vegetableUsers[0].vegetable.id);
+
 
   if(error) {
     return (
@@ -66,6 +69,10 @@ const UserProfile = ({ name, id, zone }) => {
       </section>
       <section className="users-plants-container">
         <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
+        <section className="savedPlantsGrid">
+          {/* {data?.userDetails?.vegetableUsers.map((plant) => <h3>{plant.vegetable.id}</h3>)} */}
+          {data?.userDetails?.vegetableUsers.map((plant) => <PlantCard key={plant.vegetable.id} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image}  />)}
+        </section>
       </section>
     </section>
   );
