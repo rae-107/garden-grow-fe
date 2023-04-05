@@ -15,8 +15,8 @@ const App = () => {
   const [plants, setPlants] = useState([]);
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
+  const [userId, setUserId] = useState("")
   const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
-
 
   useEffect(() => {
     if (data) {
@@ -24,8 +24,11 @@ const App = () => {
       setGrowzone(data.vegetablesByZipcode.growZone);
     }
   }, [loading, error, data]);
-  console.log("error", error);
 
+  const updateUser = (userID) => {
+    setUserId(userID)
+  }
+  console.log("error", error);
   //below for testing while working only can be deleted at end
   useEffect(() => {
     console.log("hey this is growzone", growzone);
@@ -62,6 +65,7 @@ const App = () => {
           path="/results/:zipcode"
           render={({ match }) => (
             <Plants
+              userId={userId}
               loadPlants={loadPlants}
               plants={plants}
               growzone={growzone}
@@ -88,12 +92,10 @@ const App = () => {
           exact
           path="/user/:userId"
           render={({ match }) => {
-            console.log("route", match.params);
             return (
               <UserProfile 
-                name={match.params.name}
+                updateUser={updateUser}
                 id={match.params.userId}
-                zone={match.params.zone}
               />
             )
           }}

@@ -2,32 +2,18 @@ import { Link } from "react-router-dom";
 import "./PlantCard.css";
 import { useState } from "react";
 
-const PlantCard = ({ id, name, img,  growzone }) => {
-  const [plantAdded, setPlantAdded] =useState(false)
-  const [savePlant, setSavePlant] = useState([])
+function PlantCard({ id, name, img, growzone, createVegetableUser }) {
+  const [saveIcon, setSaveIcon] = useState(false)
 
-  const addToGarden = (id) => {
-    if(!savePlant.includes(Number(id))) {
-      setSavePlant([...savePlant])
-      console.log("saved list",savePlant)
-      // const savedList = plants.filter(savedPlant => savedPlant.id === id)
-      // return setSavePlant(previousList => [...previousList, savedList[0]])
-    }
-    setPlantAdded(true)
+const handleClick = () => {
+  if(!saveIcon) {
+    setSaveIcon(true)
+    createVegetableUser(id)
+  } else {
+    setSaveIcon(false)
   }
 
-  const deleteFromGarden = (id) => {
-    if(savePlant.includes(id)) {
-      // const updateList = plants.reduce((arr, plant, index) => {
-      //   if(plant.id === id) {
-      //     arr.splice(index, 1)
-      //   }
-      //   return arr
-      // // })
-      // return setSavePlant(updateList)
-    }
-    setPlantAdded(false)
-  }
+}
 
   return (
       <div className="plant-card">
@@ -38,9 +24,13 @@ const PlantCard = ({ id, name, img,  growzone }) => {
           className="card-image"
         />
         <h2 className="card-title">{name}</h2>
-        {plantAdded ? <button onClick={()=> deleteFromGarden(id)} className="update-my-garden-button">- from my garden</button> :  <button onClick={()=> addToGarden(id)} className="update-my-garden-button">+ to my garden</button> 
-        }
         </Link>
+        <button onClick={(event) => {
+          event.preventDefault()
+          handleClick()
+        }}>
+          {saveIcon ? <p>- from my garden</p> : <p>+ to my garden</p>}
+        </button>
       </div>
   );
 }
