@@ -2,29 +2,25 @@ import "./Plant.css";
 import xLogo from "../../Images/x-vector.png";
 import { LOAD_VEGETABLE } from "../../Graphql/Queries";
 import { useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import { useHistory } from "react-router-dom";
 
 const Plant = ({ id, growzone, zipcode }) => {
+  const history = useHistory();
   const { error, data } = useQuery(LOAD_VEGETABLE, {
     variables: { vegetableId: id, zone: growzone },
   });
-  
-  if(error) {
-    return (
-      <ErrorPage />
-    )
+
+  if (error) {
+    return <ErrorPage />;
   }
 
   return (
     <main className="plant-details-container">
-      <Link to={`/results/${zipcode}`}>
-        <section className="back-logo">
-        
-          <img className="x-image-button" src={xLogo} alt="logo" />
-        </section>
-      </Link>
+      <section className="back-logo" onClick={() => history.goBack()}>
+        <img className="x-image-button" src={xLogo} alt="logo" />
+      </section>
       <h1 className="plant-title">{data?.vegetableDetails?.name}</h1>
       <section className="plant-image">
         <img
@@ -76,5 +72,5 @@ export default Plant;
 
 Plant.propTypes = {
   // id: PropTypes.string.isRequired,
-  growzone: PropTypes.string.isRequired
-}
+  growzone: PropTypes.string.isRequired,
+};
