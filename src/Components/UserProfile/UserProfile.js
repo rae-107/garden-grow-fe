@@ -6,6 +6,7 @@ import { DELETE_PLANT } from "../../Graphql/Mutations"
 import { useMutation, useQuery } from "@apollo/client";
 import PlantCard from "../PlantCard/PlantCard";
 
+
 import { Link } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage"
 import { useEffect } from "react";
@@ -24,6 +25,7 @@ const UserProfile = ({ id, updateUser, plant, setSaveIcon }) => {
 const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
 
  const addVegetable = (veggieId) => {
+  console.log("i am adding a veggie")
   createVegetableUser({
     variables: {
       userId: id,
@@ -40,7 +42,10 @@ const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
 //   console.log(plant.id)
 //   }
 // )
-const [destroyVegetableUser, { error3 }] = useMutation(DELETE_PLANT)
+const [destroyVegetableUser, { error3 }] = useMutation(DELETE_PLANT, {
+  refetchQueries:[{query: LOAD_USER,
+    variables: { userId: id }}]
+})
 
 const deleteVegetable = (veggieUserId) => {
   destroyVegetableUser({

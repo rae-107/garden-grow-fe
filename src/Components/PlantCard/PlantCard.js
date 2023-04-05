@@ -3,7 +3,7 @@ import "./PlantCard.css";
 import { useState } from "react";
 
 function PlantCard({ id, name, img, growzone, createVegetableUser, destroyVegetableUser, destroyId }) {
-  const [saveIcon, setSaveIcon] = useState(false)
+  const [saveIcon, setSaveIcon] = useState(true)
   
   const handleClick = () => {
   if(!saveIcon) {
