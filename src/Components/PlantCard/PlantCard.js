@@ -8,7 +8,7 @@ const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden, sa
 
   useEffect(() => {
     checkSaveStatus()
-  }, [ saveIcon ])
+  },[savedTitles])
   
   const checkSaveStatus = () => {
     if(savedTitles.includes(name)) {
@@ -20,36 +20,16 @@ const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden, sa
     return saveIcon ? addToGarden(name) : undefined
   }
 
+  const removeSave = () => {
+    return saveIcon ? deleteFromGarden(name) : undefined
+  }
+
   const handleClick = (status) => {
     setSaveIcon(status)
     addSave()
+    removeSave()
   }
-  // const [plantAdded, setPlantAdded] =useState(false)
-  // const [savePlant, setSavePlant] = useState([])
-
-  // const addToGarden = (id) => {
-  //   if(!savePlant.includes(Number(id))) {
-  //     setSavePlant([...savePlant])
-  //     console.log("saved list",savePlant)
-  //     // const savedList = plants.filter(savedPlant => savedPlant.id === id)
-  //     // return setSavePlant(previousList => [...previousList, savedList[0]])
-  //   }
-  //   setPlantAdded(true)
-  // }
-
-  // const deleteFromGarden = (id) => {
-  //   if(savePlant.includes(id)) {
-  //     // const updateList = plants.reduce((arr, plant, index) => {
-  //     //   if(plant.id === id) {
-  //     //     arr.splice(index, 1)
-  //     //   }
-  //     //   return arr
-  //     // // })
-  //     // return setSavePlant(updateList)
-  //   }
-  //   setPlantAdded(false)
-  // }
-
+  
   return (
       <div className="plant-card">
         <Link to={`/vegetable/${growzone}/${id}`}>
@@ -59,9 +39,9 @@ const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden, sa
           className="card-image"
         />
         <h2 className="card-title">{name}</h2>
-        {saveIcon ? <button onClick={()=> deleteFromGarden()} className="update-my-garden-button">- from my garden</button> :  <button onClick={()=> addToGarden()} className="update-my-garden-button">+ to my garden</button> 
-        }
         </Link>
+        {saveIcon ? <button onClick={()=> handleClick(false)} className="update-my-garden-button">- from my garden</button> :  <button onClick={()=> handleClick(true)} className="update-my-garden-button">+ to my garden</button> 
+        }
       </div>
   );
 }

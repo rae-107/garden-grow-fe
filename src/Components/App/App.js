@@ -35,7 +35,7 @@ const App = () => {
       //   return setSaveList(previousList => [...previousList, savedList[0]])
       // }
       console.log("add function is firing")
-     return setPlantAdded(true)
+     
     }
 
     // const deleteFromGarden = (id) => {
@@ -49,7 +49,8 @@ const App = () => {
       //   })
       //   return setSaveList(updateList)
       // }
-      return setPlantAdded(false)
+      console.log("delete function is firing")
+
     }
 
   //below for testing while working only can be deleted at end
