@@ -2,6 +2,7 @@ import "./UserProfile.css";
 import xLogo from "../../Images/x-vector.png";
 import { LOAD_USER } from "../../Graphql/Queries";
 import { SAVE_PLANT } from "../../Graphql/Mutations";
+import { DELETE_PLANT } from "../../Graphql/Mutations"
 import { useMutation, useQuery } from "@apollo/client";
 import PlantCard from "../PlantCard/PlantCard";
 
