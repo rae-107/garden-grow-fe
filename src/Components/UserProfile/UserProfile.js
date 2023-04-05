@@ -13,63 +13,30 @@ import { useEffect } from "react";
 
 const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
   
-  // console.log("saveicon", setSaveIcon)
   const { error, data } = useQuery
   (LOAD_USER, 
     {
       variables: { userId: id },
     });
-   
-// console.log("data is here", data?.userDetails?.vegetableUsers)
-// console.log("here is plants", plant)
-// const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
 
-//  const addVegetable = (veggieId) => {
-//   console.log("i am adding a veggie")
-//   createVegetableUser({
-//     variables: {
-//       userId: id,
-//       vegetableId: veggieId
-//     }
-//   })
-  
-//   if(error2) {
-//     console.log("this is mutation error", error2)
-//   }
-// }
-// const userProfile= true
-// data?.userDetails?.vegetableUsers.map(plant => {
-//   console.log(plant.id)
-//   }
-// )
-const [destroyVegetableUser, { error3 }] = useMutation(DELETE_PLANT, {
-  refetchQueries:[{query: LOAD_USER,
-    variables: { userId: id }}]
-})
-
-const deleteVegetable = (veggieUserId) => {
-  destroyVegetableUser({
-    variables: {
-      vegetableUserId: veggieUserId
-    }
+  const [destroyVegetableUser, { error3 }] = useMutation(DELETE_PLANT, {
+    refetchQueries:[{query: LOAD_USER,
+      variables: { userId: id }}]
   })
-}
 
-console.log("rae data", data?.userDetails?.vegetableUsers)
-// const checkSavedList = (id) => {
-//   data.userDetails.vegetableUsers.forEach(veggie => {
-//     if(plant.includes(veggie)) {
+  const deleteVegetable = (veggieUserId) => {
+    destroyVegetableUser({
+      variables: {
+        vegetableUserId: veggieUserId
+      }
+    })
+  }
 
-//     }
-//   })
-  // plant.filter(veggies => veggies.id === id)
-// }
-
-useEffect(() => {
-  updateUser(id)
-  updateUserSaved(data?.userDetails?.vegetableUsers)
-  // eslint-disable-next-line
-}, [data])
+  useEffect(() => {
+    updateUser(id)
+    updateUserSaved(data?.userDetails?.vegetableUsers)
+    // eslint-disable-next-line
+  }, [data])
 
   if(error) {
     return (
@@ -129,10 +96,3 @@ useEffect(() => {
   );
 };
 export default UserProfile;
-
- 
-/*
-SaveIcon is a boolean if true then veggie is saved, if false veggie is deleted
-
-
-*/

@@ -16,10 +16,10 @@ const Plants = ({ plants, heading, growzone, loadPlants, zipcode, userId, saveIc
     variables: { userId: userId}}]
   })
   
-  // userSavedList.forEach(plant=> {
-  //   console.log("this is the pllaaannntttt", plant, veggieId)
-  //  if(plant.vegetable.id !== veggieId) {
-  // })
+  userSavedList.forEach(plant=> {
+    console.log("this is the pllaaannntttt", userSavedList)
+   if(plant.vegetable.id !== veggieId) {
+  })
   const addVegetable = (veggieId) => {
        createVegetableUser({
          variables: {
