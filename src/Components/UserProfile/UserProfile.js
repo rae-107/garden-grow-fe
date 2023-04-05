@@ -15,6 +15,7 @@ const UserProfile = ({ id, updateUser }) => {
   const { loading, error, data } = useQuery
   (LOAD_USER, 
     {
+
       variables: { userId: id },
     });
    
@@ -37,6 +38,7 @@ const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
 useEffect(() => {
   updateUser(id)
 }, [data])
+
 
   if(error) {
     return (
