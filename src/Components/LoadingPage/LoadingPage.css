@@ -8,9 +8,9 @@
   align-items: center;
 }
 
-/* .loading-gif {
-
-} */
+.sunflower-gif {
+  width: 35vw;
+}
 
 .loading-cards-grid {
   display: grid;
@@ -28,19 +28,10 @@
     grid-template-columns: repeat(2, 1fr);
     width: 720px;
   }
-
-  /* .loading-gif {
-    font-size: 36px;
-  } */
 }
-
 @media screen and (min-width: 1050px) {
   .loading-cards-grid {
     grid-template-columns: repeat(3, 1fr);
     width: 1050px;
   }
-
-  /* .loading-gif {
-    font-size: 44px;
-  } */
 }

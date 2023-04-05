@@ -2,49 +2,55 @@ import "./NavBar.css"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
-
 const NavBar = () => {
   const [showDropdown, setShowDropDown] = useState(false)
   const [showNav, setShowNav] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Set the initial login state to false
+
   const tempUsers = [
     {
-    name:"Rae",
-    id: 7,
-    zone: "6a"
+      name: "Rae",
+      id: 7,
+      zone: "6a"
     },{
-    name: "Ciera",
-    id: 2,
-    zone:"5b"
+      name: "Ciera",
+      id: 2,
+      zone: "5b"
     },{
-    name: "Josephine",
-    id:1,
-    zone:"9a"
+      name: "Josephine",
+      id: 1,
+      zone: "9a"
     },{
-    name:"Alex",
-    id: 6,
-    zone: "4b"
+      name: "Alex",
+      id: 6,
+      zone: "4b"
     },{
-    name: "J",
-    id:5,
-    zone:"5b"
+      name: "J",
+      id: 5,
+      zone: "5b"
     },{
-    name: "Lacey",
-    id: 4,
-    zone:"5b"
-    }, {
+      name: "Lacey",
+      id: 4,
+      zone: "5b"
+    },{
       name: "Karim",
       id: 3,
       zone: "5b"
     }
-  ]
+  ];
 
   const toggleNavBar = () => {
-    setShowNav(!showNav)
-  }
+    setShowNav(!showNav);
+  };
 
-  const toggleDropDown =() => {
-    setShowDropDown(!showDropdown)
-  }
+  const toggleDropDown = () => {
+    setShowDropDown(!showDropdown);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false); // Set the login state to false when the user clicks "Log Out"
+  };
+
   return (
     <nav className="navigation">
      <button className="hamburger" onClick={() => toggleNavBar()}>
@@ -54,28 +60,35 @@ const NavBar = () => {
       </button>
       <div className={showNav ? "navigationMenu expanded" : "navigationMenu"}>
         <ul>
-         <li
-           className="profile" onClick={()=> toggleDropDown()}>USER Profiles
-          </li>
-        <datalist className={showDropdown ? "dropdown active" : "dropdown"} key={Date.now}>
-          {tempUsers.map((user, index) => {
-            return (
-              <Link className="userProfiles" to={`/user/${user.id}`} style={{ textDecoration: "none" }} key={index}>
-                <option 
-                  key={index} 
-                  value={user.name}
-                >
-                {user.name}
-                </option>
+          {isLoggedIn && ( // Only render the "Log Out" link if the user is logged in
+            <li>
+              <Link className="log-out" to={"/"} onClick={handleLogout}>
+                Log Out
               </Link>
-            )
-          }
-        )}
-        </datalist>
+            </li>
+          )}
+          <li
+            className="profile" onClick={() => toggleDropDown()}>
+            USER Profiles
+          </li>
+          <datalist className={showDropdown ? "dropdown active" : "dropdown"} key={Date.now()}>
+            {tempUsers.map((user, index) => {
+              return (
+                <Link className="userProfiles" to={`/user/${user.id}`} style={{ textDecoration: "none" }} key={index}>
+                  <option
+                    key={index}
+                    value={user.name}
+                  >
+                    {user.name}
+                  </option>
+                </Link>
+              );
+            })}
+          </datalist>
         </ul>
       </div>
     </nav>
-  )
-}
+  );
+};
 
 export default NavBar;

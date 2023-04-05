@@ -10,9 +10,7 @@ const Plant = ({ id, growzone, zipcode }) => {
   const { error, data } = useQuery(LOAD_VEGETABLE, {
     variables: { vegetableId: id, zone: growzone },
   });
-  // console.log(loading)
-  // console.log(error)
-
+  
   if(error) {
     return (
       <ErrorPage />
@@ -23,6 +21,7 @@ const Plant = ({ id, growzone, zipcode }) => {
     <main className="plant-details-container">
       <Link to={`/results/${zipcode}`}>
         <section className="back-logo">
+        
           <img className="x-image-button" src={xLogo} alt="logo" />
         </section>
       </Link>

@@ -5,10 +5,8 @@ import { LOAD_USER } from "../../Graphql/Queries";
 import { DELETE_PLANT } from "../../Graphql/Mutations"
 import { useMutation, useQuery } from "@apollo/client";
 import PlantCard from "../PlantCard/PlantCard";
-
-
-import { Link } from "react-router-dom"
-import ErrorPage from "../ErrorPage/ErrorPage"
+import { Link } from "react-router-dom";
+import ErrorPage from "../ErrorPage/ErrorPage";
 import { useEffect } from "react";
 
 const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
@@ -18,8 +16,7 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
     {
       variables: { userId: id },
     });
-
-  const [destroyVegetableUser, { error3 }] = useMutation(DELETE_PLANT, {
+  const [destroyVegetableUser] = useMutation(DELETE_PLANT, {
     refetchQueries:[{query: LOAD_USER,
       variables: { userId: id }}]
   })
@@ -38,10 +35,8 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
     // eslint-disable-next-line
   }, [data])
 
-  if(error) {
-    return (
-      <ErrorPage />
-    )
+  if (error) {
+    return <ErrorPage />;
   }
 
   return (
@@ -72,7 +67,7 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
               }}
               target="_blank"
             >
-             - Visit my LinkedIn Page
+              - Visit my LinkedIn Page
             </Link>
             <br></br>
             <Link

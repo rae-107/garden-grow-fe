@@ -1,13 +1,3 @@
-.error-page {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: center; */
-  color: white;
-  text-align: center;
-}
-
 .x-button-container {
   display: flex;
   justify-content: flexstart;
@@ -16,8 +6,17 @@
 
 .x-button {
   height: 5vh;
-  width: 3vw;
   margin: 40px;
+  width: 3vw;
+}
+
+.error-page {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
 }
 
 .error-image {
@@ -25,6 +24,6 @@
 }
 
 .error-component-message {
-  width: 80%;
   font-size: 30px;
+  width: 80%;
 }
