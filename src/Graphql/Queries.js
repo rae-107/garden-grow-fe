@@ -59,6 +59,7 @@ query userDetails($userId:String!){
   userDetails(
       userId: $userId
       ) {
+        id
          name
          growZone
          img
@@ -67,6 +68,7 @@ query userDetails($userId:String!){
          email
          aboutMe
          vegetableUsers{
+          id
             vegetable{
                 id
                 name

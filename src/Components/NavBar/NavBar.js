@@ -31,6 +31,10 @@ const NavBar = () => {
     name: "Lacey",
     id: 4,
     zone:"5b"
+    }, {
+      name: "Karim",
+      id: 3,
+      zone: "5b"
     }
   ]
 
@@ -50,7 +54,6 @@ const NavBar = () => {
       </button>
       <div className={showNav ? "navigationMenu expanded" : "navigationMenu"}>
         <ul>
-        <li><Link className="myGarden" to={"/MyGarden"}>My Garden</Link></li>
          <li
            className="profile" onClick={()=> toggleDropDown()}>USER Profiles
           </li>

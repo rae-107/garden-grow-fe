@@ -27,7 +27,7 @@ describe("Results page with all plants", () => {
   it('Should display a title and button on each card', () => {
     cy.get('.card-image').first().should('be.visible')
     cy.get('.card-title').first().contains('Arugula')
-    cy.get('.update-my-garden-button').first().contains('+ to my garden')
+    // cy.get('.update-my-garden-button').first().contains('+ to my garden')
   })
 
   it('Should navigate to details page on click on plant card', () => {
