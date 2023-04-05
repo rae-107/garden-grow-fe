@@ -3,6 +3,7 @@ import xLogo from "../../Images/x-vector.png";
 import { LOAD_USER } from "../../Graphql/Queries";
 import { useQuery } from "@apollo/client";
 // import { useEffect, useState } from "react"
+
 import { Link } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage"
 
