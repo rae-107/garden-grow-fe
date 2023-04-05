@@ -4,16 +4,23 @@ import { LOAD_USER } from "../../Graphql/Queries"
 import { useQuery } from "@apollo/client"
 // import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import ErrorPage from "../ErrorPage/ErrorPage"
 
 const UserProfile = ({ name, id, zone }) => {
   // const {loading, error, data} = useQuery
-  const {data} = useQuery
+  const { error, data } = useQuery
   (LOAD_USER, 
     {
     variables: { userId: id },
   }
   )
   console.log("here data", data)
+
+  if(error) {
+    return (
+      <ErrorPage />
+    )
+  }
 
   return (
     // <h1>Hi hello</h1>
