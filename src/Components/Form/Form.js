@@ -1,11 +1,19 @@
 import "./Form.css";
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 const Form = ({ setZipcode, zipcode, loadPlants }) => {
 
+  const [error, setError] = useState(null);
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    if (zipcode.length !== 5) {
+      setError("Please enter a valid zipcode");
+    } else {
+      setError(null);
+    }
   };
 
   return (
@@ -24,23 +32,25 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
           value={zipcode}
           onChange={(event) => setZipcode(event.target.value)}
         />
-        <Link
-          to={`/results/${zipcode}`}
-          className="plants-link"
-          onClick={() => {
-            setZipcode(document.getElementById("zipcode-input").value)
-            loadPlants({ variables: { zipcode: zipcode } })
-          }}
-        >
-          <span role="img" aria-label="plant emoji">
-          Let's Grow
-          </span>
-        </Link>
+        {zipcode.length === 5 ? (
+          <Link
+            to={`/results/${zipcode}`}
+            className="plants-link"
+            onClick={() => {
+              setZipcode(document.getElementById("zipcode-input").value)
+              loadPlants({ variables: { zipcode: zipcode } })
+            }}
+          >
+            <span role="img" aria-label="plant emoji">
+              Let's Grow
+            </span>
+          </Link>
+        ) : null}
       </div>
       <div className="error-container">
-        {/* {error && (
-          <div className="error-message">please enter a valid zipcode</div>
-        )} */}
+        {error && (
+          <div className="error-message">{error}</div>
+        )}
       </div>
     </form>
   );
