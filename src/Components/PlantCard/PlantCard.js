@@ -5,33 +5,43 @@ import { useEffect } from "react";
 
 function PlantCard({ id, name, img,  growzone, addToGarden, deleteFromGarden,  userID, createVegetableUser }) {
   const [saveIcon, setSaveIcon] = useState(false)
-  useEffect(() => {
-    addSave()
+  // useEffect(() => {
+  //   (async() => {
+  //   await addSave()
+  //   })()
     // createVegetableUser()
-  },[saveIcon])
+  // },[saveIcon])
   
-  const addSave = () => {
-    console.log("lookkkk herre", saveIcon)
-    // return saveIcon ? createVegetableUser() : undefined
-  }
+  // const addSave = () => {
+  //   console.log("lookkkk herre", saveIcon)
+  //   // return saveIcon ? createVegetableUser() : undefined
+  // }
   
   
 
-  const removeSave = () => {
-    console.log("lookkkk herre for delete", saveIcon)
+  // const removeSave = () => {
+  //   console.log("lookkkk herre for delete", saveIcon)
 
-    // return saveIcon ? deleteFromGarden() : undefined
+  //   // return saveIcon ? deleteFromGarden() : undefined
+  // }
+const handleClick = () => {
+  if(!saveIcon) {
+    setSaveIcon(true)
+    createVegetableUser(id)
+  } else {
+    setSaveIcon(false)
   }
 
-  const handleClick = (status) => {
-    setSaveIcon(status)
-    addSave()
-  }
+}
+  // const handleClick = (status) => {
+  //   setSaveIcon(status)
+  //   addSave()
+  // }
 
-  const handleDeleteClick = (status) => {
-    setSaveIcon(status)
-    removeSave()
-  }
+  // const handleDeleteClick = (status) => {
+  //   setSaveIcon(status)
+  //   removeSave()
+  // }
   
   return (
       <div className="plant-card">
@@ -43,10 +53,16 @@ function PlantCard({ id, name, img,  growzone, addToGarden, deleteFromGarden,  u
         />
         <h2 className="card-title">{name}</h2>
         </Link>
-        {saveIcon ? <button onClick={()=> {
+        <button onClick={(event) => {
+          event.preventDefault()
+          handleClick()
+        }}>
+          {saveIcon ? <p>- from my garden</p> : <p>+ to my garden</p>}
+        </button>
+        {/* {saveIcon ? <button onClick={()=> {
           createVegetableUser(id)
           handleDeleteClick(false)}} className="update-my-garden-button">- to my garden</button> : <button onClick={()=> handleClick(true)} className="update-my-garden-button">+ from my garden</button>
-        }
+        } */}
       </div>
   );
 }

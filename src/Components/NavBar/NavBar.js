@@ -64,6 +64,7 @@ const NavBar = () => {
                 <option 
                   key={index} 
                   value={user.name}
+                  // onClick={updateUser(user.id)}
                 >
                 {user.name}
                 </option>

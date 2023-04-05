@@ -2,37 +2,43 @@ import "./UserProfile.css";
 import xLogo from "../../Images/x-vector.png";
 import { LOAD_USER } from "../../Graphql/Queries";
 import { SAVE_PLANT } from "../../Graphql/Mutations";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation, useQuery, refetchQueries } from "@apollo/client";
 import PlantCard from "../PlantCard/PlantCard";
 
 import { Link } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage"
+import { useEffect } from "react";
 
-const UserProfile = ({ id }) => {
-  // const {loading, error, data} = useQuery
-
+const UserProfile = ({ id, updateUser }) => {
+  
+  
   const { loading, error, data } = useQuery
   (LOAD_USER, 
     {
-    variables: { userId: id },
-  });
-console.log("raes data", data)
+      variables: { userId: id },
+    });
+   
 
-  // const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
+const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
 
-  const addVegetable = (veggieId) => {
-    // createVegetableUser({
-    //   variables: {
-    //     userId: id,
-    //     vegetableId: veggieId
-    //   }
-    // })
-    console.log("here is user id", id)
-    console.log("here is veggie id", veggieId)
-    // if(error2) {
-    //   console.log("this is mutation error", error2)
-    // }
+ const addVegetable = (veggieId) => {
+  createVegetableUser({
+    variables: {
+      userId: id,
+      vegetableId: veggieId
+    }
+  })
+  console.log("look", createVegetableUser)
+  console.log("here is user id", id)
+  console.log("here is veggie id", veggieId)
+  if(error2) {
+    console.log("this is mutation error", error2)
   }
+}
+
+useEffect(() => {
+  updateUser(id)
+}, [data])
 
   if(error) {
     return (

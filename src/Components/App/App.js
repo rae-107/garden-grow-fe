@@ -15,6 +15,7 @@ const App = () => {
   const [plants, setPlants] = useState([]);
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
+  const [userId, setUserId] = useState("")
   const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
   // const [saveList, setSaveList] = useState([])
  // const [savePlant, setSavePlant] = useState([])
@@ -25,6 +26,10 @@ const App = () => {
       setGrowzone(data.vegetablesByZipcode.growZone);
     }
   }, [loading, error, data]);
+
+  const updateUser = (userID) => {
+    setUserId(userID)
+  }
   // console.log("error", error);
 
   // const addToGarden = (id) => {
@@ -77,6 +82,7 @@ const App = () => {
           path="/"
           render={() => (
             <Home
+              
               zipcode={zipcode}
               setZipcode={setZipcode}
               setPlants={setPlants}
@@ -120,6 +126,7 @@ const App = () => {
           render={({ match }) => {
             return (
               <UserProfile 
+                updateUser={updateUser}
                 // addToGarden={addToGarden}
                 // deleteFromGarden={deleteFromGarden}
                 id={match.params.userId}
