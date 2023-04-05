@@ -5,44 +5,37 @@ import { SAVE_PLANT } from "../../Graphql/Mutations";
 import { useMutation, useQuery } from "@apollo/client";
 import PlantCard from "../PlantCard/PlantCard";
 
-import { Link } from "react-router-dom"
-import ErrorPage from "../ErrorPage/ErrorPage"
+import { Link } from "react-router-dom";
+import ErrorPage from "../ErrorPage/ErrorPage";
 import { useEffect } from "react";
 
 const UserProfile = ({ id, updateUser }) => {
-  
-  
-  const { error, data } = useQuery
-  (LOAD_USER, 
-    {
-      variables: { userId: id },
+  const { error, data } = useQuery(LOAD_USER, {
+    variables: { userId: id },
+  });
+
+  const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT);
+
+  const addVegetable = (veggieId) => {
+    createVegetableUser({
+      variables: {
+        userId: id,
+        vegetableId: veggieId,
+      },
     });
-   
 
-const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
-
- const addVegetable = (veggieId) => {
-  createVegetableUser({
-    variables: {
-      userId: id,
-      vegetableId: veggieId
+    if (error2) {
+      console.log("this is mutation error", error2);
     }
-  })
-  
-  if(error2) {
-    console.log("this is mutation error", error2)
-  }
-}
+  };
 
-useEffect(() => {
-  updateUser(id)
-  // eslint-disable-next-line
-}, [data])
+  useEffect(() => {
+    updateUser(id);
+    // eslint-disable-next-line
+  }, [data]);
 
-  if(error) {
-    return (
-      <ErrorPage />
-    )
+  if (error) {
+    return <ErrorPage />;
   }
 
   return (
@@ -73,7 +66,7 @@ useEffect(() => {
               }}
               target="_blank"
             >
-             - Visit my LinkedIn Page
+              - Visit my LinkedIn Page
             </Link>
             <br></br>
             <Link
@@ -90,12 +83,19 @@ useEffect(() => {
       <section className="users-plants-container">
         <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
-          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} createVegetableUser={addVegetable}/>) }
+          {data?.userDetails?.vegetableUsers.map((plant, index) => (
+            <PlantCard
+              key={index}
+              id={plant.vegetable.id}
+              name={plant.vegetable.name}
+              img={plant.vegetable.image}
+              userID={data?.userDetails?.id}
+              createVegetableUser={addVegetable}
+            />
+          ))}
         </section>
       </section>
     </section>
   );
 };
 export default UserProfile;
-
- 

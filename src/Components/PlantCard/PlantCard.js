@@ -25,7 +25,7 @@ const handleClick = () => {
         />
         <h2 className="card-title">{name}</h2>
         </Link>
-        <button onClick={(event) => {
+        <button className="update-my-garden-button" onClick={(event) => {
           event.preventDefault()
           handleClick()
         }}>
