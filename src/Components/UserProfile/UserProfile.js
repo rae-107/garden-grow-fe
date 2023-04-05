@@ -10,17 +10,17 @@ import { Link } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage"
 import { useEffect } from "react";
 
-const UserProfile = ({ id, updateUser, plant }) => {
+const UserProfile = ({ id, updateUser, plant, setSaveIcon }) => {
   
-  
+  // console.log("saveicon", setSaveIcon)
   const { error, data } = useQuery
   (LOAD_USER, 
     {
       variables: { userId: id },
     });
    
-console.log("data is here", data?.userDetails?.vegetableUsers)
-console.log("here is plants", plant)
+// console.log("data is here", data?.userDetails?.vegetableUsers)
+// console.log("here is plants", plant)
 const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
 
  const addVegetable = (veggieId) => {
@@ -49,6 +49,16 @@ const deleteVegetable = (veggieUserId) => {
     }
   })
 }
+
+console.log("rae data", data?.userDetails?.vegetableUsers)
+// const checkSavedList = (id) => {
+//   data.userDetails.vegetableUsers.forEach(veggie => {
+//     if(plant.includes(veggie)) {
+
+//     }
+//   })
+  // plant.filter(veggies => veggies.id === id)
+// }
 
 useEffect(() => {
   updateUser(id)
@@ -106,7 +116,7 @@ useEffect(() => {
       <section className="users-plants-container">
         <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
-          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} createVegetableUser={addVegetable} destroyId={plant.id} destroyVegetableUser={deleteVegetable} />) }
+          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} createVegetableUser={addVegetable} destroyId={plant.id} destroyVegetableUser={deleteVegetable} setSaveIcon={setSaveIcon}/>) }
         </section>
       </section>
     </section>
@@ -115,3 +125,8 @@ useEffect(() => {
 export default UserProfile;
 
  
+/*
+SaveIcon is a boolean if true then veggie is saved, if false veggie is deleted
+
+
+*/
