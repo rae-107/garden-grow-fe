@@ -20,7 +20,10 @@ const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden, sa
     return saveIcon ? addToGarden(name) : undefined
   }
 
-  
+  const handleClick = (status) => {
+    setSaveIcon(status)
+    addSave()
+  }
   // const [plantAdded, setPlantAdded] =useState(false)
   // const [savePlant, setSavePlant] = useState([])
 
