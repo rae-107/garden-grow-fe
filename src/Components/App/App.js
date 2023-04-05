@@ -65,6 +65,7 @@ const App = () => {
           path="/results/:zipcode"
           render={({ match }) => (
             <Plants
+              userId={userId}
               loadPlants={loadPlants}
               plants={plants}
               growzone={growzone}

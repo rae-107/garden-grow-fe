@@ -5,10 +5,28 @@ import NavBar from '../NavBar/NavBar'
 import { useEffect } from "react";
 import beetLogo from "../../Images/beet3_720.png"
 import { Link } from "react-router-dom";
+import { SAVE_PLANT } from "../../Graphql/Mutations";
+import { useMutation, useQuery, refetchQueries } from "@apollo/client";
 
-const Plants = ({ plants, heading, growzone, loadPlants, zipcode }) => {
+const Plants = ({ plants, heading, growzone, loadPlants, zipcode, userId }) => {
+
+  const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
+
+ const addVegetable = (veggieId) => {
+  createVegetableUser({
+    variables: {
+      userId: userId,
+      vegetableId: veggieId
+    }
+  })
+  
+  if(error2) {
+    console.log("this is mutation error", error2)
+  }
+}
+
   const makeCards = () => {
-    return plants.map((plant) => <PlantCard key={plant.id} id={plant.id} name={plant.name} img={plant.image} growzone={growzone}  />)
+    return plants.map((plant) => <PlantCard key={plant.id} id={plant.id} name={plant.name} img={plant.image} growzone={growzone} userID={userId} createVegetableUser={addVegetable} />)
   };
 
   useEffect(() => {
