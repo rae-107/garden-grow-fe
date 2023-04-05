@@ -1,5 +1,4 @@
-# Garden Grow 🌱
-
+![GGLogo](https://user-images.githubusercontent.com/108428451/230206797-8c1bc587-94f0-46d7-95dc-c2d107798149.png)
 
 
 ## Table of Contents
@@ -13,8 +12,14 @@
   - [WinsAndChallenges](#winsandchallenges)
   - [Authors](#Authors)
 
-## Setup
 
+## Setup
+  - Clone down this repo [here](https://github.com/Garden-Grow-Turing/garden-grow-fe)
+  - On the command line, type: $ npm install
+  - On the command line, type: $ npm start
+  - Open http://localhost:3000 to view it in your browser.
+  - The page will reload when you make changes.
+  - You may also see any lint errors in the console.
 
 
 ## Technologies
@@ -33,13 +38,23 @@
   
 ## Project Spec
 
-
+[Click Here](https://mod4.turing.edu/projects/capstone/)
 
 ## Abstract 
+
+Garden Grow was designed with garden lover's in mind! Whether you're an experienced or novice gardener, there's always more to learn. It can be hard to keep track of seasonal planting dates, water quantity, and sun. Not sure where to start? Enter your zipcode on the home page and grab your hardiness zone within the United States, along with planting details for a variety of veggies. Users with profiles can also save different veggies to their gardens. 
 
 
 ## Learning Goals
 
+- Demonstrate knowledge you’ve gained throughout Turing
+- Use an agile process to turn well defined requirements into deployed and production ready software
+- Gain experience dividing applications into components and domains of responsibilities to facilitate multi-developer teams. Service oriented               architecture concepts and patterns are highly encouraged.
+- Explore and implement new concepts, patterns, or libraries that have not been explicitly taught while at Turing
+- Practice an advanced, professional git workflow including a Pull Request Review
+- Gain experience using continuous integration tools to build and automate the deployment of features
+- Build applications that execute in development, test, CI, and production environments
+- Focus on communication between front-end and back-end teams in order to complete and deploy features that have been outlined by the project spec
 
 
 ## Preview/TechStack
@@ -47,8 +62,6 @@
 ![techStack](https://user-images.githubusercontent.com/108428451/229562548-ed4585b0-ace9-4a21-ab5b-d71bc755345c.png)
 
 ![Screenshot 2023-04-03 at 8 37 02 AM (2)](https://user-images.githubusercontent.com/108428451/229526606-9ca01d9c-e74b-4355-a087-498f2679980f.png)
-
-
 
 
 ## WinsAndChallenges
