@@ -1,7 +1,7 @@
 import "./UserProfile.css";
 import xLogo from "../../Images/x-vector.png";
 import { LOAD_USER } from "../../Graphql/Queries";
-import { SAVE_PLANT } from "../../Graphql/Mutations";
+// import { SAVE_PLANT } from "../../Graphql/Mutations";
 import { DELETE_PLANT } from "../../Graphql/Mutations"
 import { useMutation, useQuery } from "@apollo/client";
 import PlantCard from "../PlantCard/PlantCard";
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage"
 import { useEffect } from "react";
 
-const UserProfile = ({ id, updateUser, saveIcon }) => {
+const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
   
   // console.log("saveicon", setSaveIcon)
   const { error, data } = useQuery
@@ -22,21 +22,21 @@ const UserProfile = ({ id, updateUser, saveIcon }) => {
    
 // console.log("data is here", data?.userDetails?.vegetableUsers)
 // console.log("here is plants", plant)
-const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
+// const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
 
- const addVegetable = (veggieId) => {
-  console.log("i am adding a veggie")
-  createVegetableUser({
-    variables: {
-      userId: id,
-      vegetableId: veggieId
-    }
-  })
+//  const addVegetable = (veggieId) => {
+//   console.log("i am adding a veggie")
+//   createVegetableUser({
+//     variables: {
+//       userId: id,
+//       vegetableId: veggieId
+//     }
+//   })
   
-  if(error2) {
-    console.log("this is mutation error", error2)
-  }
-}
+//   if(error2) {
+//     console.log("this is mutation error", error2)
+//   }
+// }
 // const userProfile= true
 // data?.userDetails?.vegetableUsers.map(plant => {
 //   console.log(plant.id)
@@ -67,6 +67,7 @@ console.log("rae data", data?.userDetails?.vegetableUsers)
 
 useEffect(() => {
   updateUser(id)
+  updateUserSaved(data?.userDetails?.vegetableUsers)
   // eslint-disable-next-line
 }, [data])
 
@@ -121,7 +122,7 @@ useEffect(() => {
       <section className="users-plants-container">
         <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
-          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} createVegetableUser={addVegetable} destroyId={plant.id} destroyVegetableUser={deleteVegetable} saveIcon={saveIcon}/>) }
+          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} destroyId={plant.id} destroyVegetableUser={deleteVegetable} saveIcon={saveIcon}/>) }
         </section>
       </section>
     </section>

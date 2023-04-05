@@ -1,25 +1,25 @@
 import { Link } from "react-router-dom";
 import "./PlantCard.css";
-import { useState } from "react";
-import { useEffect } from "react";
+// import { useState } from "react";
+// import { useEffect } from "react";
 
 function PlantCard({ id, name, img, growzone, createVegetableUser, destroyVegetableUser, destroyId, saveIcon }) {
-  const [currentSaveStatus, setCurrentSaveStatus] = useState(null)
-  const [icon, setIcon] = useState("")
-  useEffect(() => {
-    // toggleCurrent()
-    toggleButton()
-  })
+  // const [currentSaveStatus, setCurrentSaveStatus] = useState(null)
+  // const [icon, setIcon] = useState("")
+  // useEffect(() => {
+  //   // toggleCurrent()
+  //   toggleButton()
+  // })
   
-  const toggleButton = () => {
-   return currentSaveStatus ? setIcon("-") : setIcon("+")
+  // const toggleButton = () => {
+  //  return currentSaveStatus ? setIcon("-") : setIcon("+")
     
-  }
-  const toggleCurrent = () => {
-    setCurrentSaveStatus(!currentSaveStatus)
-  }
+  // }
+  // const toggleCurrent = () => {
+  //   setCurrentSaveStatus(!currentSaveStatus)
+  // }
   const handleClick = () => {
-    toggleCurrent()
+    // toggleCurrent()
   if(!saveIcon) {
     // setCurrentSaveStatus(true)
     

@@ -9,24 +9,27 @@ import { SAVE_PLANT } from "../../Graphql/Mutations";
 import { useMutation } from "@apollo/client";
 import { LOAD_USER } from "../../Graphql/Queries";
 
-const Plants = ({ plants, heading, growzone, loadPlants, zipcode, userId, saveIcon }) => {
+const Plants = ({ plants, heading, growzone, loadPlants, zipcode, userId, saveIcon, userSavedList }) => {
 
   const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT, {
     refetchQueries:[{query: LOAD_USER, 
     variables: { userId: userId}}]
   })
-
- const addVegetable = (veggieId) => {
-  createVegetableUser({
-    variables: {
-      userId: userId,
-      vegetableId: veggieId
-    }
-  })
   
-  if(error2) {
-    console.log("this is mutation error", error2)
-  }
+  // userSavedList.forEach(plant=> {
+  //   console.log("this is the pllaaannntttt", plant, veggieId)
+  //  if(plant.vegetable.id !== veggieId) {
+  // })
+  const addVegetable = (veggieId) => {
+       createVegetableUser({
+         variables: {
+           userId: userId,
+           vegetableId: veggieId
+         }
+       })
+       if(error2) {
+         console.log("this is mutation error", error2)
+       }
 }
 
   const makeCards = () => {
