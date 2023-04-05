@@ -20,7 +20,7 @@ const Plants = ({ plants, heading, growzone, loadPlants, zipcode }) => {
     <section className="plants-page">
       <section className='logo-box'>
       <NavBar />
-      <Link to="">
+      <Link to="/">
       <img className="beet-logo" src={beetLogo} alt='beet'/>
       </Link>
       </section>
