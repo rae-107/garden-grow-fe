@@ -1,6 +1,14 @@
-describe('template spec', () => {
-  it('passes', () => {
-    cy.visit('http://localhost:3000/vegetable/9a/2')
+import { aliasQuery } from "../../src/Graphql/graphql-test-utils";
+
+describe("Results for single vegetable page", () => {
+  beforeEach(() => {
+    cy.intercept("POST", "https://garden-grow-be.herokuapp.com/api/v1/graphql", (req) => {
+        aliasQuery(req, "vegetableDetails");
+        req.reply({ fixture: "plant.json" })
+      }
+    );
+    cy.visit("http://localhost:3000/vegetable/9a/1");
+    cy.wait("@gqlvegetableDetailsQuery");
   })
 
   it("should display all plant details on plant page", () => {
@@ -22,5 +30,4 @@ describe('template spec', () => {
     cy.get('.x-image-button').click()
     cy.url('http//localhost:3000/zipcode')
   })
-
 })
