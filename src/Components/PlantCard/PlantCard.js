@@ -3,6 +3,7 @@ import "./PlantCard.css";
 import { useState } from "react";
 
 function PlantCard({ id, name, img, growzone, createVegetableUser, destroyVegetableUser, destroyId, saveIcon }) {
+   // eslint-disable-next-line
   const [currentSaveStatus, setCurrentSaveStatus] = useState(null)
   
   const handleClick = () => {

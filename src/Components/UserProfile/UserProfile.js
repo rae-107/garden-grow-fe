@@ -40,6 +40,9 @@ const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
 //   console.log(plant.id)
 //   }
 // )
+
+
+// eslint-disable-next-line
 const [destroyVegetableUser, { error3 }] = useMutation(DELETE_PLANT, {
   refetchQueries:[{query: LOAD_USER,
     variables: { userId: id }}]
