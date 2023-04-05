@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage"
 import { useState } from "react";
 
-const UserProfile = ({ id, addToGarden, deleteFromGarden,  }) => {
+const UserProfile = ({ id, addToGarden, deleteFromGarden  }) => {
   // const {loading, error, data} = useQuery
   const { error, data } = useQuery
   (LOAD_USER, 
@@ -18,6 +18,7 @@ const UserProfile = ({ id, addToGarden, deleteFromGarden,  }) => {
   });
   console.log("here data", data);
   console.log("here veg", data?.userDetails?.vegetableUsers[0].vegetable.id);
+  const savedTitles = ["Arugula", "Beets"]
   // const [saveIcon, setSaveIcon] = useState(false)
   // const [deleteIcon, setDeleteIcon] = useState(false)
   // console.log("function log", addToGarden)
@@ -75,7 +76,7 @@ const UserProfile = ({ id, addToGarden, deleteFromGarden,  }) => {
         <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
           {/* {data?.userDetails?.vegetableUsers.map((plant) => <h3>{plant.vegetable.id}</h3>)} */}
-          {data?.userDetails?.vegetableUsers.map((plant) => <PlantCard key={plant.vegetable.id} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} addToGarden={addToGarden} deleteFromGarden={deleteFromGarden} plantAdded={plantAdded} />)}
+          {data?.userDetails?.vegetableUsers.map((plant) => <PlantCard key={plant.vegetable.id} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} addToGarden={addToGarden} deleteFromGarden={deleteFromGarden} savedTitles={savedTitles}/>)}
         </section>
       </section>
     </section>
