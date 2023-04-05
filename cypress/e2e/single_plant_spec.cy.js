@@ -26,6 +26,6 @@ describe("Results for single vegetable page", () => {
 
   it('should go back to plant library on click of X', () => {
     cy.get('.x-image-button').click()
-    cy.url('http://localhost:3000/')
+    cy.url('http://localhost:3000/results/77004')
   })
 })
