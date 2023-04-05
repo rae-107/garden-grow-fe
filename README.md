@@ -44,6 +44,7 @@
 
 Garden Grow was designed with garden lover's in mind! Whether you're an experienced or novice gardener, there's always more to learn. It can be hard to keep track of seasonal planting dates, water quantity, and sun. Not sure where to start? Enter your zipcode on the home page and grab your hardiness zone within the United States, along with planting details for a variety of veggies. Users with profiles can also save different veggies to their gardens. 
 
+Garden Grow was built in 10 days by 3 back-end engineers and 4 front-end engineers for the Capstone Project at Turing School of Software and Design. 
 
 ## Learning Goals
 
