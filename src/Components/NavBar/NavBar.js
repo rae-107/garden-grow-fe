@@ -31,6 +31,10 @@ const NavBar = () => {
     name: "Lacey",
     id: 4,
     zone:"5b"
+    }, {
+      name: "Karim",
+      id: 3,
+      zone: "5b"
     }
   ]
 
