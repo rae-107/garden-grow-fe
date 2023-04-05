@@ -28,9 +28,7 @@ const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
       vegetableId: veggieId
     }
   })
-  console.log("look", createVegetableUser)
-  console.log("here is user id", id)
-  console.log("here is veggie id", veggieId)
+  
   if(error2) {
     console.log("this is mutation error", error2)
   }
@@ -99,4 +97,4 @@ useEffect(() => {
 };
 export default UserProfile;
 
-// createVegetableUser={addVegetable} 
+ 

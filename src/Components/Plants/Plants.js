@@ -13,7 +13,6 @@ const Plants = ({ plants, heading, growzone, loadPlants, zipcode }) => {
 
   useEffect(() => {
     loadPlants({ variables: { zipcode: zipcode } })
-    // eslint-disable-next-line
   }, [])
 
   return (
