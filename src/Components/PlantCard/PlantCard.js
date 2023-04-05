@@ -4,8 +4,8 @@ import { useState } from "react";
 
 function PlantCard({ id, name, img, growzone, createVegetableUser, destroyVegetableUser, destroyId }) {
   const [saveIcon, setSaveIcon] = useState(false)
-
-const handleClick = () => {
+  
+  const handleClick = () => {
   if(!saveIcon) {
     setSaveIcon(true)
     createVegetableUser(id)

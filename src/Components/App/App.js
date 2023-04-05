@@ -94,6 +94,7 @@ const App = () => {
           render={({ match }) => {
             return (
               <UserProfile 
+                plant={plants}
                 updateUser={updateUser}
                 id={match.params.userId}
               />

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage"
 import { useEffect } from "react";
 
-const UserProfile = ({ id, updateUser }) => {
+const UserProfile = ({ id, updateUser, plant }) => {
   
   
   const { error, data } = useQuery
@@ -19,7 +19,8 @@ const UserProfile = ({ id, updateUser }) => {
       variables: { userId: id },
     });
    
-
+console.log("data is here", data?.userDetails?.vegetableUsers)
+console.log("here is plants", plant)
 const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
 
  const addVegetable = (veggieId) => {
@@ -34,6 +35,7 @@ const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
     console.log("this is mutation error", error2)
   }
 }
+// const userProfile= true
 // data?.userDetails?.vegetableUsers.map(plant => {
 //   console.log(plant.id)
 //   }
