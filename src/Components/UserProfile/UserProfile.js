@@ -13,22 +13,31 @@ const UserProfile = ({ name, id, zone }) => {
   console.log("here data", data);
 
   return (
-    // <h1>Hi hello</h1>
     <section className="profile-page">
       <NavBar />
-      <section className="user-image-container">
-        <img src={data?.userDetails?.image} alt="User Profile"></img>
+      <section className="user-info-container">
+        <section className="user-image-container">
+          <img
+            className="profile-pic"
+            src={`/Assets/${data?.userDetails?.img}`}
+            alt="User Profile"
+          ></img>
+        </section>
+        <section className="socials">
+          <h1 className="profile-name">{data?.userDetails?.name}</h1>
+          <article className="aboutMe">
+            <p>{data?.userDetails?.aboutMe}</p>
+          </article>
+          <Link className='linked-in'to={{
+              pathname: data?.userDetails?.linkedIn,
+            }} target="_blank">Visit my LinkedIn Page</Link>
+          
+          <Link className='github' to={{pathname: data?.userDetails?.github}} target="_blank">Checkout My Work on Github</Link>
+          <p>{data?.userDetails?.email}</p>
+        </section>
       </section>
-      <section className="socials">
-        <h1 className="profile-name">{data?.userDetails?.name}</h1>
-        <article className="aboutMe">
-          {/* <p>My Growzone: {data}</p> */}
-          <p>{data?.userDetails?.aboutMe}</p>
-        </article>
-        <Link to={`${data?.userDetails?.linkedIn}`}>LinkedIn</Link>
-        <br></br>
-        <Link to={`${data?.userDetails?.github}`}>Github</Link>
-        <p>{data?.userDetails?.email}</p>
+      <section className="users-plants-container">
+        <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
       </section>
     </section>
   );
