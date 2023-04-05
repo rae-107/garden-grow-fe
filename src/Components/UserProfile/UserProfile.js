@@ -8,10 +8,12 @@ import PlantCard from "../PlantCard/PlantCard";
 import { Link } from "react-router-dom";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 const UserProfile = ({ id, updateUser, saveIcon }) => {
   
   // console.log("saveicon", setSaveIcon)
+  const history = useHistory()
   const { error, data } = useQuery
   (LOAD_USER, 
     {
@@ -77,11 +79,11 @@ useEffect(() => {
 
   return (
     <section className="profile-page">
-      <Link to={`/`}>
+      {/* <Link to={`/`}> */}
         <section className="back-logo-container">
-          <img className="x-image-back-button" src={xLogo} alt="logo" />
+          <img className="x-image-back-button" src={xLogo} alt="logo" onClick={()=> history.goBack()}/>
         </section>
-      </Link>
+      {/* </Link> */}
       <section className="user-info-container">
         <section className="user-image-container">
           <img
