@@ -7,17 +7,20 @@ function PlantCard({ id, name, img,  growzone, addToGarden, deleteFromGarden,  u
   const [saveIcon, setSaveIcon] = useState(false)
   useEffect(() => {
     addSave()
-  
+    // createVegetableUser()
   },[saveIcon])
   
-  
-  
   const addSave = () => {
-    return saveIcon ? addToGarden(userID,id) : undefined
+    console.log("lookkkk herre", saveIcon)
+    // return saveIcon ? createVegetableUser() : undefined
   }
+  
+  
 
   const removeSave = () => {
-    return saveIcon ? deleteFromGarden() : undefined
+    console.log("lookkkk herre for delete", saveIcon)
+
+    // return saveIcon ? deleteFromGarden() : undefined
   }
 
   const handleClick = (status) => {
@@ -41,7 +44,7 @@ function PlantCard({ id, name, img,  growzone, addToGarden, deleteFromGarden,  u
         <h2 className="card-title">{name}</h2>
         </Link>
         {saveIcon ? <button onClick={()=> {
-          createVegetableUser()
+          createVegetableUser(id)
           handleDeleteClick(false)}} className="update-my-garden-button">- to my garden</button> : <button onClick={()=> handleClick(true)} className="update-my-garden-button">+ from my garden</button>
         }
       </div>

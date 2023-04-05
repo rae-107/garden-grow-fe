@@ -28,33 +28,33 @@ const App = () => {
   // console.log("error", error);
 
   // const addToGarden = (id) => {
-  const addToGarden = (user, vegetable) => {
-      const newVeggie = {
-        variables: { userId: user, vegetableId: vegetable}
-      } 
-        // if(!saveList.includes(Number(id))) {
-      //   console.log("saved list",saveList)
-      //   const savedList = plants.filter(savedPlant => savedPlant.id === id)
-      //   return setSaveList(previousList => [...previousList, savedList[0]])
-      // }
-      console.log("add function is firing", newVeggie)
-     return newVeggie
-    }
+  // const addToGarden = (user, vegetable) => {
+  //     const newVeggie = {
+  //       variables: { userId: user, vegetableId: vegetable}
+  //     } 
+  //       // if(!saveList.includes(Number(id))) {
+  //     //   console.log("saved list",saveList)
+  //     //   const savedList = plants.filter(savedPlant => savedPlant.id === id)
+  //     //   return setSaveList(previousList => [...previousList, savedList[0]])
+  //     // }
+  //     console.log("add function is firing", newVeggie)
+  //    return newVeggie
+  //   }
 
-    // const deleteFromGarden = (id) => {
-    const deleteFromGarden = () => {
-      // if(saveList.includes(id)) {
-      //   const updateList = plants.reduce((arr, plant, index) => {
-      //     if(plant.id === id) {
-      //       arr.splice(index, 1)
-      //     }
-      //     return arr
-      //   })
-      //   return setSaveList(updateList)
-      // }
-      console.log("delete function is firing")
+  //   // const deleteFromGarden = (id) => {
+  //   const deleteFromGarden = () => {
+  //     // if(saveList.includes(id)) {
+  //     //   const updateList = plants.reduce((arr, plant, index) => {
+  //     //     if(plant.id === id) {
+  //     //       arr.splice(index, 1)
+  //     //     }
+  //     //     return arr
+  //     //   })
+  //     //   return setSaveList(updateList)
+  //     // }
+  //     console.log("delete function is firing")
 
-    }
+  //   }
 
   //below for testing while working only can be deleted at end
   useEffect(() => {
@@ -120,8 +120,8 @@ const App = () => {
           render={({ match }) => {
             return (
               <UserProfile 
-                addToGarden={addToGarden}
-                deleteFromGarden={deleteFromGarden}
+                // addToGarden={addToGarden}
+                // deleteFromGarden={deleteFromGarden}
                 id={match.params.userId}
                 // plantAdded={plantAdded}
               />

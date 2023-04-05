@@ -8,27 +8,30 @@ import PlantCard from "../PlantCard/PlantCard";
 import { Link } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage"
 
-const UserProfile = ({ id, addToGarden, deleteFromGarden }) => {
+const UserProfile = ({ id }) => {
   // const {loading, error, data} = useQuery
+
   const { loading, error, data } = useQuery
   (LOAD_USER, 
     {
     variables: { userId: id },
   });
+console.log("raes data", data)
 
+  // const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
 
-  const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
-
-  const addVegetable = () => {
-    createVegetableUser({
-      variables: {
-        userId: "7",
-        vegetableId: "1"
-      }
-    })
-    if(error2) {
-      console.log("this is mutation error", error2)
-    }
+  const addVegetable = (veggieId) => {
+    // createVegetableUser({
+    //   variables: {
+    //     userId: id,
+    //     vegetableId: veggieId
+    //   }
+    // })
+    console.log("here is user id", id)
+    console.log("here is veggie id", veggieId)
+    // if(error2) {
+    //   console.log("this is mutation error", error2)
+    // }
   }
 
   if(error) {
@@ -82,10 +85,12 @@ const UserProfile = ({ id, addToGarden, deleteFromGarden }) => {
       <section className="users-plants-container">
         <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
-          {data?.userDetails?.vegetableUsers.map((plant) => <PlantCard key={plant.vegetable.id} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} addToGarden={addToGarden} deleteFromGarden={deleteFromGarden} userID={data?.userDetails?.id} createVegetableUser={addVegetable} />) }
+          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} createVegetableUser={addVegetable}/>) }
         </section>
       </section>
     </section>
   );
 };
 export default UserProfile;
+
+// createVegetableUser={addVegetable} 
