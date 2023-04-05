@@ -2,15 +2,19 @@ import { Link } from "react-router-dom";
 import "./PlantCard.css";
 import { useState } from "react";
 
-function PlantCard({ id, name, img, growzone, createVegetableUser }) {
-  const [saveIcon, setSaveIcon] = useState(false)
-
-const handleClick = () => {
+function PlantCard({ id, name, img, growzone, createVegetableUser, destroyVegetableUser, destroyId, saveIcon }) {
+   // eslint-disable-next-line
+  const [currentSaveStatus, setCurrentSaveStatus] = useState(null)
+  
+  const handleClick = () => {
   if(!saveIcon) {
-    setSaveIcon(true)
+    setCurrentSaveStatus(true)
     createVegetableUser(id)
+    console.log("save is firing")
   } else {
-    setSaveIcon(false)
+    setCurrentSaveStatus(false)
+    destroyVegetableUser(destroyId)
+    console.log("delete is firing")
   }
 
 }

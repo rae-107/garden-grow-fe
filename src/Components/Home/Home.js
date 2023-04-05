@@ -1,12 +1,12 @@
 import './Home.css'
 import Form from '../Form/Form'
-import NavBar from '../NavBar/NavBar'
+// import NavBar from '../NavBar/NavBar'
 import PropTypes from 'prop-types'
 
 const Home = ({ setZipcode, zipcode, loadPlants }) => {
   return(
     <div className='home-container'>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className='title-input-container'>
         <div className='logo-and-title'>
           <div className='logo-image'></div>

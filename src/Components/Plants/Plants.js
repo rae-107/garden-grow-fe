@@ -7,10 +7,14 @@ import beetLogo from "../../Images/beet3_720.png"
 import { Link } from "react-router-dom";
 import { SAVE_PLANT } from "../../Graphql/Mutations";
 import { useMutation } from "@apollo/client";
+import { LOAD_USER } from "../../Graphql/Queries";
 
-const Plants = ({ plants, heading, growzone, loadPlants, zipcode, userId }) => {
+const Plants = ({ plants, heading, growzone, loadPlants, zipcode, userId, saveIcon }) => {
 
-  const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
+  const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT, {
+    refetchQueries:[{query: LOAD_USER, 
+    variables: { userId: userId}}]
+  })
 
  const addVegetable = (veggieId) => {
   createVegetableUser({
@@ -26,7 +30,7 @@ const Plants = ({ plants, heading, growzone, loadPlants, zipcode, userId }) => {
 }
 
   const makeCards = () => {
-    return plants.map((plant) => <PlantCard key={plant.id} id={plant.id} name={plant.name} img={plant.image} growzone={growzone} userID={userId} createVegetableUser={addVegetable} />)
+    return plants.map((plant) => <PlantCard key={plant.id} id={plant.id} name={plant.name} img={plant.image} growzone={growzone} userID={userId} createVegetableUser={addVegetable} saveIcon={saveIcon} />)
   };
 
   useEffect(() => {
