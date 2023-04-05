@@ -2,7 +2,7 @@ import "./UserProfile.css";
 import xLogo from "../../Images/x-vector.png";
 import { LOAD_USER } from "../../Graphql/Queries";
 import { SAVE_PLANT } from "../../Graphql/Mutations";
-import { useMutation, useQuery, refetchQueries } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import PlantCard from "../PlantCard/PlantCard";
 
 import { Link } from "react-router-dom"
@@ -12,7 +12,7 @@ import { useEffect } from "react";
 const UserProfile = ({ id, updateUser }) => {
   
   
-  const { loading, error, data } = useQuery
+  const { error, data } = useQuery
   (LOAD_USER, 
     {
       variables: { userId: id },
@@ -36,6 +36,7 @@ const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
 
 useEffect(() => {
   updateUser(id)
+  // eslint-disable-next-line
 }, [data])
 
   if(error) {

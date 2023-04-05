@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import ErrorPage from "../ErrorPage/ErrorPage";
 
 const Plant = ({ id, growzone, zipcode }) => {
-  const { loading, error, data } = useQuery(LOAD_VEGETABLE, {
+  const { error, data } = useQuery(LOAD_VEGETABLE, {
     variables: { vegetableId: id, zone: growzone },
   });
   // console.log(loading)

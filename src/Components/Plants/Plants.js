@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import beetLogo from "../../Images/beet3_720.png"
 import { Link } from "react-router-dom";
 import { SAVE_PLANT } from "../../Graphql/Mutations";
-import { useMutation, useQuery, refetchQueries } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 
 const Plants = ({ plants, heading, growzone, loadPlants, zipcode, userId }) => {
 
@@ -31,6 +31,7 @@ const Plants = ({ plants, heading, growzone, loadPlants, zipcode, userId }) => {
 
   useEffect(() => {
     loadPlants({ variables: { zipcode: zipcode } })
+    // eslint-disable-next-line
   }, [])
 
   return (
