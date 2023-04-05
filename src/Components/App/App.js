@@ -16,7 +16,7 @@ const App = () => {
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
   const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
-  const [saveList, setSaveList] = useState([])
+  // const [saveList, setSaveList] = useState([])
  // const [savePlant, setSavePlant] = useState([])
   // const [plantAdded, setPlantAdded] =useState(false)
   useEffect(() => {
@@ -28,14 +28,17 @@ const App = () => {
   // console.log("error", error);
 
   // const addToGarden = (id) => {
-  const addToGarden = () => {
-      // if(!saveList.includes(Number(id))) {
+  const addToGarden = (user, vegetable) => {
+      const newVeggie = {
+        variables: { userId: user, vegetableId: vegetable}
+      } 
+        // if(!saveList.includes(Number(id))) {
       //   console.log("saved list",saveList)
       //   const savedList = plants.filter(savedPlant => savedPlant.id === id)
       //   return setSaveList(previousList => [...previousList, savedList[0]])
       // }
-      console.log("add function is firing")
-     
+      console.log("add function is firing", newVeggie)
+     return newVeggie
     }
 
     // const deleteFromGarden = (id) => {

@@ -3,12 +3,14 @@ import "./PlantCard.css";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden, savedTitles }) => {
+const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden, savedTitles, userID }) => {
   const [saveIcon, setSaveIcon] = useState(false)
-
+  // console.log("here is suer id", userID)
   useEffect(() => {
     checkSaveStatus()
-  },[savedTitles])
+    // addSave()
+    // removeSave()
+  },[saveIcon])
   
   const checkSaveStatus = () => {
     if(savedTitles.includes(name)) {
@@ -17,7 +19,7 @@ const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden, sa
   }
   
   const addSave = () => {
-    return saveIcon ? addToGarden(name) : undefined
+    return saveIcon ? addToGarden(userID,id) : undefined
   }
 
   const removeSave = () => {
@@ -27,6 +29,11 @@ const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden, sa
   const handleClick = (status) => {
     setSaveIcon(status)
     addSave()
+    // removeSave()
+  }
+
+  const handleDeleteClick = (status) => {
+    setSaveIcon(status)
     removeSave()
   }
   
@@ -40,7 +47,7 @@ const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden, sa
         />
         <h2 className="card-title">{name}</h2>
         </Link>
-        {saveIcon ? <button onClick={()=> handleClick(false)} className="update-my-garden-button">- from my garden</button> :  <button onClick={()=> handleClick(true)} className="update-my-garden-button">+ to my garden</button> 
+        {saveIcon ? <button onClick={()=> handleDeleteClick(false)} className="update-my-garden-button">- from my garden</button> :  <button onClick={()=> handleClick(true)} className="update-my-garden-button">+ to my garden</button> 
         }
       </div>
   );

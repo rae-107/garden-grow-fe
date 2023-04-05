@@ -1,7 +1,8 @@
 import "./UserProfile.css";
 import xLogo from "../../Images/x-vector.png";
 import { LOAD_USER } from "../../Graphql/Queries";
-import { useQuery } from "@apollo/client";
+import { SAVE_PLANT } from "../../Graphql/Mutations";
+import { useMutation, useQuery } from "@apollo/client";
 import PlantCard from "../PlantCard/PlantCard";
 // import { useEffect, useState } from "react"
 
@@ -9,15 +10,23 @@ import { Link } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage"
 import { useState } from "react";
 
-const UserProfile = ({ id, addToGarden, deleteFromGarden  }) => {
+const UserProfile = ({ id, addToGarden, deleteFromGarden }) => {
   // const {loading, error, data} = useQuery
   const { error, data } = useQuery
   (LOAD_USER, 
     {
     variables: { userId: id },
   });
+
+  // const [createVegetableUser, { data2 }] = useMutation(SAVE_PLANT)
+
+  // createVegetableUser = {
+  //   variables: { userId: "1", vegetableId: "1"}
+  // }
   console.log("here data", data);
-  console.log("here veg", data?.userDetails?.vegetableUsers[0].vegetable.id);
+  console.log("here veg", data);
+  // console.log("save try", data2)
+  // console.log("kksn", createVegetableUser)
   const savedTitles = ["Arugula", "Beets"]
   // const [saveIcon, setSaveIcon] = useState(false)
   // const [deleteIcon, setDeleteIcon] = useState(false)
@@ -76,7 +85,7 @@ const UserProfile = ({ id, addToGarden, deleteFromGarden  }) => {
         <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
           {/* {data?.userDetails?.vegetableUsers.map((plant) => <h3>{plant.vegetable.id}</h3>)} */}
-          {data?.userDetails?.vegetableUsers.map((plant) => <PlantCard key={plant.vegetable.id} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} addToGarden={addToGarden} deleteFromGarden={deleteFromGarden} savedTitles={savedTitles}/>)}
+          {data?.userDetails?.vegetableUsers.map((plant) => <PlantCard key={plant.vegetable.id} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} addToGarden={addToGarden} deleteFromGarden={deleteFromGarden} savedTitles={savedTitles} userID={"7"}/>)}
         </section>
       </section>
     </section>
