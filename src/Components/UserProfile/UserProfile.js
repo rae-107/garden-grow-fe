@@ -11,7 +11,7 @@ import { Link } from "react-router-dom"
 import ErrorPage from "../ErrorPage/ErrorPage"
 import { useEffect } from "react";
 
-const UserProfile = ({ id, updateUser, plant, setSaveIcon }) => {
+const UserProfile = ({ id, updateUser, saveIcon }) => {
   
   // console.log("saveicon", setSaveIcon)
   const { error, data } = useQuery
@@ -121,7 +121,7 @@ useEffect(() => {
       <section className="users-plants-container">
         <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
-          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} createVegetableUser={addVegetable} destroyId={plant.id} destroyVegetableUser={deleteVegetable} setSaveIcon={setSaveIcon}/>) }
+          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} createVegetableUser={addVegetable} destroyId={plant.id} destroyVegetableUser={deleteVegetable} saveIcon={saveIcon}/>) }
         </section>
       </section>
     </section>
