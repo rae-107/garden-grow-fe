@@ -54,7 +54,6 @@ const NavBar = () => {
       </button>
       <div className={showNav ? "navigationMenu expanded" : "navigationMenu"}>
         <ul>
-        <li><Link className="myGarden" to={"/MyGarden"}>My Garden</Link></li>
          <li
            className="profile" onClick={()=> toggleDropDown()}>USER Profiles
           </li>
