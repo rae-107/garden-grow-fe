@@ -1,5 +1,3 @@
-import { aliasQuery } from "../../src/Graphql/graphql-test-utils";
-
 describe('template spec', () => {
 
   it('Should display loading cards and image', () => {
@@ -7,6 +5,7 @@ describe('template spec', () => {
       req.delay(3000)
       }
     );
+    cy.wait(1000)
     cy.visit("http://localhost:3000/results/80910");
     cy.get('.loading-card').should('have.length', 6)
   })
