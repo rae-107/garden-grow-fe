@@ -16,8 +16,8 @@ const App = () => {
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
   const [userId, setUserId] = useState("")
+  const [userSaved, setUserSaved] = useState([])
   const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
-  // const [saveIcon, setSaveIcon] = useState(false)
 
   useEffect(() => {
     if (data) {
@@ -30,6 +30,9 @@ const App = () => {
     setUserId(userID)
   }
   console.log("error", error);
+  const updateUserSaved = (savedarray) => {
+    return setUserSaved(savedarray)
+  }
   //below for testing while working only can be deleted at end
   useEffect(() => {
     console.log("hey this is growzone", growzone);
@@ -66,6 +69,7 @@ const App = () => {
           path="/results/:zipcode"
           render={({ match }) => (
             <Plants
+              userSavedList={userSaved}
               saveIcon={false}
               userId={userId}
               loadPlants={loadPlants}
@@ -96,7 +100,7 @@ const App = () => {
           render={({ match }) => {
             return (
               <UserProfile 
-                // setSaveIcon={setSaveIcon}
+                updateUserSaved={updateUserSaved}
                 saveIcon={true}
                 plant={plants}
                 updateUser={updateUser}

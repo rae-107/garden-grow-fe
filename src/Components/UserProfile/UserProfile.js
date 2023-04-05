@@ -1,7 +1,7 @@
 import "./UserProfile.css";
 import xLogo from "../../Images/x-vector.png";
 import { LOAD_USER } from "../../Graphql/Queries";
-import { SAVE_PLANT } from "../../Graphql/Mutations";
+// import { SAVE_PLANT } from "../../Graphql/Mutations";
 import { DELETE_PLANT } from "../../Graphql/Mutations"
 import { useMutation, useQuery } from "@apollo/client";
 import PlantCard from "../PlantCard/PlantCard";
@@ -10,68 +10,33 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-const UserProfile = ({ id, updateUser, saveIcon }) => {
+const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
   
-  // console.log("saveicon", setSaveIcon)
   const history = useHistory()
+
   const { error, data } = useQuery
   (LOAD_USER, 
     {
       variables: { userId: id },
     });
-   
-// console.log("data is here", data?.userDetails?.vegetableUsers)
-// console.log("here is plants", plant)
-const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
-
- const addVegetable = (veggieId) => {
-  console.log("i am adding a veggie")
-  createVegetableUser({
-    variables: {
-      userId: id,
-      vegetableId: veggieId
-    }
+  const [destroyVegetableUser] = useMutation(DELETE_PLANT, {
+    refetchQueries:[{query: LOAD_USER,
+      variables: { userId: id }}]
   })
-  
-  if(error2) {
-    console.log("this is mutation error", error2)
+
+  const deleteVegetable = (veggieUserId) => {
+    destroyVegetableUser({
+      variables: {
+        vegetableUserId: veggieUserId
+      }
+    })
   }
-}
-// const userProfile= true
-// data?.userDetails?.vegetableUsers.map(plant => {
-//   console.log(plant.id)
-//   }
-// )
 
-
-// eslint-disable-next-line
-const [destroyVegetableUser, { error3 }] = useMutation(DELETE_PLANT, {
-  refetchQueries:[{query: LOAD_USER,
-    variables: { userId: id }}]
-})
-
-const deleteVegetable = (veggieUserId) => {
-  destroyVegetableUser({
-    variables: {
-      vegetableUserId: veggieUserId
-    }
-  })
-}
-
-console.log("rae data", data?.userDetails?.vegetableUsers)
-// const checkSavedList = (id) => {
-//   data.userDetails.vegetableUsers.forEach(veggie => {
-//     if(plant.includes(veggie)) {
-
-//     }
-//   })
-  // plant.filter(veggies => veggies.id === id)
-// }
-
-useEffect(() => {
-  updateUser(id)
-  // eslint-disable-next-line
-}, [data])
+  useEffect(() => {
+    updateUser(id)
+    updateUserSaved(data?.userDetails?.vegetableUsers)
+    // eslint-disable-next-line
+  }, [data])
 
   if (error) {
     return <ErrorPage />;
@@ -122,17 +87,10 @@ useEffect(() => {
       <section className="users-plants-container">
         <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
-          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} createVegetableUser={addVegetable} destroyId={plant.id} destroyVegetableUser={deleteVegetable} saveIcon={saveIcon}/>) }
+          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} destroyId={plant.id} destroyVegetableUser={deleteVegetable} saveIcon={saveIcon}/>) }
         </section>
       </section>
     </section>
   );
 };
 export default UserProfile;
-
- 
-/*
-SaveIcon is a boolean if true then veggie is saved, if false veggie is deleted
-
-
-*/
