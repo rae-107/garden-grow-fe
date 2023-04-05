@@ -10,5 +10,16 @@ mutation createVegetableUser($userId:String!, $vegetableId:String!){
       vegetableId
   }
 }
+`
 
+export const DELETE_PLANT = gql`
+mutation destroyVegetableUser($vegetableUserId:String!){
+  destroyVegetableUser(input:{
+      vegetableUserId: $vegetableUserId
+  }) {
+      id
+      userId
+      vegetableId
+  }
+}
 `

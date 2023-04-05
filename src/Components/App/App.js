@@ -17,6 +17,7 @@ const App = () => {
   const [zipcode, setZipcode] = useState("");
   const [userId, setUserId] = useState("")
   const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
+  // const [saveIcon, setSaveIcon] = useState(false)
 
   useEffect(() => {
     if (data) {
@@ -65,6 +66,7 @@ const App = () => {
           path="/results/:zipcode"
           render={({ match }) => (
             <Plants
+              saveIcon={false}
               userId={userId}
               loadPlants={loadPlants}
               plants={plants}
@@ -94,6 +96,9 @@ const App = () => {
           render={({ match }) => {
             return (
               <UserProfile 
+                // setSaveIcon={setSaveIcon}
+                saveIcon={true}
+                plant={plants}
                 updateUser={updateUser}
                 id={match.params.userId}
               />
