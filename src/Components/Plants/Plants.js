@@ -19,7 +19,7 @@ const Plants = ({
   saveIcon,
   userSavedList,
 }) => {
-  const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT, {
+  const [createVegetableUser] = useMutation(SAVE_PLANT, {
     refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }],
   });
 
