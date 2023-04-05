@@ -1,0 +1,54 @@
+.profile-pic {
+  border-radius: 15px;
+  height: 45vh;
+}
+
+.socials {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 35rem;
+  width: 50rem;
+  justify-content: space-evenly;
+}
+
+.user-image-container {
+  display: flex;
+  height: 35rem;
+  justify-content: center;
+  width: 50rem;
+  align-items: center;
+}
+
+.user-info-container {
+  display: flex;
+  padding: 20px;
+}
+
+.users-plants-container {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 50rem;
+  justify-content: flex-start;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.profile-name {
+  font-size: 35px;
+  margin: 0px;
+}
+
+.aboutMe {
+  width: 35rem;
+}
+
+.linked-in {
+  color: white;
+}
+
+.github {
+  color: white;
+}
