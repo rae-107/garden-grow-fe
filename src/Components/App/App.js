@@ -56,7 +56,7 @@ const App = () => {
           )}
         />
         {error && <Route exact path="*" render={() => <ErrorPage />} />}
-        {loading && <Route exact path="/:zipcode" render={() => <LoadingPage />}></Route>}
+        {loading && <Route exact path="/results/:zipcode" render={() => <LoadingPage />}></Route>}
         <Route
           exact
           path="/results/:zipcode"

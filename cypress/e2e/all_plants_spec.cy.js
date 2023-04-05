@@ -7,9 +7,7 @@ describe("Results page with all plants", () => {
         req.reply({ fixture: "plants.json" })
       }
     );
-    cy.visit("http://localhost:3000");
-    cy.get(".input").type("80910");
-    cy.get(".plants-link").click();
+    cy.visit("http://localhost:3000/results/80910");
     cy.wait("@gqlvegetablesByZipcodeQuery");
   });
 
