@@ -3,21 +3,14 @@ import "./PlantCard.css";
 import { useState } from "react";
 import { useEffect } from "react";
 
-function PlantCard({ id, name, img,  growzone, addToGarden, deleteFromGarden, savedTitles, userID, createVegetableUser }) {
+function PlantCard({ id, name, img,  growzone, addToGarden, deleteFromGarden,  userID, createVegetableUser }) {
   const [saveIcon, setSaveIcon] = useState(false)
-  // console.log("here is suer id", userID)
   useEffect(() => {
     addSave()
-    // checkSaveStatus()
-    // addSave()
-    // removeSave()
+  
   },[saveIcon])
   
-  // const checkSaveStatus = () => {
-  //   if(savedTitles.includes(name)) {
-  //     setSaveIcon(true)
-  //   }
-  // }
+  
   
   const addSave = () => {
     return saveIcon ? addToGarden(userID,id) : undefined
@@ -30,8 +23,6 @@ function PlantCard({ id, name, img,  growzone, addToGarden, deleteFromGarden, sa
   const handleClick = (status) => {
     setSaveIcon(status)
     addSave()
-    // createVegetableUser("7")
-    // removeSave()
   }
 
   const handleDeleteClick = (status) => {
