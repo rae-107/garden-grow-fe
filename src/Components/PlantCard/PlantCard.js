@@ -1,15 +1,26 @@
 import { Link } from "react-router-dom";
 import "./PlantCard.css";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const PlantCard = ({ id, name, img,  growzone, addToGarden, deleteFromGarden, savedTitles }) => {
   const [saveIcon, setSaveIcon] = useState(false)
+
+  useEffect(() => {
+    checkSaveStatus()
+  }, [ saveIcon ])
   
   const checkSaveStatus = () => {
     if(savedTitles.includes(name)) {
       setSaveIcon(true)
     }
   }
+  
+  const addSave = () => {
+    return saveIcon ? addToGarden(name) : undefined
+  }
+
+  
   // const [plantAdded, setPlantAdded] =useState(false)
   // const [savePlant, setSavePlant] = useState([])
 
