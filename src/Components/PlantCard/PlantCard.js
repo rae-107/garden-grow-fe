@@ -2,15 +2,18 @@ import { Link } from "react-router-dom";
 import "./PlantCard.css";
 import { useState } from "react";
 
-function PlantCard({ id, name, img, growzone, createVegetableUser }) {
+function PlantCard({ id, name, img, growzone, createVegetableUser, destroyVegetableUser, destroyId }) {
   const [saveIcon, setSaveIcon] = useState(false)
 
 const handleClick = () => {
   if(!saveIcon) {
     setSaveIcon(true)
     createVegetableUser(id)
+    console.log("save is firing")
   } else {
     setSaveIcon(false)
+    destroyVegetableUser(destroyId)
+    console.log("delete is firing")
   }
 
 }

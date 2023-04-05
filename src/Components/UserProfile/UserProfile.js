@@ -34,6 +34,19 @@ const [createVegetableUser, { error2 }] = useMutation(SAVE_PLANT)
     console.log("this is mutation error", error2)
   }
 }
+// data?.userDetails?.vegetableUsers.map(plant => {
+//   console.log(plant.id)
+//   }
+// )
+const [destroyVegetableUser, { error3 }] = useMutation(DELETE_PLANT)
+
+const deleteVegetable = (veggieUserId) => {
+  destroyVegetableUser({
+    variables: {
+      vegetableUserId: veggieUserId
+    }
+  })
+}
 
 useEffect(() => {
   updateUser(id)
@@ -91,7 +104,7 @@ useEffect(() => {
       <section className="users-plants-container">
         <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
-          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} createVegetableUser={addVegetable}/>) }
+          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} createVegetableUser={addVegetable} destroyId={plant.id} destroyVegetableUser={deleteVegetable} />) }
         </section>
       </section>
     </section>
