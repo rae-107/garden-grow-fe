@@ -37,23 +37,6 @@ const Plants = ({
         },
       });
     }
-
-    // userSavedList.forEach((plant) => {
-    //   console.log("this is the pllaaannntttt", userSavedList);
-    //   console.log(plant.vegetable.id)
-    //   console.log(veggieId)
-    //   if (plant.vegetable.id !== veggieId) {
-    //     createVegetableUser({
-    //       variables: {
-    //         userId: userId,
-    //         vegetableId: veggieId,
-    //       },
-    //     });
-    //   }
-    //   if (error2) {
-    //     console.log("this is mutation error", error2);
-    //   }
-    // });
   };
 
   const makeCards = () => {
