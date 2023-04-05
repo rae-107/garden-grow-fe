@@ -16,15 +16,41 @@ const App = () => {
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
   const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
-
-
+  const [saveList, setSaveList] = useState([])
+ // const [savePlant, setSavePlant] = useState([])
+  // const [plantAdded, setPlantAdded] =useState(false)
   useEffect(() => {
     if (data) {
       setPlants([...data.vegetablesByZipcode.vegetables]);
       setGrowzone(data.vegetablesByZipcode.growZone);
     }
   }, [loading, error, data]);
-  console.log("error", error);
+  // console.log("error", error);
+
+  // const addToGarden = (id) => {
+  const addToGarden = () => {
+      // if(!saveList.includes(Number(id))) {
+      //   console.log("saved list",saveList)
+      //   const savedList = plants.filter(savedPlant => savedPlant.id === id)
+      //   return setSaveList(previousList => [...previousList, savedList[0]])
+      // }
+      console.log("add function is firing")
+     return setPlantAdded(true)
+    }
+
+    // const deleteFromGarden = (id) => {
+    const deleteFromGarden = () => {
+      // if(saveList.includes(id)) {
+      //   const updateList = plants.reduce((arr, plant, index) => {
+      //     if(plant.id === id) {
+      //       arr.splice(index, 1)
+      //     }
+      //     return arr
+      //   })
+      //   return setSaveList(updateList)
+      // }
+      return setPlantAdded(false)
+    }
 
   //below for testing while working only can be deleted at end
   useEffect(() => {
@@ -88,12 +114,12 @@ const App = () => {
           exact
           path="/user/:userId"
           render={({ match }) => {
-            console.log("route", match.params);
             return (
               <UserProfile 
-                name={match.params.name}
+                addToGarden={addToGarden}
+                deleteFromGarden={deleteFromGarden}
                 id={match.params.userId}
-                zone={match.params.zone}
+                // plantAdded={plantAdded}
               />
             )
           }}

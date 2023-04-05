@@ -10,8 +10,8 @@ const Plant = ({ id, growzone, zipcode }) => {
   const { loading, error, data } = useQuery(LOAD_VEGETABLE, {
     variables: { vegetableId: id, zone: growzone },
   });
-  console.log(loading)
-  console.log(error)
+  // console.log(loading)
+  // console.log(error)
 
   if(error) {
     return (
