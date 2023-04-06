@@ -81,8 +81,8 @@ Stretch Goals
 Git Workflow
 
 CI & Deployment
-- CI Delployment was really helpful implementing and agile workflow were group members were working async.
-- CI also presented challenges when Cypress tests were working on local machines but wouldnt pass in CI.
+- CI Deployment was really helpful implementing and agile workflow were group members were working async.
+- CI also presented challenges when Cypress tests were working on local machines but wouldn't pass in CI.
 - Successfully deployed through Vercel for the front end and Heroku for back-end.
 
 Testing
