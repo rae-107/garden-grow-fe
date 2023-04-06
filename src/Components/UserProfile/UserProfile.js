@@ -8,8 +8,9 @@ import { Link } from "react-router-dom";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import PropTypes from 'prop-types'
 
-const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
+const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved, isLoggedIn }) => {
   const history = useHistory();
 
   const { error, data } = useQuery(LOAD_USER, {
@@ -92,6 +93,7 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
               <PlantCard
                 key={index}
                 id={plant.vegetable.id}
+                isLoggedIn={isLoggedIn}
                 name={plant.vegetable.name}
                 img={plant.vegetable.image}
                 userID={data?.userDetails?.id}
@@ -106,3 +108,11 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
   );
 };
 export default UserProfile;
+
+UserProfile.propTypes = {
+  id: PropTypes.string,
+  updateUser: PropTypes.func.isRequired,
+  saveIcon: PropTypes.bool,
+  updateUserSaved: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool,
+};

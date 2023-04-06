@@ -17,6 +17,7 @@ const App = () => {
   const [zipcode, setZipcode] = useState("");
   const [userId, setUserId] = useState("");
   const [userSaved, setUserSaved] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
 
   useEffect(() => {
@@ -28,11 +29,17 @@ const App = () => {
 
   const updateUser = (userID) => {
     setUserId(userID);
+    setIsLoggedIn(true)
   };
 
   const updateUserSaved = (savedarray) => {
     return setUserSaved(savedarray);
   };
+
+  const handleLogout = () => {
+    setUserId('')
+    setIsLoggedIn(false)
+  }
 
   return (
     <div className="app-container">
@@ -65,12 +72,16 @@ const App = () => {
             <Plants
               userSavedList={userSaved}
               saveIcon={false}
+              updateUser={updateUser}
+              isLoggedIn={isLoggedIn}
+              handleLogout={handleLogout}
               userId={userId}
               loadPlants={loadPlants}
               plants={plants}
               growzone={growzone}
               zipcode={match.params.zipcode}
               heading={`Your ${match.params.zipcode} Fruits and Vegetables`}
+              updateUserSaved={setUserSaved}
             />
           )}
         ></Route>
@@ -92,6 +103,7 @@ const App = () => {
           render={({ match }) => {
             return (
               <UserProfile
+                isLoggedIn={isLoggedIn}
                 updateUserSaved={updateUserSaved}
                 saveIcon={true}
                 updateUser={updateUser}

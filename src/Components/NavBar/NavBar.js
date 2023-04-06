@@ -2,10 +2,10 @@ import "./NavBar.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ isLoggedIn, handleLogout }) => {
   const [showDropdown, setShowDropDown] = useState(false);
   const [showNav, setShowNav] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+ 
 
   const tempUsers = [
     {
@@ -51,10 +51,6 @@ const NavBar = () => {
 
   const toggleDropDown = () => {
     setShowDropDown(!showDropdown);
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
   };
 
   return (

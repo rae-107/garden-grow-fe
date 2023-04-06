@@ -6,8 +6,8 @@ import { useEffect } from "react";
 import beetLogo from "../../Images/beet3_720.png";
 import { Link } from "react-router-dom";
 import { SAVE_PLANT, DELETE_PLANT } from "../../Graphql/Mutations";
-import { useMutation } from "@apollo/client";
-import { LOAD_USER, LOAD_PLANTS } from "../../Graphql/Queries";
+import { useMutation, useQuery } from "@apollo/client";
+import { LOAD_USER } from "../../Graphql/Queries";
 
 const Plants = ({
   plants,
@@ -17,12 +17,29 @@ const Plants = ({
   zipcode,
   userId,
   userSavedList,
+  isLoggedIn,
+  handleLogout,
+  updateUserSaved,
+  saveIcon
 }) => {
-  console.log(userId, zipcode)
-  const [createVegetableUser] = useMutation(SAVE_PLANT, {
-    refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }, { query: LOAD_PLANTS, variables: { zipcode: zipcode } }],
+
+  const { data } = useQuery(LOAD_USER, {
+    variables: { userId: userId },
   });
 
+  useEffect(() => {
+    loadPlants({ variables: { zipcode: zipcode } });
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    updateUserSaved(data?.userDetails?.vegetableUsers);
+    // eslint-disable-next-line
+  }, [data]);
+
+  const [createVegetableUser] = useMutation(SAVE_PLANT, {
+    refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }],
+  });
 
   const addVegetable = (veggieId) => {
     const savedVegetables = userSavedList.map((obj) => {
@@ -37,10 +54,11 @@ const Plants = ({
         },
       });
     }
+    console.log(userSavedList);
   };
 
   const [destroyVegetableUser] = useMutation(DELETE_PLANT, {
-    refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }, { query: LOAD_PLANTS, variables: { zipcode: zipcode } }],
+    refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }],
   });
 
   const deleteVegetable = (veggieUserId) => {
@@ -52,7 +70,7 @@ const Plants = ({
   };
 
   const plantCards = plants.map((plant) => {
-
+  if (userSavedList) {
     const displaySaveIcon = userSavedList.some(
       (savedPlant) => savedPlant.vegetable.id === plant.id
     );
@@ -68,6 +86,7 @@ const Plants = ({
         destroyVegetableUser={deleteVegetable}
         destroyId={destroyId && destroyId}
         key={plant.id}
+        isLoggedIn={isLoggedIn}
         id={plant.id}
         name={plant.name}
         img={plant.image}
@@ -76,18 +95,30 @@ const Plants = ({
         createVegetableUser={addVegetable}
         saveIcon={displaySaveIcon}
       />
-    );
+    );}
+    else {
+      return (
+        <PlantCard
+          key={plant.id}
+          isLoggedIn={isLoggedIn}
+          id={plant.id}
+          name={plant.name}
+          img={plant.image}
+          growzone={growzone}
+          userID={userId}
+          createVegetableUser={addVegetable}
+          saveIcon={saveIcon}
+        />
+   ) }
   });
-
-  useEffect(() => {
-    loadPlants({ variables: { zipcode: zipcode } });
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <section className="plants-page">
       <section className="logo-box">
-        <NavBar />
+        <NavBar
+          isLoggedIn={isLoggedIn}
+          handleLogout={handleLogout}
+        />
         <Link to="/">
           <img className="beet-logo" src={beetLogo} alt="beet" />
         </Link>
