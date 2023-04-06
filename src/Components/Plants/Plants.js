@@ -18,8 +18,9 @@ const Plants = ({
   userId,
   saveIcon,
   userSavedList,
+  isLoggedIn,
+  handleLogout,
 }) => {
-
   const [createVegetableUser] = useMutation(SAVE_PLANT, {
     refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }],
   });
@@ -43,6 +44,7 @@ const Plants = ({
     return plants.map((plant) => (
       <PlantCard
         key={plant.id}
+        isLoggedIn={isLoggedIn}
         id={plant.id}
         name={plant.name}
         img={plant.image}
@@ -62,7 +64,11 @@ const Plants = ({
   return (
     <section className="plants-page">
       <section className="logo-box">
-        <NavBar />
+        <NavBar
+          isLoggedIn={isLoggedIn}
+          // updateUser={updateUser}
+          handleLogout={handleLogout}
+        />
         <Link to="/">
           <img className="beet-logo" src={beetLogo} alt="beet" />
         </Link>
