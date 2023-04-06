@@ -67,6 +67,26 @@ Garden Grow was built in 10 days by 3 back-end engineers and 4 front-end enginee
 
 ## WinsAndChallenges
 
+Team Planning & Work Processes - 
+- Wins- Spent almost a full week planning with front and back-end together in order to determine the data that would be coming in.
+- Built github project board that the entire team utilized for the extent of the project. 
+- Had daily standups with front and back-end to go over progress/blockers, check in with everyone.
+- Had weekly retros with the entire team to go over how the week went and what everyone would like to see more/less of for the coming week.
+
+Stretch Goals
+- Successfully implemented GraphGl and ApolloClient 
+- Successfully implemented CI/CD using GitHub Actions
+- Successfully implemented full coverage Cypress testing with GraphGL
+
+Git Workflow
+
+CI & Deployment
+- CI Deployment was really helpful implementing and agile workflow were group members were working async.
+- CI also presented challenges when Cypress tests were working on local machines but wouldn't pass in CI.
+- Successfully deployed through Vercel for the front end and Heroku for back-end.
+
+Testing
+- Successfully implemented 80-90% test coverage for all components.
 
 
 ## Authors
