@@ -9,14 +9,14 @@ import { useLazyQuery } from "@apollo/client";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import UserProfile from "../UserProfile/UserProfile";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 const App = () => {
   const [plants, setPlants] = useState([]);
   const [growzone, setGrowzone] = useState("");
   const [zipcode, setZipcode] = useState("");
-  const [userId, setUserId] = useState("")
-  const [userSaved, setUserSaved] = useState([])
+  const [userId, setUserId] = useState("");
+  const [userSaved, setUserSaved] = useState([]);
   const [loadPlants, { loading, error, data }] = useLazyQuery(LOAD_PLANTS);
 
   useEffect(() => {
@@ -27,24 +27,12 @@ const App = () => {
   }, [loading, error, data]);
 
   const updateUser = (userID) => {
-    setUserId(userID)
-  }
-  console.log("error", error);
+    setUserId(userID);
+  };
+
   const updateUserSaved = (savedarray) => {
-    return setUserSaved(savedarray)
-  }
-  //below for testing while working only can be deleted at end
-  useEffect(() => {
-    console.log("hey this is growzone", growzone);
-  }, [growzone]);
-
-  useEffect(() => {
-    console.log("hey this is plants", plants);
-  }, [plants]);
-
-  useEffect(() => {
-    console.log("hey this is zipcode", zipcode);
-  }, [zipcode]);
+    return setUserSaved(savedarray);
+  };
 
   return (
     <div className="app-container">
@@ -63,7 +51,13 @@ const App = () => {
           )}
         />
         {error && <Route exact path="*" render={() => <ErrorPage />} />}
-        {loading && <Route exact path="/results/:zipcode" render={() => <LoadingPage />}></Route>}
+        {loading && (
+          <Route
+            exact
+            path="/results/:zipcode"
+            render={() => <LoadingPage />}
+          ></Route>
+        )}
         <Route
           exact
           path="/results/:zipcode"
@@ -86,10 +80,8 @@ const App = () => {
           render={({ match }) => {
             return (
               <Plant
-                zipcode={zipcode}
                 id={match.params.vegetableId}
                 growzone={match.params.growzone}
-            
               />
             );
           }}
@@ -99,14 +91,13 @@ const App = () => {
           path="/user/:userId"
           render={({ match }) => {
             return (
-              <UserProfile 
+              <UserProfile
                 updateUserSaved={updateUserSaved}
                 saveIcon={true}
-                plant={plants}
                 updateUser={updateUser}
                 id={match.params.userId}
               />
-            )
+            );
           }}
         />
         <Route exact path="*" render={() => <ErrorPage />} />

@@ -1,25 +1,17 @@
 import "./Form.css";
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import PropTypes from "prop-types";
 
 const Form = ({ setZipcode, zipcode, loadPlants }) => {
-
-  const [error, setError] = useState(null);
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    if (zipcode.length !== 5) {
-      setError("Please enter a valid zipcode");
-    } else {
-      setError(null);
-    }
-  };
-
+  
   return (
-    <form onSubmit={handleFormSubmit} className="form-container">
+    <form onSubmit={(event) => {
+      event.preventDefault();
+    }} className="form-container">
       <div className="input-and-button">
-        <label className="label" htmlFor='zipcode-input'>Zipcode</label>
+        <label className="label" htmlFor="zipcode-input">
+          Zipcode
+        </label>
         <input
           className="input"
           type="number"
@@ -27,7 +19,6 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
           max="99999"
           placeholder="zip code"
           name="zipcode"
-          //needed id for onclick function in link
           id="zipcode-input"
           value={zipcode}
           onChange={(event) => setZipcode(event.target.value)}
@@ -37,8 +28,8 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
             to={`/results/${zipcode}`}
             className="plants-link"
             onClick={() => {
-              setZipcode(document.getElementById("zipcode-input").value)
-              loadPlants({ variables: { zipcode: zipcode } })
+              setZipcode(document.getElementById("zipcode-input").value);
+              loadPlants({ variables: { zipcode: zipcode } });
             }}
           >
             <span role="img" aria-label="plant emoji">
@@ -46,11 +37,6 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
             </span>
           </Link>
         ) : null}
-      </div>
-      <div className="error-container">
-        {error && (
-          <div className="error-message">{error}</div>
-        )}
       </div>
     </form>
   );
