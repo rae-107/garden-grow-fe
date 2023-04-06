@@ -88,6 +88,7 @@ CI & Deployment
 Testing
 - Successfully implemented 80-90% test coverage for all components.
 
+Future features would include a calendar with all of the user's planting and harvesting dates for each month as well as watering reminders every week.
 
 ## Authors
 
