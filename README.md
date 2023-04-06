@@ -61,14 +61,12 @@ Garden Grow was built in 10 days by 3 back-end engineers and 4 front-end enginee
 
 ## Preview/TechStack
 
+![GG11](https://user-images.githubusercontent.com/108428451/230481945-51adbb28-6c6d-46fc-a215-15a465542b18.gif)
+![GG22](https://user-images.githubusercontent.com/108428451/230481958-a27ccf73-e8a0-4c97-91cb-7f4ef7f537bf.gif)
+![GG33](https://user-images.githubusercontent.com/108428451/230482110-60e3f34b-147b-4d2e-95dc-a57b903ad91c.gif)
+![GG44](https://user-images.githubusercontent.com/108428451/230481993-b78873be-f8bb-44fe-9ccd-1b296635e0ce.gif)
+![GG55](https://user-images.githubusercontent.com/108428451/230482000-92adb2b5-82ff-40ed-a772-a1a80f432bfe.gif)
 
-
-![GG11](https://user-images.githubusercontent.com/108428451/230473979-8aa0932f-507a-4ff8-9231-c0818ee4be0d.gif)
-
-
-![GG2](https://user-images.githubusercontent.com/108428451/230473060-c7d0c3ba-8590-453f-8ed9-3a3d9e5ddd1c.gif)
-![GG3](https://user-images.githubusercontent.com/108428451/230473626-704791cf-a4c4-467a-89e6-196f736b47af.gif)
-![GG55](https://user-images.githubusercontent.com/108428451/230480420-60829186-ecec-44da-8798-028f8381b2c7.gif)
 
 ![techStack](https://user-images.githubusercontent.com/108428451/229562548-ed4585b0-ace9-4a21-ab5b-d71bc755345c.png)
 
