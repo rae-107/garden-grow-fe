@@ -7,7 +7,7 @@ import beetLogo from "../../Images/beet3_720.png";
 import { Link } from "react-router-dom";
 import { SAVE_PLANT, DELETE_PLANT } from "../../Graphql/Mutations";
 import { useMutation } from "@apollo/client";
-import { LOAD_USER } from "../../Graphql/Queries";
+import { LOAD_USER, LOAD_PLANTS } from "../../Graphql/Queries";
 
 const Plants = ({
   plants,
@@ -18,8 +18,9 @@ const Plants = ({
   userId,
   userSavedList,
 }) => {
+  console.log(userId, zipcode)
   const [createVegetableUser] = useMutation(SAVE_PLANT, {
-    refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }],
+    refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }, { query: LOAD_PLANTS, variables: { zipcode: zipcode } }],
   });
 
 
@@ -39,7 +40,7 @@ const Plants = ({
   };
 
   const [destroyVegetableUser] = useMutation(DELETE_PLANT, {
-    refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }],
+    refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }, { query: LOAD_PLANTS, variables: { zipcode: zipcode } }],
   });
 
   const deleteVegetable = (veggieUserId) => {
@@ -60,7 +61,6 @@ const Plants = ({
 
     if (displaySaveIcon) {
       destroyId = userSavedList.find(savedPlant => savedPlant.vegetable.id === plant.id).id;
-      console.log(destroyId)
     }
 
     return (
