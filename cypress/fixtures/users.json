@@ -5,9 +5,36 @@
       "email": "jheidepriem@gmail.com",
       "github": "https://github.com/jheidepriem",
       "growZone": "9a",
+      "id": "1",
       "img": "josephine.jpg",
       "linkedIn": "https://www.linkedin.com/in/josephine-heidepriem/",
-      "name": "Josephine"
+      "name": "Josephine",
+      "vegetableUsers": [
+        {
+          "id": "11",
+          "vegetable": {
+            "id": "3",
+            "name": "Bell Peppers",
+            "image": "bellPepper.jpg"
+          }
+        },
+        {
+          "id": "45",
+          "vegetable": {
+            "id": "6",
+            "name": "Carrots",
+            "image": "carrot.jpg"
+          }
+        },
+        {
+          "id": "48",
+          "vegetable": {
+            "id": "4",
+            "name": "Broccoli",
+            "image": "brocolli.jpg"
+          }
+        }
+      ]
     }
   }
 }
