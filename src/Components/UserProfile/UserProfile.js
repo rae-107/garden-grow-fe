@@ -84,7 +84,7 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
         </section>
       </section>
       <section className="users-plants-container">
-        <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
+        <h1>My Garden for Hardiness Zone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
           {data?.userDetails?.vegetableUsers.map((plant, index) => (
             <PlantCard
