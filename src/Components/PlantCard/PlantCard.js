@@ -16,12 +16,8 @@ function PlantCard({
 
   const handleClick = () => {
     if (!saveIcon) {
-      console.log(saveIcon)
-      saveIcon = !saveIcon
-      // console.log(saveIcon)
       createVegetableUser(id);
     } else {
-      saveIcon = !saveIcon
       destroyVegetableUser(destroyId);
     }
   };

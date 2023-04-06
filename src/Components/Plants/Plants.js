@@ -7,7 +7,7 @@ import beetLogo from "../../Images/beet3_720.png";
 import { Link } from "react-router-dom";
 import { SAVE_PLANT, DELETE_PLANT } from "../../Graphql/Mutations";
 import { useMutation, useQuery } from "@apollo/client";
-import { LOAD_USER, LOAD_PLANTS } from "../../Graphql/Queries";
+import { LOAD_USER } from "../../Graphql/Queries";
 
 const Plants = ({
   plants,
@@ -23,7 +23,7 @@ const Plants = ({
   saveIcon
 }) => {
 
-  const { error, data } = useQuery(LOAD_USER, {
+  const { data } = useQuery(LOAD_USER, {
     variables: { userId: userId },
   });
 
@@ -117,7 +117,6 @@ const Plants = ({
       <section className="logo-box">
         <NavBar
           isLoggedIn={isLoggedIn}
-          // updateUser={updateUser}
           handleLogout={handleLogout}
         />
         <Link to="/">
