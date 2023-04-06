@@ -61,9 +61,19 @@ Garden Grow was built in 10 days by 3 back-end engineers and 4 front-end enginee
 
 ## Preview/TechStack
 
+
+
+![GG11](https://user-images.githubusercontent.com/108428451/230473979-8aa0932f-507a-4ff8-9231-c0818ee4be0d.gif)
+
+
+![GG2](https://user-images.githubusercontent.com/108428451/230473060-c7d0c3ba-8590-453f-8ed9-3a3d9e5ddd1c.gif)
+![GG3](https://user-images.githubusercontent.com/108428451/230473626-704791cf-a4c4-467a-89e6-196f736b47af.gif)
+![GG55](https://user-images.githubusercontent.com/108428451/230480420-60829186-ecec-44da-8798-028f8381b2c7.gif)
+
 ![techStack](https://user-images.githubusercontent.com/108428451/229562548-ed4585b0-ace9-4a21-ab5b-d71bc755345c.png)
 
 ![Screenshot 2023-04-03 at 8 37 02 AM (2)](https://user-images.githubusercontent.com/108428451/229526606-9ca01d9c-e74b-4355-a087-498f2679980f.png)
+
 
 
 ## WinsAndChallenges
