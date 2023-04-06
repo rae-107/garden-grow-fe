@@ -106,8 +106,8 @@
 .expanded > ul> li:hover,
 .userProfiles > option:hover {
   background-color: #eee;
-  color: #b73be4;
-  border: 1px solid #b73be4;
+  color: rgb(171, 116, 156);
+  border: 1px solid rgb(171, 116, 156);
 }
 a {
   text-decoration: none;

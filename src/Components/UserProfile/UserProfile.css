@@ -9,9 +9,10 @@
 .profile-page {
   padding: 50px;
 }
+
 .user-image-container {
   display: flex;
-  height: 35rem;
+  height: 25rem;
   justify-content: center;
   width: 50rem;
   align-items: center;
@@ -19,10 +20,11 @@
 
 .profile-pic {
   border-radius: 15px;
-  height: 45vh;
+  height: 24em;
 }
 
 .user-info-container {
+  height: 31em;
   display: flex;
   padding: 20px;
 }
@@ -31,20 +33,18 @@
   color: white;
   display: flex;
   flex-direction: column;
-  height: 35rem;
+  height: 25rem;
   justify-content: center;
   width: 50rem;
 }
 
 .savedPlantsGrid {
-  align-items: center;
   color: white;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   height: 80%;
   justify-items: space-evenly;
-  padding: 37px;
   place-items: center;
   width: 80%;
 }
@@ -55,7 +55,7 @@
 }
 
 .profile-name {
-  font-size: 35px;
+  font-size: 2em;
   margin: 0px;
 }
 

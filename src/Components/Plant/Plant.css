@@ -1,5 +1,5 @@
 body {
-  background-color: #224136
+  background-color: hsl(157, 31%, 13%)
 }
 
 .x-image-button {
@@ -21,7 +21,6 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
-  padding-top: 15px;
   text-align: center;
 }
 
@@ -35,6 +34,10 @@ body {
 }
 
 .plant-text {
-  height: 20vh;
   width: 60vw;
+}
+
+.plant-title {
+  margin-bottom: 14px;
+  margin-top: 0px;
 }

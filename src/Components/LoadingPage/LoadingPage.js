@@ -1,11 +1,11 @@
 import "./LoadingPage.css";
 import LoadingCard from "../LoadingCard/LoadingCard";
-import sunflower from "../../Images/sunflowergrow.gif";
+import plant from "../../Images/plantGrow2.gif";
 
 const LoadingPage = () => {
   return (
     <section className="loading-page">
-      <img className="sunflower-gif" src={sunflower} alt="sunflowers" />
+      <img className="sunflower-gif" src={plant} alt="sunflowers" />
       <h1 className="loading-text">Loading ...</h1>
       <section className="loading-cards-grid">
         <LoadingCard />

@@ -17,6 +17,8 @@ const Plants = ({
   zipcode,
   userId,
   userSavedList,
+  isLoggedIn,
+  handleLogout,
 }) => {
   console.log(userId, zipcode)
   const [createVegetableUser] = useMutation(SAVE_PLANT, {
@@ -68,6 +70,7 @@ const Plants = ({
         destroyVegetableUser={deleteVegetable}
         destroyId={destroyId && destroyId}
         key={plant.id}
+        isLoggedIn={isLoggedIn}
         id={plant.id}
         name={plant.name}
         img={plant.image}
@@ -87,7 +90,11 @@ const Plants = ({
   return (
     <section className="plants-page">
       <section className="logo-box">
-        <NavBar />
+        <NavBar
+          isLoggedIn={isLoggedIn}
+          // updateUser={updateUser}
+          handleLogout={handleLogout}
+        />
         <Link to="/">
           <img className="beet-logo" src={beetLogo} alt="beet" />
         </Link>
