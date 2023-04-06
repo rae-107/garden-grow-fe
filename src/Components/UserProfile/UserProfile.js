@@ -15,6 +15,7 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
   const { error, data } = useQuery(LOAD_USER, {
     variables: { userId: id },
   });
+  console.log(data)
 
   const [destroyVegetableUser] = useMutation(DELETE_PLANT, {
     refetchQueries: [{ query: LOAD_USER, variables: { userId: id } }],
@@ -86,18 +87,19 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
       <section className="users-plants-container">
         <h1>My Garden for Hardiness Zone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
-          {data?.userDetails?.vegetableUsers.map((plant, index) => (
-            <PlantCard
-              key={index}
-              id={plant.vegetable.id}
-              name={plant.vegetable.name}
-              img={plant.vegetable.image}
-              userID={data?.userDetails?.id}
-              destroyId={plant.id}
-              destroyVegetableUser={deleteVegetable}
-              saveIcon={saveIcon}
-            />
-          ))}
+          {Array.isArray(data?.userDetails?.vegetableUsers) &&
+            data?.userDetails?.vegetableUsers.map((plant, index) => (
+              <PlantCard
+                key={index}
+                id={plant.vegetable.id}
+                name={plant.vegetable.name}
+                img={plant.vegetable.image}
+                userID={data?.userDetails?.id}
+                destroyId={plant.id}
+                destroyVegetableUser={deleteVegetable}
+                saveIcon={saveIcon}
+              />
+            ))}
         </section>
       </section>
     </section>
