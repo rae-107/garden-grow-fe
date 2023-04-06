@@ -5,7 +5,7 @@ import NavBar from "../NavBar/NavBar";
 import { useEffect } from "react";
 import beetLogo from "../../Images/beet3_720.png";
 import { Link } from "react-router-dom";
-import { SAVE_PLANT } from "../../Graphql/Mutations";
+import { SAVE_PLANT, DELETE_PLANT } from "../../Graphql/Mutations";
 import { useMutation } from "@apollo/client";
 import { LOAD_USER } from "../../Graphql/Queries";
 
@@ -16,19 +16,18 @@ const Plants = ({
   loadPlants,
   zipcode,
   userId,
-  saveIcon,
   userSavedList,
 }) => {
-
   const [createVegetableUser] = useMutation(SAVE_PLANT, {
     refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }],
   });
+
 
   const addVegetable = (veggieId) => {
     const savedVegetables = userSavedList.map((obj) => {
       return obj.vegetable.id;
     });
-
+    
     if (!savedVegetables.includes(veggieId)) {
       createVegetableUser({
         variables: {
@@ -39,9 +38,35 @@ const Plants = ({
     }
   };
 
-  const makeCards = () => {
-    return plants.map((plant) => (
+  const [destroyVegetableUser] = useMutation(DELETE_PLANT, {
+    refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }],
+  });
+
+  const deleteVegetable = (veggieUserId) => {
+    destroyVegetableUser({
+      variables: {
+        vegetableUserId: veggieUserId,
+      },
+    });
+  };
+
+  const plantCards = plants.map((plant) => {
+
+    const displaySaveIcon = userSavedList.some(
+      (savedPlant) => savedPlant.vegetable.id === plant.id
+    );
+
+    let destroyId
+
+    if (displaySaveIcon) {
+      destroyId = userSavedList.find(savedPlant => savedPlant.vegetable.id === plant.id).id;
+      console.log(destroyId)
+    }
+
+    return (
       <PlantCard
+        destroyVegetableUser={deleteVegetable}
+        destroyId={destroyId && destroyId}
         key={plant.id}
         id={plant.id}
         name={plant.name}
@@ -49,10 +74,10 @@ const Plants = ({
         growzone={growzone}
         userID={userId}
         createVegetableUser={addVegetable}
-        saveIcon={saveIcon}
+        saveIcon={displaySaveIcon}
       />
-    ));
-  };
+    );
+  });
 
   useEffect(() => {
     loadPlants({ variables: { zipcode: zipcode } });
@@ -68,7 +93,7 @@ const Plants = ({
         </Link>
       </section>
       <h1 className="plants-title">{heading}</h1>
-      <section className="plants-display-grid">{makeCards()}</section>
+      <section className="plants-display-grid">{plantCards}</section>
     </section>
   );
 };
