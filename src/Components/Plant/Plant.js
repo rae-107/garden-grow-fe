@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import { useHistory } from "react-router-dom";
 
-const Plant = ({ id, growzone, zipcode }) => {
+const Plant = ({ id, growzone }) => {
   const history = useHistory();
   const { error, data } = useQuery(LOAD_VEGETABLE, {
     variables: { vegetableId: id, zone: growzone },
@@ -71,6 +71,6 @@ const Plant = ({ id, growzone, zipcode }) => {
 export default Plant;
 
 Plant.propTypes = {
-  // id: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   growzone: PropTypes.string.isRequired,
 };

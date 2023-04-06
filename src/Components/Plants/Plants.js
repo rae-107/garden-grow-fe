@@ -19,6 +19,7 @@ const Plants = ({
   saveIcon,
   userSavedList,
 }) => {
+
   const [createVegetableUser] = useMutation(SAVE_PLANT, {
     refetchQueries: [{ query: LOAD_USER, variables: { userId: userId } }],
   });
@@ -28,7 +29,6 @@ const Plants = ({
       return obj.vegetable.id;
     });
 
-    console.log(savedVegetables);
     if (!savedVegetables.includes(veggieId)) {
       createVegetableUser({
         variables: {

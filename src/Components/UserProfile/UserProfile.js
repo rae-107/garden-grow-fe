@@ -1,8 +1,7 @@
 import "./UserProfile.css";
 import xLogo from "../../Images/x-vector.png";
 import { LOAD_USER } from "../../Graphql/Queries";
-// import { SAVE_PLANT } from "../../Graphql/Mutations";
-import { DELETE_PLANT } from "../../Graphql/Mutations"
+import { DELETE_PLANT } from "../../Graphql/Mutations";
 import { useMutation, useQuery } from "@apollo/client";
 import PlantCard from "../PlantCard/PlantCard";
 import { Link } from "react-router-dom";
@@ -11,32 +10,29 @@ import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
-  
-  const history = useHistory()
+  const history = useHistory();
 
-  const { error, data } = useQuery
-  (LOAD_USER, 
-    {
-      variables: { userId: id },
-    });
+  const { error, data } = useQuery(LOAD_USER, {
+    variables: { userId: id },
+  });
+
   const [destroyVegetableUser] = useMutation(DELETE_PLANT, {
-    refetchQueries:[{query: LOAD_USER,
-      variables: { userId: id }}]
-  })
+    refetchQueries: [{ query: LOAD_USER, variables: { userId: id } }],
+  });
 
   const deleteVegetable = (veggieUserId) => {
     destroyVegetableUser({
       variables: {
-        vegetableUserId: veggieUserId
-      }
-    })
-  }
+        vegetableUserId: veggieUserId,
+      },
+    });
+  };
 
   useEffect(() => {
-    updateUser(id)
-    updateUserSaved(data?.userDetails?.vegetableUsers)
+    updateUser(id);
+    updateUserSaved(data?.userDetails?.vegetableUsers);
     // eslint-disable-next-line
-  }, [data])
+  }, [data]);
 
   if (error) {
     return <ErrorPage />;
@@ -44,11 +40,14 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
 
   return (
     <section className="profile-page">
-      {/* <Link to={`/`}> */}
-        <section className="back-logo-container">
-          <img className="x-image-back-button" src={xLogo} alt="logo" onClick={()=> history.goBack()}/>
-        </section>
-      {/* </Link> */}
+      <section className="back-logo-container">
+        <img
+          className="x-image-back-button"
+          src={xLogo}
+          alt="logo"
+          onClick={() => history.goBack()}
+        />
+      </section>
       <section className="user-info-container">
         <section className="user-image-container">
           <img
@@ -87,7 +86,18 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved }) => {
       <section className="users-plants-container">
         <h1>My Garden for GrowZone {data?.userDetails?.growZone}</h1>
         <section className="savedPlantsGrid">
-          {data?.userDetails?.vegetableUsers.map((plant, index) => <PlantCard key={index} id={plant.vegetable.id} name={plant.vegetable.name} img={plant.vegetable.image} userID={data?.userDetails?.id} destroyId={plant.id} destroyVegetableUser={deleteVegetable} saveIcon={saveIcon}/>) }
+          {data?.userDetails?.vegetableUsers.map((plant, index) => (
+            <PlantCard
+              key={index}
+              id={plant.vegetable.id}
+              name={plant.vegetable.name}
+              img={plant.vegetable.image}
+              userID={data?.userDetails?.id}
+              destroyId={plant.id}
+              destroyVegetableUser={deleteVegetable}
+              saveIcon={saveIcon}
+            />
+          ))}
         </section>
       </section>
     </section>
