@@ -1,5 +1,6 @@
 ![GGLogo](https://user-images.githubusercontent.com/108428451/230206797-8c1bc587-94f0-46d7-95dc-c2d107798149.png)
 
+[Visit Garden Grow Here](https://garden-grow-fe.vercel.app/)
 
 ## Table of Contents
 
@@ -60,9 +61,16 @@ Garden Grow was built in 10 days by 3 back-end engineers and 4 front-end enginee
 
 ## Preview/TechStack
 
+![GG11](https://user-images.githubusercontent.com/108428451/230481945-51adbb28-6c6d-46fc-a215-15a465542b18.gif)
+![GG22](https://user-images.githubusercontent.com/108428451/230481958-a27ccf73-e8a0-4c97-91cb-7f4ef7f537bf.gif)
+![GG44](https://user-images.githubusercontent.com/108428451/230481993-b78873be-f8bb-44fe-9ccd-1b296635e0ce.gif)
+![GG55](https://user-images.githubusercontent.com/108428451/230482000-92adb2b5-82ff-40ed-a772-a1a80f432bfe.gif)
+
+
 ![techStack](https://user-images.githubusercontent.com/108428451/229562548-ed4585b0-ace9-4a21-ab5b-d71bc755345c.png)
 
 ![Screenshot 2023-04-03 at 8 37 02 AM (2)](https://user-images.githubusercontent.com/108428451/229526606-9ca01d9c-e74b-4355-a087-498f2679980f.png)
+
 
 
 ## WinsAndChallenges
@@ -88,6 +96,7 @@ CI & Deployment
 Testing
 - Successfully implemented 80-90% test coverage for all components.
 
+Future features would include a calendar with all of the user's planting and harvesting dates for each month as well as watering reminders every week.
 
 ## Authors
 
