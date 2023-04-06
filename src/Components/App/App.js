@@ -81,6 +81,7 @@ const App = () => {
               growzone={growzone}
               zipcode={match.params.zipcode}
               heading={`Your ${match.params.zipcode} Fruits and Vegetables`}
+              updateUserSaved={setUserSaved}
             />
           )}
         ></Route>
