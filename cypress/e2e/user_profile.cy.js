@@ -40,8 +40,8 @@ describe("Results for user profile page", () => {
     cy.get(".plant-card").should("have.length", 3);
   });
 
-  // it('should go back in history when back button is clicked', () => {
-  //   cy.get('.x-image-back-button').click();
-  //   cy.url().should('not.include', 'http://localhost:3000/user/1');
-  // });
+  it('should go back in history when back button is clicked', () => {
+    cy.get('.x-image-back-button').click();
+    cy.url().should('not.include', 'http://localhost:3000/user/1');
+  });
 });

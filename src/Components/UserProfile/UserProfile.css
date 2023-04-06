@@ -1,5 +1,5 @@
 .x-image-back-button {
-  width: 3vw;
+  width: 35px;
 }
 
 .back-logo-container {
@@ -12,19 +12,19 @@
 
 .user-image-container {
   display: flex;
-  height: 25rem;
+  height: 55vh;
   justify-content: center;
-  width: 50rem;
+  width: 50vw;
   align-items: center;
 }
 
 .profile-pic {
   border-radius: 15px;
-  height: 24em;
+  height: 34vh;
 }
 
 .user-info-container {
-  height: 31em;
+  height: 55vh;
   display: flex;
   padding: 20px;
 }
@@ -33,9 +33,9 @@
   color: white;
   display: flex;
   flex-direction: column;
-  height: 25rem;
+  height: 55vh;
   justify-content: center;
-  width: 50rem;
+  width: 50vw;
 }
 
 .savedPlantsGrid {
@@ -43,24 +43,23 @@
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(4, 1fr);
-  height: 80%;
-  justify-items: space-evenly;
   place-items: center;
-  width: 80%;
+
 }
 
 .users-plants-container {
   color: white;
   text-align: center;
+  width: 100%;
 }
 
 .profile-name {
-  font-size: 2em;
+  font-size:35px;
   margin: 0px;
 }
 
 .aboutMe {
-  width: 35rem;
+  width: 45vw;
 }
 
 .linked-in {
