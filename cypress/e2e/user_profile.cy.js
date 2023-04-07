@@ -44,4 +44,5 @@ describe("Results for user profile page", () => {
   //   cy.get('.x-image-back-button').click();
   //   cy.url().should('not.include', 'http://localhost:3000/user/1');
   // });
+   //These tests pass locally but fail in CI
 });

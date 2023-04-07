@@ -49,4 +49,5 @@ describe("Results for single vegetable page", () => {
     //   cy.get('.x-image-button').click();
     //   cy.url().should('not.include', 'http://localhost:3000/vegetable/9a/1');
     // });
+    //These tests pass locally but fail in CI
 });
