@@ -8,15 +8,20 @@ import { Link } from "react-router-dom";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved, isLoggedIn }) => {
+const UserProfile = ({
+  id,
+  updateUser,
+  saveIcon,
+  updateUserSaved,
+  isLoggedIn,
+}) => {
   const history = useHistory();
 
   const { error, data } = useQuery(LOAD_USER, {
     variables: { userId: id },
   });
-  console.log(data)
 
   const [destroyVegetableUser] = useMutation(DELETE_PLANT, {
     refetchQueries: [{ query: LOAD_USER, variables: { userId: id } }],
@@ -61,9 +66,7 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved, isLoggedIn }) 
         <section className="socials">
           <section className="text">
             <h1 className="profile-name">{data?.userDetails?.name}</h1>
-            <article className="aboutMe">
-              <p>{data?.userDetails?.aboutMe}</p>
-            </article>
+            <article className="aboutMe">{data?.userDetails?.aboutMe}</article>
             <Link
               className="linked-in"
               to={{
@@ -81,7 +84,7 @@ const UserProfile = ({ id, updateUser, saveIcon, updateUserSaved, isLoggedIn }) 
             >
               - Checkout My Work on Github
             </Link>
-            <p>{data?.userDetails?.email}</p>
+            <a className="email" href={`mailto: ${data?.userDetails?.email}`}>- Email me at {data?.userDetails?.email}</a>
           </section>
         </section>
       </section>

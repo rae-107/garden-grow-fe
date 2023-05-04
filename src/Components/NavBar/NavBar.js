@@ -73,6 +73,9 @@ const NavBar = ({ isLoggedIn, handleLogout }) => {
       </button>
       <div className={showNav ? "navigationMenu expanded" : "navigationMenu"}>
         <ul>
+          <li className="profile" onClick={() => toggleDropDown()}>
+            Gardener Profiles
+          </li>
           {isLoggedIn && (
             <li>
               <Link className="log-out" to={"/"} onClick={handleLogout}>
@@ -80,9 +83,6 @@ const NavBar = ({ isLoggedIn, handleLogout }) => {
               </Link>
             </li>
           )}
-          <li className="profile" onClick={() => toggleDropDown()}>
-            Gardener Profiles
-          </li>
           <datalist
             className={showDropdown ? "dropdown active" : "dropdown"}
             key={Date.now()}

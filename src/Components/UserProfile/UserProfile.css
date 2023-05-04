@@ -1,20 +1,26 @@
+.profile-page {
+  /* padding: 50px; */
+}
+
+.back-logo-container {
+  margin: 20px;
+}
+
 .x-image-back-button {
   width: 35px;
 }
 
-.back-logo-container {
+.user-info-container {
   display: flex;
-}
-
-.profile-page {
-  padding: 50px;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
 }
 
 .user-image-container {
   display: flex;
-  height: 55vh;
   justify-content: center;
-  width: 50vw;
+  width: 90vw;
   align-items: center;
 }
 
@@ -23,28 +29,48 @@
   height: 34vh;
 }
 
-.user-info-container {
-  height: 55vh;
-  display: flex;
-  padding: 20px;
-}
-
 .socials {
   color: white;
   display: flex;
   flex-direction: column;
-  height: 55vh;
-  justify-content: center;
-  width: 50vw;
+  /* height: 55vh; */
+  width: 100vw;
 }
 
-.savedPlantsGrid {
-  color: white;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-  place-items: center;
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.profile-name {
+  font-size: 35px;
+  margin: 10px;
+}
+
+.aboutMe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80vw;
+  margin-bottom: 20px;
+}
+
+.linked-in,
+.github,
+.email {
+  color: #f9fafa;
+}
+
+.email {
+  padding: 25px;
+  color: #f9fafa;
+}
+
+.linked-in:hover,
+.github:hover,
+.email:hover {
+  color: rgb(97, 141, 125);
 }
 
 .users-plants-container {
@@ -53,20 +79,22 @@
   width: 100%;
 }
 
-.profile-name {
-  font-size:35px;
-  margin: 0px;
+.savedPlantsGrid {
+  color: white;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(1, 1fr);
+  place-items: center;
 }
 
-.aboutMe {
-  width: 45vw;
+@media screen and (min-width: 700px) {
+  .savedPlantsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.linked-in {
-  color: rgb(187, 127, 171);
+@media screen and (min-width: 1025px) {
+  .savedPlantsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
-
-.github {
-  color: rgb(187, 127, 171);
-}
-

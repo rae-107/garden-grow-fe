@@ -33,10 +33,10 @@ const Form = ({ setZipcode, zipcode, loadPlants }) => {
             }}
           >
             <span role="img" aria-label="plant emoji">
-              Let's Grow
+              Let's Grow!
             </span>
           </Link>
-        ) : null}
+        ) : <button className="plants-link">Let's Grow!</button>}
       </div>
     </form>
   );
