@@ -50,7 +50,7 @@ Garden Grow was built in 10 days by 3 back-end engineers and 4 front-end enginee
   
 ## Deployed Link
 
-[Deployed Link]()
+[Deployed Link](https://garden-grow.vercel.app/)
 
 
 ---
