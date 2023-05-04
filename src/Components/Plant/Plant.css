@@ -1,13 +1,18 @@
 body {
-  background-color: hsl(157, 31%, 13%)
-}
-
-.x-image-button {
-  width: 3vw;
+  background-color: hsl(157, 31%, 13%);
 }
 
 .back-logo {
   display: flex;
+}
+
+.x-image-button {
+  width: 35px;
+}
+
+.large-plant-img {
+  width: 80vw;
+  border-radius: 20px;
 }
 
 .plant-details-container {
@@ -15,6 +20,7 @@ body {
   height: 100vh;
   padding: 50px;
   text-align: center;
+  overflow-y: scroll;
 }
 
 .plant-details-text {
@@ -28,16 +34,12 @@ body {
   padding: 10px;
 }
 
-.large-plant-img {
-  border-radius: 20px;
-  width: 40%;
-}
-
 .plant-text {
   width: 60vw;
 }
 
-.plant-title {
-  margin-bottom: 14px;
-  margin-top: 0px;
+@media screen and (min-width: 700px) {
+  .large-plant-img {
+    width: 550px;
+  }
 }

@@ -22,7 +22,6 @@ const UserProfile = ({
   const { error, data } = useQuery(LOAD_USER, {
     variables: { userId: id },
   });
-  console.log(data);
 
   const [destroyVegetableUser] = useMutation(DELETE_PLANT, {
     refetchQueries: [{ query: LOAD_USER, variables: { userId: id } }],
