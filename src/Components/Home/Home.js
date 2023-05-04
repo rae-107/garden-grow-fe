@@ -7,7 +7,7 @@ const Home = ({ setZipcode, zipcode, loadPlants }) => {
     <div className="home-container">
       <div className="title-input-container">
         <div className="logo-and-title">
-          {/* <div className="logo-image"></div> */}
+          <div className="logo-image"></div>
           <h1 className="home-title">Garden Grow</h1>
         </div>
         <Form
