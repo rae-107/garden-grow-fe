@@ -18,32 +18,27 @@
 .beet-logo {
   background-size: contain;
   background-repeat: no-repeat;
-  width: 5.5%;
+  width: 55px;
   transform: rotate(-35deg);
   padding-left: 51px;
   padding-top: 21px;
 }
 
 .logo-box {
-  height: 11vh;
+  height: 10vh;
 }
 
 
 .plants-display-grid {
   display: grid;
-  width: 100%;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 70px;
-  box-sizing: border-box;
-  justify-items: center;
   padding-bottom: 80px; 
-  margin-right: 80px;
 }
 
 @media screen and (min-width: 720px) {
   .plants-display-grid {
     grid-template-columns: repeat(2, 1fr);
-    width: 720px;
   }
 
   .plants-title {
@@ -54,21 +49,9 @@
 @media screen and (min-width: 1050px) {
   .plants-display-grid {
     grid-template-columns: repeat(3, 1fr);
-    width: 1050px;
   }
 
   .plants-title {
     font-size: 44px;
   }
 }
-
-/* @media screen and (min-width: 1130px) {
-  .plants-display-grid {
-    grid-template-columns: repeat(4, 1fr);
-    width: 1130px;
-  }
-
-  .plants-title {
-    font-size: 52px;
-  }
-} */
